@@ -1,0 +1,44 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+
+    .logoDiv {
+        height: 40px;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .backDiv {
+        @include centeredFlexDiv;
+        cursor: pointer;
+        border: 2px solid $primary-color;
+        padding: 5px 10px 5px 5px;
+        border-radius: 20px;
+
+        svg {
+            fill: $primary-color;
+            width: 25px;
+            height: 25px;
+            transition: all .2s ease-in-out;
+        }
+
+        span {
+            font-size: 15px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        &:hover {
+            svg {
+                margin-right: 5px;
+            }
+        }
+    }
+}

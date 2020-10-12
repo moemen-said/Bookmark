@@ -1,0 +1,30 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+img {
+    width: 600px;
+    display: block;
+    margin: auto;
+}
+
+.backBtn {
+    @include btnFormatter($primary-color, $tertiary-text);
+    display:block;
+    margin:auto;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    transition:all .1s ease-in-out;
+
+    &:active{
+        transform:scale(.95);
+    }
+}
+
+@media (max-width:768px){
+    img{
+        width: 80%;
+    }
+}

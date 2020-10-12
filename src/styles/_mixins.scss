@@ -1,0 +1,28 @@
+@mixin centeredFlexDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin fullscreenSize {
+    width: 100vw;
+    height: 100vh;
+}
+
+@mixin btnFormatter($backColor, $textColor, $backState:false) {
+    all: unset;
+    border-radius: 10px;
+    color: $textColor;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    @if $backState==false {
+        background-color: $backColor;
+        border: none;
+    }
+
+    @else {
+        background-color: transparent;
+        border: 1px solid $backColor
+    }
+}

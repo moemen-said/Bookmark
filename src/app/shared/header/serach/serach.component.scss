@@ -1,0 +1,53 @@
+@import "../../../../styles/variables";
+
+.outerSerach {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    padding: 3px 10px;
+    cursor: auto;
+
+    input[type=text] {
+        border: none;
+        font-size: 15px;
+        padding: 7px 0px;
+        color: #666;
+        min-width: 300px;
+
+        &:active,
+        &:focus {
+            border: none;
+            outline: none;
+        }
+        &::placeholder{
+            color: #aaa;
+        }
+    }
+
+    .searchIcon {
+        stroke: #aaa;
+        fill: #aaa;
+        height: 27px;
+        width: 27px;
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            fill: $dark-primary-color;
+            stroke: $dark-primary-color;
+        }
+    }
+}
+
+
+@media(max-width:768px) {
+    .outerSerach {
+        width: 100%;
+
+        input[type=text] {
+            width: calc(100% - 30px);
+            min-width: 100px;
+        }
+    }
+}
