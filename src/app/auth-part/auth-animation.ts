@@ -18,7 +18,7 @@ export const authAnimations = trigger('authAnimations', [
         query(':enter', [animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0px)' }))]),
     ]),
 
-    transition('* => passReset', [
+    transition('signin => passReset, signup=>passReset', [
         style({ position: 'relative' }),
         query(':enter, :leave', [
             style({
@@ -29,7 +29,7 @@ export const authAnimations = trigger('authAnimations', [
             })
         ]),
         query(':enter', [style({ opacity: 0, transform: 'translateY(-50px)scale(1)' })]),
-        query(':leave', [animate('200ms ease-out', style({ opacity: 0, transform: 'translateY(-50px)scale(.8)' }))],{optional:true}),
+        query(':leave', [animate('200ms ease-out', style({ opacity: 0, transform: 'translateY(-50px)scale(.8)' }))], { optional: true }),
         query(':enter', [animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0px)scale(1)' }))]),
     ]),
 
@@ -45,6 +45,6 @@ export const authAnimations = trigger('authAnimations', [
         ]),
         query(':enter', [style({ opacity: 0, transform: 'scaleX(1)' })]),
         query(':leave', [animate('200ms ease-out', style({ opacity: 0, transform: 'scaleX(1.1)' }))]),
-        query(':enter', [animate('300ms ease-out', style({ opacity: 1, transform: 'scaleX(1)' }))]),
+        query(':enter', [animate('300ms ease-out', style({ opacity: 1, transform: 'scaleX(1)' }))])
     ]),
 ]);

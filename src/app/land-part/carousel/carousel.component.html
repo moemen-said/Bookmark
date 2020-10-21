@@ -13,18 +13,18 @@
                 <div class="bookDetailDiv col-12 col-md-6">
                     <div class="animate__animated animate__fadeInRight">
                         <h1 class="bookName">George Bellairs Death</h1>
+                        <h3 class="bookAuthor">Author: Moemen Said</h3>
                         <div class="bookDetails">
                             <p class="bookPrice">$20.00</p>
-                            <div class="starsDiv">
+                            <!-- <div class="starsDiv">
                                 <svg class="yellowStar" *ngFor="let x of yNumber">
                                     <use xlink:href="../../../assets/svgs/land.svg#star"></use>
                                 </svg>
                                 <svg class="greyStar" *ngFor="let x of gNumber">
                                     <use xlink:href="../../../assets/svgs/land.svg#star"></use>
                                 </svg>
-                            </div>
+                            </div> -->
                         </div>
-                        <h3 class="bookAuthor">Author: Moemen Said</h3>
                         <button class="detailsBtn">View Details</button>
                     </div>
                 </div>
@@ -42,18 +42,18 @@
                 <div class="bookDetailDiv col-12 col-md-6">
                     <div class="animate__animated animate__fadeInRight">
                         <h1 class="bookName">{{book.name}}</h1>
+                        <h3 class="bookAuthor">Author: {{book.author}}</h3>
                         <div class="bookDetails">
                             <p class="bookPrice">${{book.price}}</p>
-                            <div class="starsDiv">
+                            <!-- <div class="starsDiv">
                                 <svg class="yellowStar" *ngFor="let x of gNumber">
                                     <use xlink:href="../../../assets/svgs/land.svg#star"></use>
                                 </svg>
                                 <svg class="greyStar" *ngFor="let x of yNumber">
                                     <use xlink:href="../../../assets/svgs/land.svg#star"></use>
                                 </svg>
-                            </div>
+                            </div> -->
                         </div>
-                        <h3 class="bookAuthor">Author: {{book.author}}</h3>
                         <button class="detailsBtn">View Details</button>
                     </div>
                 </div>
@@ -77,12 +77,12 @@
     <div class="row">
         <div class="col-md-3 col-6">
             <div class="featureDiv">
-                <svg>
+                <svg style="min-width: 50px;">
                     <use xlink:href="../../../assets/svgs/land.svg#reading"></use>
                 </svg>
                 <div>
                     <h3>Online Reading</h3>
-                    <p>access and read thousand of books online</p>
+                    <p class="d-none d-md-block">access and read thousand of books online</p>
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
                 </svg>
                 <div>
                     <h3>Best Deals</h3>
-                    <p>benefits of every month deal</p>
+                    <p class="d-none d-md-block">benefits of every month deal</p>
                 </div>
             </div>
         </div>
@@ -104,18 +104,18 @@
                 </svg>
                 <div>
                     <h3>Pay Easily</h3>
-                    <p>easy pay with credit card</p>
+                    <p class="d-none d-md-block">easy pay with credit card</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3 col-6">
             <div class="featureDiv">
-                <svg>
+                <svg style="min-width: 50px;">
                     <use xlink:href="../../../assets/svgs/land.svg#secure"></use>
                 </svg>
                 <div>
                     <h3>Secured Payment</h3>
-                    <p>feel safe with secured connection payment</p>
+                    <p class="d-none d-md-block">feel safe with secured connection payment</p>
                 </div>
             </div>
         </div>

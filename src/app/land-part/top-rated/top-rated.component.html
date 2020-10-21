@@ -1,1 +1,22 @@
-<p>top-rated works!</p>
+<div class="container">
+    <div class="topRatedSection">
+
+        <div class="topRatedSection-header">
+            <h1 class="topRatedSection-header_title">Top Rated Books</h1>
+            <a class="topRatedSection-header_link">View All</a>
+        </div>
+
+        <div class="row topBooksRow m-0">
+            <div *ngFor="let book of books" class="col-lg-2 col-md-4 col-12 p-0">
+                <div class="bookDiv">
+                    <img src="{{book.imgLink}}" class="bookDiv-img">
+                    <div class="bookDiv-data">
+                        <h1 class="bookDiv-data_title">{{book.name}}</h1>
+                        <h3 class="bookDiv-data_author">{{book.author}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

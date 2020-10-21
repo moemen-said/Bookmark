@@ -29,10 +29,11 @@ header {
             transition: all .2s ease-in-out;
         }
 
-        span {
+        p {
             font-size: 15px;
             font-weight: 600;
             color: #555;
+            margin-bottom: 0;
         }
 
         &:hover {
@@ -42,3 +43,4 @@ header {
         }
     }
 }
+

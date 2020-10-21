@@ -7,6 +7,7 @@
     border-radius: 20px;
     padding: 3px 10px;
     cursor: auto;
+    position: relative;
 
     input[type=text] {
         border: none;
@@ -20,7 +21,8 @@
             border: none;
             outline: none;
         }
-        &::placeholder{
+
+        &::placeholder {
             color: #aaa;
         }
     }
@@ -37,6 +39,20 @@
             fill: $dark-primary-color;
             stroke: $dark-primary-color;
         }
+    }
+
+    .searchedItemsDiv {
+        position: absolute;
+        width: calc(100% + 4px);
+        height: 400px;
+        background: #fff;
+        top: 39px;
+        left: -2px;
+        border: 2px solid #ccc;
+        border-top: none;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0px 10px 5px -5px #555;
+        display: none;
     }
 }
 

@@ -7,6 +7,10 @@
   flex-direction: column;
   background-color: $background-color;
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
 }
 
 .loadingText {

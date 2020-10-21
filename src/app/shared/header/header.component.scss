@@ -11,10 +11,11 @@
         0 1.5px 10px rgba(0, 0, 0, 0.06);
     transition: all .25s ease-in-out;
     position: fixed;
+    z-index: 100;
     top: 0;
     left: 0;
     background-color: #fff;
-    z-index: 10;
+    z-index: 100;
 
     header {
         width: 100%;
@@ -201,10 +202,12 @@
             background-color: #fff;
             transform: translateX(-100%);
             transition: all .2s ease-in-out;
-            box-shadow: 2px 5px 5px #aaa;
-            
-            &.show{
-            transform: translateX(0%);
+            box-shadow: 0.5px 10px 2.2px rgba(0, 0, 0, 0.034),
+                1px 10px 5.3px rgba(0, 0, 0, 0.048),
+                1.5px 10px 10px rgba(0, 0, 0, 0.06);
+
+            &.show {
+                transform: translateX(0%);
             }
 
             .navDiv {

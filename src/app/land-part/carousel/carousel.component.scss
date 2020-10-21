@@ -16,21 +16,6 @@
             align-items: center;
             justify-content: center;
 
-            // &::before {
-            //     display: block;
-            //     content: '';
-            //     position: absolute;
-            //     z-index: -1;
-            //     width: 100%;
-            //     height: 100%;
-            //     top: 0px;
-            //     left: 0;
-            //     background-image: url(../../../assets/images/books/1.jpg);
-            //     background-position: center;
-            //     background-size: cover;
-            //     filter: blur(4px)opacity(0.3);
-            // }
-
             .bookImgDiv {
                 display: flex;
                 justify-content: flex-end;
@@ -44,11 +29,11 @@
 
                     .topSide {
                         height: 15px;
-                        width: 198px;
+                        width: 197px;
                         background: #EEEEEE;
                         transform: skew(-45deg, 0);
                         position: absolute;
-                        left: 7px;
+                        left: 7.5px;
                         top: -15px;
                         box-shadow: 1px 0px 2px #999;
                         border-left: 5px solid #555;
@@ -61,7 +46,7 @@
                         width: 15px;
                         background: #eee;
                         right: -15px;
-                        top: -7px;
+                        top: -7.5px;
                         transform: skew(0, -45deg);
                         border-top: 1px solid #555;
                         border-right: 2px solid #555;
@@ -157,7 +142,6 @@
 
     .col-md-3 {
         border-right: 1px solid $primary-color;
-        border-top: 1px solid $primary-color;
 
         &:last-of-type {
             border-right: none;
@@ -167,7 +151,7 @@
     .featureDiv {
         display: flex;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
         padding: 15px 0;
         height: 100%;
 
@@ -250,6 +234,31 @@
                     }
                 }
             }
+        }
+    }
+
+    .featuresDiv {
+    
+        .featureDiv{
+            align-items: center;
+        }
+
+        .col-md-3 {
+            border-right: 1px solid $primary-color;
+            border-top: 1px solid $primary-color;
+
+            &:last-of-type {
+                border-right: none;
+            }
+
+            &:nth-of-type(1) {
+                border-top: none
+            }
+
+            &:nth-of-type(2) {
+                border: none
+            }
+
         }
     }
 }
