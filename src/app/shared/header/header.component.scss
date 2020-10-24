@@ -28,8 +28,10 @@
             width: auto;
             padding: 0;
 
-            img {
+            svg {
+                width: 200px;
                 height: 40px;
+                fill:$primary-color
             }
         }
 

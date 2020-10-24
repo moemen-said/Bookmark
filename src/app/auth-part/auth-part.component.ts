@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Location } from '@angular/common';
 
 import { authAnimations } from './auth-animation';
 
@@ -12,7 +11,7 @@ import { authAnimations } from './auth-animation';
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -22,9 +21,4 @@ export class AuthComponent implements OnInit {
       outlet.activatedRouteData &&
       outlet.activatedRouteData['animationState'];
   }
-
-  goBack() {
-    this.location.back();
-  }
-
 }

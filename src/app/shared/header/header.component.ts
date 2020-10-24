@@ -15,7 +15,7 @@ export class HeaderComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.fixFixedNav();
   }
-  
+
   @HostListener('window:resize') calculatNavHeightOnResize() {
     this.fixFixedNav();
   }

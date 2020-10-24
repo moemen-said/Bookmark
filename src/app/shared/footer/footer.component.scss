@@ -1,0 +1,109 @@
+@import '../../../styles/variables';
+
+footer {
+    width: 100%;
+    background-color: $primary-color;
+    padding-top: 150px;
+
+    .column {
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+
+            svg {
+                fill: #fff;
+                height: 40px;
+                width: 200px;
+
+                &.icon {
+                    width: 35px;
+                    height: 35px;
+                    margin-right: 10px;
+                }
+            }
+
+            h1 {
+                color: #fff;
+                font-size: 30px;
+                margin: 0;
+            }
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+
+            p {
+                font-size: 16px;
+                color: #fff;
+                padding-right: 40px;
+            }
+
+            a {
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                font-size: 18px;
+                color: #e5e5e5;
+                text-decoration: none;
+                margin: 5px 0;
+                text-shadow: none;
+                transition: all .2s ease-in-out;
+
+                svg {
+                    width: 30px;
+                    height: 30px;
+                    fill: #e5e5e5;
+                    margin-right: 5px;
+                    box-shadow: none;
+                    transition: all .2s ease-in-out;
+                    border-radius: 50%;
+                }
+
+                &.link {
+                    font-size: 16px;
+                }
+
+                &:hover {
+                    transform: translateY(-2px);
+                    color: #fff;
+                    text-shadow: 0px 3px 3px #555;
+
+                    svg {
+                        fill: #fff;
+                        box-shadow: 0px 6px 4px -4px #333
+                    }
+
+                    &.link {
+                        text-shadow: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .copyrightDiv {
+        width: 100%;
+        padding: 15px 0;
+        background-color: rgba(0, 0, 0, .2);
+        margin-top: 30px;
+
+        p {
+            text-align: center;
+            color: #fff;
+            margin: 0;
+            font-size: 16px;
+        }
+    }
+}
+
+@media(max-width:992px) {
+    footer {
+        .column {
+            margin-bottom: 20px;
+        }
+    }
+}

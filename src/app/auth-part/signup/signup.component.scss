@@ -46,7 +46,9 @@
             overflow-y: auto;
 
             p {
-                margin: 20px;
+                margin: 20px auto;
+                color: #aaa;
+                text-align: center;
             }
 
             .socialDiv {
@@ -153,7 +155,7 @@
                 font-size: 16px;
                 font-weight: 500;
                 display: block;
-                margin: 20px auto;
+                margin: 30px auto 20px auto;
                 background: linear-gradient(190deg, $dark-primary-color, $primary-color);
                 padding: 10px 20px;
                 color: #fff;

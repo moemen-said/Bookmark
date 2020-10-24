@@ -29,6 +29,7 @@ import { StickyOnTopDirective } from '.././directives/sticky-on-top.directive';
     LoadingComponent,
     NotFoundComponent,
     HeaderComponent,
+    FooterComponent,
     ToggleActiveDirective,
     StickyOnTopDirective
   ]

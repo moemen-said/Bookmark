@@ -8,10 +8,11 @@ header {
     padding: 10px 20px;
 
     .logoDiv {
-        height: 40px;
-
-        img {
+        svg {
+            fill: $primary-color;
             height: 100%;
+            width: 200px;
+            height: 40px;
         }
     }
 

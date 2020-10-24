@@ -1,14 +1,16 @@
 <header>
     <div class="logoDiv">
         <a routerLink='/'>
-            <img src="../../assets/svgs/logo.svg">
+            <svg>
+                <use xlink:href="../../assets/svgs/logo.svg#logo"></use>
+            </svg>
         </a>
     </div>
-    <div class="backDiv" (click)='goBack()'>
+    <div class="backDiv" routerLink="/">
         <svg>
             <use xlink:href='../../assets/svgs/account.svg#leftArrow'></use>
         </svg>
-        <p> Back</p>
+        <p> Home</p>
     </div>
 </header>
 
