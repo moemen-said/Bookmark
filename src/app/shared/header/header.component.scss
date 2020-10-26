@@ -171,6 +171,14 @@
                     font-weight: 600;
                 }
             }
+
+            cart{
+                display: none;
+
+                &.show{
+                    display: block;
+                }
+            }
         }
     }
 }

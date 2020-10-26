@@ -1,0 +1,61 @@
+@import '../../../../styles/variables';
+
+.cartDiv {
+    position: absolute;
+    right: 0;
+    width: max-content;
+    top: 60px;
+    background: #fff;
+    border-radius: 10px 0 10px 10px;
+    border: 2px solid #ccc;
+    box-shadow: 0px 5px 5px -4px #555;
+    padding: 0 10px;
+
+    .cartItemsDiv {
+        max-height: 300px;
+        overflow-y: auto;
+
+        &::before {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: -21px;
+            border-left: 13px solid transparent;
+            border-right: 13px solid transparent;
+            border-bottom: 20px solid #ccc;
+        }
+    }
+
+    .totalDiv {
+        border-top: 1px solid #ccc;
+        padding: 10px 15px;
+        margin: 0px -10px;
+        cursor: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        a {
+            font-size: 18px;
+            font-weight: 600px;
+            color: $primary-color;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover{
+                color: $dark-primary-color;
+            }
+        }
+    }
+}

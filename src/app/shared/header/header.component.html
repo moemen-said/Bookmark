@@ -16,13 +16,14 @@
       <div class="actionDiv searchDiv">
         <serachDropDown></serachDropDown>
       </div>
-      <div class="actionDiv">
-        <svg>
+      <div ddHide  [componentName]='"cart"'  class="actionDiv cartDiv">
+        <svg (click)="toggleCart()">
           <use xlink:href="../../../assets/svgs/header.svg#cart"></use>
         </svg>
         <div class="countDiv">
           <p>0</p>
         </div>
+        <cart class="animate__animated animate__fadeIn animate__faster ddHide" [ngClass]="{'show':cartShown === true}"></cart>
       </div>
       <div class="actionDiv" routerLink='Account/signin'>
         <svg>
@@ -47,9 +48,9 @@
             </svg>
           </div>
           <div class="actionDiv" routerLink='Account/signin'>
-              <svg>
-                <use xlink:href="../../../assets/svgs/header.svg#account"></use>
-              </svg>
+            <svg>
+              <use xlink:href="../../../assets/svgs/header.svg#account"></use>
+            </svg>
           </div>
         </div>
       </ul>

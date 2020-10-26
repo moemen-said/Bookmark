@@ -8,6 +8,10 @@ import { HeaderComponent } from './header/header.component';
 import { SerachComponent } from './header/serach/serach.component';
 import { ToggleActiveDirective } from '.././directives/toggle-active.directive';
 import { StickyOnTopDirective } from '.././directives/sticky-on-top.directive';
+import { CartComponent } from './header/cart/cart.component';
+import { SearchItemComponent } from './header/serach/search-item/search-item.component';
+import { CartItemComponent } from './header/cart/cart-item/cart-item.component';
+import {DdHideDirective } from '../directives/dd-hide.directive'
 
 
 
@@ -20,6 +24,10 @@ import { StickyOnTopDirective } from '.././directives/sticky-on-top.directive';
     SerachComponent,
     ToggleActiveDirective,
     StickyOnTopDirective,
+    CartComponent,
+    SearchItemComponent,
+    CartItemComponent,
+    DdHideDirective,
   ],
   imports: [
     CommonModule,
@@ -31,7 +39,8 @@ import { StickyOnTopDirective } from '.././directives/sticky-on-top.directive';
     HeaderComponent,
     FooterComponent,
     ToggleActiveDirective,
-    StickyOnTopDirective
+    StickyOnTopDirective,
+    DdHideDirective,
   ]
 })
 export class SharedModule { }

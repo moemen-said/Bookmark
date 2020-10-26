@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild, Renderer2, AfterViewInit, HostListener } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,11 @@ export class HeaderComponent implements AfterViewInit {
 
   @ViewChild('mainHeader', { static: true }) mainHeader: ElementRef;
   @ViewChild('fixingHeightDiv', { static: true }) fixingHeightDiv: ElementRef;
+  cartShown: boolean = false;
 
-  constructor(private render: Renderer2) { }
+  constructor(private render: Renderer2, private sharedService: SharedService) {
+    this.sharedService.ddToggle.subscribe((componentName) => componentName == 'cart' ? this.toggleCart() : '')
+  }
 
   ngAfterViewInit() {
     this.fixFixedNav();
@@ -23,5 +27,9 @@ export class HeaderComponent implements AfterViewInit {
   fixFixedNav() {
     let headerHeight = this.mainHeader.nativeElement.offsetHeight;
     this.render.setStyle(this.fixingHeightDiv.nativeElement, 'height', headerHeight + 'px')
+  }
+
+  toggleCart() {
+    this.cartShown = !this.cartShown
   }
 }
