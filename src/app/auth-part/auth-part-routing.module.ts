@@ -1,8 +1,8 @@
-import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthComponent } from './auth-part.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 

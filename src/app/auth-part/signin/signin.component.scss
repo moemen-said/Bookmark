@@ -206,6 +206,11 @@
             .formDiv {
                 width: 100%;
 
+                .orDivider {
+                    width: 80%;
+                    max-width: 300px;
+                }
+
                 form {
                     .inputDiv {
                         width: 80%;

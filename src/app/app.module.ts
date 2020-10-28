@@ -3,9 +3,9 @@ import { AuthModule } from './auth-part/auth-part.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
-import { LandModule } from './land-part/land.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { StorePartModule } from './store-part/store-part.module'
 
 import { AppComponent } from './app.component';
 
@@ -17,10 +17,10 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpClientModule,
     SharedModule,
-    LandModule,
     AppRoutingModule,
     AuthModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    StorePartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

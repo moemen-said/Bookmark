@@ -1,4 +1,3 @@
-import { LandComponent } from './land-part/land.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
@@ -6,8 +5,9 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: '', component: LandComponent,
-    data:{animationState:'land'}
+    path: '',
+    loadChildren: './store-part/store-part.module#StorePartModule',
+    data: { animationState: 'store' }
   },
   {
     path: 'Account',
@@ -18,8 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  // imports: [RouterModule.forRoot(routes,{enableTracing:true})],
-  imports: [RouterModule.forRoot(routes ,{scrollPositionRestoration: 'enabled'})],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="topSellerSection">
+        <div class="topSellerSection-header">
+            <h1 class="topSellerSection-header_title">Current Bestsellers</h1>
+            <a class="topSellerSection-header_link">View All</a>
+        </div>
+
+        <div class="row topBooksRow m-0">
+            <div *ngFor="let book of books" class="col-lg-2 col-md-4 col-12 p-0">
+                <div class="bookDiv">
+                    <img src="{{book.imgLink}}" class="bookDiv-img">
+                    <div class="bookDiv-data">
+                        <h1 class="bookDiv-data_title">{{book.name}}</h1>
+                        <h3 class="bookDiv-data_author">{{book.author}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div id="carouselExampleControls" class="carousel slide carousel-dark" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item topItem active">
+                    <div class="bookDiv col-lg-2 col-md-3 col-12">
+                        <img src="{{books[0].imgLink}}" class="bookDiv-img">
+                        <h1 class="bookDiv-title">{{books[0].name}}</h1>
+                        <h3 class="bookDiv-author">{{books[0].author}}</h3>
+                    </div>
+                </div>
+                <div *ngFor="let book of books.slice(1)" class="topItem carousel-item">
+                    <div class="bookDiv col-lg-2 col-md-3 col-12">
+                        <img src="{{book.imgLink}}" class="bookDiv-img">
+                        <h1 class="bookDiv-title">{{books[0].name}}</h1>
+                        <h3 class="bookDiv-author">{{books[0].author}}</h3>
+                    </div>
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div> -->
+
+    </div>
+</div>

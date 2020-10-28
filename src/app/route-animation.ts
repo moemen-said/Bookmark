@@ -3,7 +3,7 @@ import { transition, trigger, style, query, animateChild, animate, group } from 
 
 export const routeAnimations = trigger('routeAnimations', [
 
-    transition('land <=> signin', [
+    transition('store <=> signin', [
         style({ position: 'relative' }),
         query(':enter, :leave', [
             style({
