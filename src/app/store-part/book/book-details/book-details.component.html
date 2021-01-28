@@ -1,0 +1,26 @@
+<div class="book">
+    <div class="book-mainData">
+        <img class="book-mainData_img" src="{{bookData.imgLink}}">
+        <div class="book-mainData_data">
+            <h1 class="book-mainData_data-name">{{bookData.name}}</h1>
+            <h3 class="book-mainData_data-author">Author : {{bookData.author}}</h3>
+            <rate-stars class="book-mainData_data-rate" [numberOfStars]="bookData.rate"></rate-stars>
+
+            <div class="book-mainData_data-priceDiv" *ngIf="bookData.haveDiscount">
+                <span class="book-mainData_data-priceDiv_before">${{bookData.price}}</span>
+                <span class="book-mainData_data-priceDiv_after">${{bookData.priceAfterDiscount}}</span>
+            </div>
+            <div class="book-mainData_data-priceDiv" *ngIf="!bookData.haveDiscount">
+                <span class="book-mainData_data-priceDiv_price">${{bookData.price}}</span>
+            </div>
+
+            <p class="book-mainData_data-description">{{bookData.description}}</p>
+
+            <button class="book-mainData_data-addBtn">ADD TO CART</button>
+
+        </div>
+    </div>
+    <div class="book-description">
+
+    </div>
+</div>

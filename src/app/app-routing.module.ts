@@ -6,19 +6,19 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: './store-part/store-part.module#StorePartModule',
+    loadChildren: () => import('./store-part/store-part.module').then(m => m.StorePartModule),
     data: { animationState: 'store' }
   },
   {
     path: 'Account',
-    loadChildren: './auth-part/auth-part.module#AuthModule',
+    loadChildren: () => import('./store-part/auth/auth.module').then(m => m.AuthModule),
     data: { animationState: 'signin' }
   },
   { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: "top" })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

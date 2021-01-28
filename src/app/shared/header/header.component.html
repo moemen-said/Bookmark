@@ -3,13 +3,13 @@
   <header>
     <a class="navbar-brand">
       <svg>
-        <use xlink:href="../../../assets/svgs/logo.svg#logo"></use>
+        <use xlink:href="/assets/svgs/logo.svg#logo"></use>
       </svg>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navToggler"
       aria-controls="navToggler" aria-expanded="false" aria-label="Toggle navigation">
-      <div toggleActive class="menu__toggler"><span></span></div>
+      <div #menuTogglerBtnDiv toggleActive class="menu__toggler"><span></span></div>
     </button>
 
     <div class="headerActionDiv d-none d-md-flex">
@@ -19,10 +19,10 @@
       <div ddHide [componentName]='"cart"' class="actionDiv cartDiv">
         <div (click)="toggleCart()">
           <svg>
-            <use xlink:href="../../../assets/svgs/header.svg#cart"></use>
+            <use xlink:href="/assets/svgs/header.svg#cart"></use>
           </svg>
           <div class="countDiv">
-            <p>0</p>
+            <p>2</p>
           </div>
         </div>
         <cart class="animate__animated animate__fadeIn animate__faster ddHide" [ngClass]="{'show':cartShown === true}">
@@ -30,13 +30,13 @@
       </div>
       <div class="actionDiv" routerLink='Account/signin'>
         <svg>
-          <use xlink:href="../../../assets/svgs/header.svg#account"></use>
+          <use xlink:href="/assets/svgs/header.svg#account"></use>
         </svg>
       </div>
     </div>
   </header>
 
-  <nav class="collapse navbar-collapse" id="navToggler">
+  <nav toggleNav class="collapse navbar-collapse" id="navToggler">
     <div class="navDiv">
 
       <ul class="navbar-nav d-block d-md-none">
@@ -47,38 +47,41 @@
           </div>
           <div class="actionDiv">
             <svg>
-              <use xlink:href="../../../assets/svgs/header.svg#cart"></use>
+              <use xlink:href="/assets/svgs/header.svg#cart"></use>
             </svg>
+            <div class="countDiv">
+              <p>2</p>
+            </div>
           </div>
           <div class="actionDiv" routerLink='Account/signin'>
             <svg>
-              <use xlink:href="../../../assets/svgs/header.svg#account"></use>
+              <use xlink:href="/assets/svgs/header.svg#account"></use>
             </svg>
           </div>
         </div>
       </ul>
 
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active">Home</a>
+        <li class="nav-item" routerLink="" (click)="closeMenuOnClick()">
+          <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link">New</a>
+        <li class="nav-item" routerLink="Author" (click)="closeMenuOnClick()">
+          <a class="nav-link" routerLinkActive="active">New</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link">Popular</a>
+        <li class="nav-item" routerLink="Book" (click)="closeMenuOnClick()">
+          <a class="nav-link" routerLinkActive="active">Popular</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link">English Books</a>
+        <li class="nav-item" (click)="closeMenuOnClick()">
+          <a class="nav-link" routerLinkActive="active">English Books</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link">كتب عربية</a>
+        <li class="nav-item" (click)="closeMenuOnClick()">
+          <a class="nav-link" routerLinkActive="active">كتب عربية</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link">Childern</a>
+        <li class="nav-item" (click)="closeMenuOnClick()">
+          <a class="nav-link" routerLinkActive="active">Childern</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link">Lifestyle</a>
+        <li class="nav-item" (click)="closeMenuOnClick()">
+          <a class="nav-link" routerLinkActive="active">Lifestyle</a>
         </li>
       </ul>
     </div>

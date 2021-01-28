@@ -1,0 +1,49 @@
+@import 'src/styles/variables'; 
+
+.book {
+    margin-top: 40px;
+
+    &-mainData {
+        display: flex;
+        align-items: flex-start;
+
+        &_img {
+            width: 250px;
+            margin-right: 20px;
+            border-radius: 3px;
+        }
+
+        &_data {
+
+            &-name {}
+
+            &-author {}
+
+            &-rate {
+                width: max-content;
+            }
+
+            &-priceDiv {
+                margin-top: 10px;
+
+                &_before {
+                    font-size: 17px;
+                    text-decoration: line-through;
+                    color: #555;
+                    margin-right: 15px;
+                }
+
+                &_after,
+                &_price {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: $dark-primary-color;
+                }
+            }
+
+            &-description {}
+
+            &-addBtn {}
+        }
+    }
+}

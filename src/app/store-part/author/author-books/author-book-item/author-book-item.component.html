@@ -1,0 +1,18 @@
+<div class="book">
+    <img src="{{bookData.imgLink}}" class="book-img">
+    <div class="book-discount" *ngIf='bookData.haveDiscount'>
+        <span>{{bookData.discount}}</span>
+        <span>% OFF</span>
+    </div>
+    <div class="book-data">
+        <h1 class="book-data_title">{{bookData.name}}</h1>
+        <h3 class="book-data_author">{{bookData.author}}</h3>
+        <div class="book-data_priceDiv" *ngIf="bookData.haveDiscount">
+            <span class="book-data_priceDiv-before">${{bookData.price}}</span>
+            <span class="book-data_priceDiv-after">${{bookData.priceAfterDiscount}}</span>
+        </div>
+        <div class="book-data_priceDiv" *ngIf="!bookData.haveDiscount">
+            <span class="book-data_priceDiv-price">${{bookData.price}}</span>
+        </div>
+    </div>
+</div>

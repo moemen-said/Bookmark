@@ -1,4 +1,4 @@
-@import "../../../styles/variables";
+@import "/src/styles/variables";
 
 .navbar {
     width: 100%;
@@ -31,7 +31,7 @@
             svg {
                 width: 200px;
                 height: 40px;
-                fill:$primary-color
+                fill: $primary-color
             }
         }
 
@@ -172,10 +172,10 @@
                 }
             }
 
-            cart{
+            cart {
                 display: none;
 
-                &.show{
+                &.show {
                     display: block;
                 }
             }

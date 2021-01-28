@@ -1,5 +1,4 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 import { SharedService } from '../services/shared.service'
 

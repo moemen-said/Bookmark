@@ -1,4 +1,4 @@
-@import '../../../../styles/variables';
+@import '/src/styles/variables';
 
 .topRatedSection {
     margin: 70px 0px;
@@ -45,20 +45,31 @@
         height: 7px;
     }
 
-    .bookDiv {
+    .book {
         cursor: pointer;
         box-shadow: 0px 0px 5px #aaa;
         border-radius: 5px;
         overflow: hidden;
         transition: all .2s ease-in-out;
-        margin: 10px 0;
+        position: relative;
 
         &-img {
             width: 100%;
             height: 270px;
         }
 
+        &-discount {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            padding: 10px 20px;
+            background-color: #f3f362;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
         &-data {
+            background-color: #fff;
             padding: 5px;
 
             &_title {
@@ -70,6 +81,24 @@
                 margin: 0;
                 color: #555;
             }
+
+            &_priceDiv {
+                margin-top: 10px;
+
+                &-before {
+                    font-size: 17px;
+                    text-decoration: line-through;
+                    color: #555;
+                    margin-right: 15px;
+                }
+
+                &-after,
+                &-price {
+                    font-size: 20px;
+                    font-weight: 600;
+                    color: $dark-primary-color;
+                }
+            }
         }
 
         &:hover {
@@ -80,7 +109,7 @@
 
 @media(max-width:992px  ) {
     .topBooksRow {
-        .bookDiv {
+        .book {
             max-width: 230px;
             margin: 0px 20px 10px 0;
         }

@@ -1,6 +1,7 @@
 export class Book {
     id: string;
     name: string;
+    authorID?: string;
     author: string;
     price: number;
     rate: number;
@@ -11,8 +12,9 @@ export class Book {
     imgLink: string;
     pageLenght?: string;
     noOfSell?: number;
+    haveDiscount?: boolean;
     discount?: number;
-    priceAfterDiscount?:number;
+    priceAfterDiscount?: number;
 }
 
 export class bookReview {

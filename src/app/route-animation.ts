@@ -10,13 +10,11 @@ export const routeAnimations = trigger('routeAnimations', [
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                width: '100%'
+                width: '100%',
             })
         ]),
-        query(':enter', [style({ opacity: 0,transform:'translateY(-50px)' })]),
-        group([
-            query(':leave', [animate('200ms ease-out', style({opacity: 0 ,transform:'translateY(20px)'}))]),
-            query(':enter', [animate('300ms ease-out', style({ opacity: 1 ,transform:'translateY(0px)'}))])
-        ]),
+        query(':enter', [style({ opacity: 0, transform: 'translateY(-50px)' })]),
+        query(':leave', [animate('200ms ease-out', style({ opacity: 0, transform: 'translateY(20px)' }))]),
+        query(':enter', [animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0px)' }))])
     ]),
 ]);

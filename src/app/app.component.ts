@@ -8,8 +8,7 @@ import { routeAnimations } from './route-animation'
   styleUrls: ['./app.component.scss'],
   animations: [routeAnimations]
 })
-export class AppComponent implements AfterViewChecked
- {
+export class AppComponent implements AfterViewChecked {
   constructor(private render: Renderer2, private el: ElementRef) { }
 
   @ViewChild('loadingDiv', { static: true }) loadingDiv;

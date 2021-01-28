@@ -10,10 +10,12 @@ export class HeaderComponent implements AfterViewInit {
 
   @ViewChild('mainHeader', { static: true }) mainHeader: ElementRef;
   @ViewChild('fixingHeightDiv', { static: true }) fixingHeightDiv: ElementRef;
+  @ViewChild('menuTogglerBtnDiv', { static: true }) menuTogglerBtnDiv;
   cartShown: boolean = false;
 
   constructor(private render: Renderer2, private sharedService: SharedService) {
     this.sharedService.ddToggle.subscribe((componentName) => componentName == 'cart' ? this.toggleCart() : '')
+    this.sharedService.navToggle.subscribe(() => this.closeMenuOnClick())
   }
 
   ngAfterViewInit() {
@@ -31,5 +33,11 @@ export class HeaderComponent implements AfterViewInit {
 
   toggleCart() {
     this.cartShown = !this.cartShown
+  }
+
+  closeMenuOnClick() {
+    if (window.outerWidth < 768) {
+      this.menuTogglerBtnDiv.nativeElement.click();
+    }
   }
 }

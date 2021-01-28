@@ -1,14 +1,48 @@
-import { transition, trigger, style, animate } from '@angular/animations';
+import { transition, trigger, style, animate, query, group } from '@angular/animations';
 
 
-export const headerAnimation = trigger('headerAnimation', [
+export const storeRouteAnimations = trigger('storeRouteAnimations', [
 
-    // transition(':enter', [
-    //     style({ opacity: 0, transform: 'translateY(-20px)' }),
-    //     animate('500ms ease-out', style({ opacity: 1, transform: 'translateY(0px)' }))
-    // ]),
-    // transition(':leave', [
-    //     style({ opacity: 1, transform: 'translateY(0px)' }),
-    //     animate('500ms ease-in', style({ opacity: 0, transform: 'translateY(-20px)' }))
-    // ])
+    transition('land <=> author', [
+        style({ position: 'relative' }),
+        query(':enter, :leave', [
+            style({
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+            })
+        ]),
+        query(':enter', [style({ opacity: 0 })]),
+        query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))]),
+        query(':enter', [animate('300ms ease-out', style({ opacity: 1 }))])
+    ]),
+    transition('land <=> book', [
+        style({ position: 'relative' }),
+        query(':enter, :leave', [
+            style({
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+            })
+        ]),
+        query(':enter', [style({ opacity: 0 })]),
+        query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))]),
+        query(':enter', [animate('300ms ease-out', style({ opacity: 1 }))])
+    ]),
+    transition('book <=> author', [
+        style({ position: 'relative' }),
+        query(':enter, :leave', [
+            style({
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+            })
+        ]),
+        query(':enter', [style({ opacity: 0 })]),
+        query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))]),
+        query(':enter', [animate('300ms ease-out', style({ opacity: 1 }))])
+    ]),
 ]);

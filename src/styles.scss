@@ -7,24 +7,4 @@ body {
 body * {
     font-family: 'Ubuntu', sans-serif !important;
     outline: none !important;
-    
-    .pi{
-        font-family: primeicons !important;
-    }
-}
-
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #fafafa;
-}
-
-::-webkit-scrollbar-thumb {
-    background: $primary-color;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: $dark-primary-color;
 }

@@ -12,7 +12,8 @@ import { CartComponent } from './header/cart/cart.component';
 import { SearchItemComponent } from './header/serach/search-item/search-item.component';
 import { CartItemComponent } from './header/cart/cart-item/cart-item.component';
 import {DdHideDirective } from '../directives/dd-hide.directive'
-
+import { ToggleNavDirective } from '../directives/toggle-nav.directive';
+import { RateStarsComponent } from './rate-stars/rate-stars.component';
 
 
 @NgModule({
@@ -28,6 +29,8 @@ import {DdHideDirective } from '../directives/dd-hide.directive'
     SearchItemComponent,
     CartItemComponent,
     DdHideDirective,
+    ToggleNavDirective,
+    RateStarsComponent,
   ],
   imports: [
     CommonModule,
@@ -41,6 +44,8 @@ import {DdHideDirective } from '../directives/dd-hide.directive'
     ToggleActiveDirective,
     StickyOnTopDirective,
     DdHideDirective,
+    ToggleNavDirective,
+    RateStarsComponent
   ]
 })
 export class SharedModule { }

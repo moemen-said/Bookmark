@@ -1,0 +1,43 @@
+<div class="outerDiv">
+    <div class="innerDiv">
+        <div class="imgDiv">
+            <h1 class="welcomHeading">Welcome back</h1>
+            <img src="/assets/images/account.svg">
+        </div>
+        <div class="formDiv">
+            <p>Login using</p>
+            <div class="socialDiv">
+                <button>
+                    <svg>
+                        <use xlink:href='/assets/svgs/account.svg#facebook'></use>
+                    </svg>
+                </button>
+                <button>
+                    <svg>
+                        <use xlink:href='/assets/svgs/account.svg#google'></use>
+                    </svg>
+                </button>
+            </div>
+            <p class="orDivider">OR</p>
+            <form>
+                <div class="inputDiv">
+                    <svg>
+                        <use xlink:href='/assets/svgs/account.svg#email'></use>
+                    </svg>
+                    <input type="email" autocomplete="email" placeholder="Email">
+                </div>
+                <div class="inputDiv">
+                    <svg>
+                        <use xlink:href='/assets/svgs/account.svg#password'></use>
+                    </svg>
+                    <input type="password" autocomplete="current-password" placeholder="Password">
+                </div>
+                <button class="signInBtn">SIGN IN</button>
+                <div class="linksDiv">
+                    <a routerLink="/Account/passwordReset">Forget password</a>
+                    <a routerLink='/Account/signup'>Not a Member yet ?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

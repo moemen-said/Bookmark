@@ -1,5 +1,5 @@
-@import '../../../../styles/mixins';
-@import '../../../../styles/variables';
+@import '/src/styles/mixins';
+@import '/src/styles/variables';
 
 .carousel-inner {
     height: 400px;
@@ -24,8 +24,7 @@
                     position: relative;
                     margin-right: 50px;
                     animation-delay: .2s;
-                    box-shadow: -5px 8px 5px #555;
-                    border-bottom-left-radius: 5px;
+                    box-shadow: -5px 10px 10px #888;
 
                     .topSide {
                         height: 15px;
@@ -56,7 +55,7 @@
                     img {
                         height: 300px;
                         width: 197px;
-                        border-bottom-left-radius: 5px;
+                        border: 2px solid #555;
                     }
                 }
             }
@@ -238,8 +237,8 @@
     }
 
     .featuresDiv {
-    
-        .featureDiv{
+
+        .featureDiv {
             align-items: center;
         }
 

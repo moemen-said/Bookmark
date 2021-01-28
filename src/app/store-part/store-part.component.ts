@@ -1,14 +1,20 @@
 import { Component } from '@angular/core';
-import { headerAnimation } from './store-part-animation';
+import { RouterOutlet } from '@angular/router';
+import { storeRouteAnimations } from './store-part-animation';
 
 @Component({
     selector: 'app-store-part',
     templateUrl: './store-part.component.html',
     styleUrls: ['./store-part.component.scss'],
-    animations: [headerAnimation]
+    animations: [storeRouteAnimations]
 })
 export class StoreComponent {
     constructor() { }
 
+    prepareRoute(outlet: RouterOutlet) {
+        return outlet &&
+            outlet.activatedRouteData &&
+            outlet.activatedRouteData['animationState'];
+    }
 
 }
