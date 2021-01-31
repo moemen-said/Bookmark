@@ -19,16 +19,15 @@ export class HeaderComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.fixFixedNav();
+    this.fixFixedNav(this.mainHeader.nativeElement.offsetHeight);
   }
 
   @HostListener('window:resize') calculatNavHeightOnResize() {
-    this.fixFixedNav();
+    this.fixFixedNav(this.mainHeader.nativeElement.offsetHeight-10) // fpr fixing padding-bottom;
   }
 
-  fixFixedNav() {
-    let headerHeight = this.mainHeader.nativeElement.offsetHeight;
-    this.render.setStyle(this.fixingHeightDiv.nativeElement, 'height', headerHeight + 'px')
+  fixFixedNav(height:number) {
+    this.render.setStyle(this.fixingHeightDiv.nativeElement, 'height', height + 'px')
   }
 
   toggleCart() {
