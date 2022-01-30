@@ -1,6 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { LoadingComponent } from './loading/loading.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -36,8 +37,10 @@ import { RateStarsComponent } from './rate-stars/rate-stars.component';
   imports: [
     CommonModule,
     RouterModule,
+    MatSliderModule,
   ],
   exports: [
+    MatSliderModule,
     LoadingComponent,
     NotFoundComponent,
     HeaderComponent,

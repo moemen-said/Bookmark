@@ -41,6 +41,7 @@ export class ShowOnScrollDirective implements OnInit {
         this.render.setStyle(this.siblingDiv, 'display', 'block');
       }, 100);
     }
+    else if(window.pageYOffset < 50){}
     else {
       // scroll to bottom
       this.render.setStyle(this.header, 'top', '-15px');

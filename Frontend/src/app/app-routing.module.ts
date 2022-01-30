@@ -13,8 +13,7 @@ const routes: Routes = [
   {
     path: 'Account',
     loadChildren: () => import('./store-part/auth/auth.module').then(m => m.AuthModule),
-    data: { animationState: 'signin' },
-    canActivate:[AuthGuard],
+    data: { animationState: 'signin' }
   },
   { path: '**', component: NotFoundComponent }
 ];

@@ -1,3 +1,5 @@
+@import "/src/styles/variables";
+
 .searchItem {
     cursor: pointer;
     margin: 10px 0;
@@ -6,6 +8,7 @@
     align-items: center;
     border-radius: 20px;
     padding: 10px;
+
 
     img {
         width: 50px;

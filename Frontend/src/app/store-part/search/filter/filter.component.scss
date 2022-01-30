@@ -1,0 +1,24 @@
+@import "/src/styles/variables";
+
+.outerDiv {
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 25px;
+  box-shadow: $shadow;
+
+  .innerDiv {
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e5e5;
+    &-header {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .form-check {
+      input,
+      label {
+        cursor: pointer;
+      }
+    }
+  }
+}

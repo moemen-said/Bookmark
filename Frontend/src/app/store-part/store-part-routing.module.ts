@@ -28,6 +28,13 @@ const storeRoutes: Routes = [
           import('./auth/auth.module').then((m) => m.AuthModule),
         data: { animationState: 'signin' },
       },
+
+      {
+        path: 'Search',
+        loadChildren: () =>
+          import('./search/search.module').then((m) => m.SearchModule),
+        data: { animationState: 'search' },
+      },
     ],
   },
 ];

@@ -21,7 +21,7 @@ import { AppComponent } from './app.component';
     SharedModule,
     AppRoutingModule,
     AuthModule,
-    StorePartModule,
+    StorePartModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,multi:true }],
   bootstrap: [AppComponent],

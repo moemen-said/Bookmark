@@ -1,0 +1,77 @@
+<div class="outerDiv">
+  <div class="innerDiv">
+    <h3 class="innerDiv-header">Type</h3>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="author" />
+      <label class="form-check-label" for="author">Author</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="book" />
+      <label class="form-check-label" for="book">Book</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="novel" />
+      <label class="form-check-label" for="novel">Novel</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="short" />
+      <label class="form-check-label" for="short">Short Story</label>
+    </div>
+  </div>
+
+  <div class="innerDiv">
+    <h3 class="innerDiv-header">Category</h3>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="Action" />
+      <label class="form-check-label" for="Action">Action</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="Children" />
+      <label class="form-check-label" for="Children">Children's</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="Crime" />
+      <label class="form-check-label" for="Crime">Crime</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="Drama" />
+      <label class="form-check-label" for="Drama">Drama</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="Fantasy" />
+      <label class="form-check-label" for="Fantasy">Fantasy</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="Horror" />
+      <label class="form-check-label" for="Horror">Horror</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="Poetry" />
+      <label class="form-check-label" for="Poetry">Poetry</label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="Political" />
+        <label class="form-check-label" for="Political">Political</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="Romance" />
+        <label class="form-check-label" for="Romance">Romance</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="scienceFiction" />
+        <label class="form-check-label" for="scienceFiction">Science fiction</label>
+      </div>
+  </div>
+
+  <div class="innerDiv">
+    <h3 class="innerDiv-header" style="margin-bottom: 10px;">Max Price</h3>
+    <mat-slider
+      thumbLabel
+      [displayWith]="formatLabel"
+      tickInterval="100"
+      step="50"
+      min="0"
+      max="2000"
+    ></mat-slider>
+  </div>
+</div>
