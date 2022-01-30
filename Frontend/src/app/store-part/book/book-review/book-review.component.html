@@ -1,0 +1,31 @@
+<div class="reviewsDiv">
+    <div class="reviewsDiv-headerDiv">
+        <h2 class="reviewsDiv-headerDiv_title">
+            Community Reviews
+        </h2>
+        <div>
+            <rate-stars [numberOfStars]="bookData.rate"></rate-stars>
+            <span>{{bookData.noOfReviews}} reviews</span>
+        </div>
+    </div>
+    <div *ngFor="let review of bookReviews">
+        <div class="reviewsDiv-contentContainer">
+            <img src="{{review.reviewerImgLink}}">
+            <div class="reviewsDiv-contentContainer-content">
+                <div class="reviewsDiv-contentContainer-content_row">
+                    <h3>{{review.reviewer}}</h3>
+                    <span> Rated it </span>
+                    <rate-stars [starSize]="0" [numberOfStars]="review.reviewRate"></rate-stars>
+                </div>
+                <div class="reviewsDiv-contentContainer-content_row">
+                    <span>{{review.date}}</span>
+                </div>
+                <div class="reviewsDiv-contentContainer-content_row">
+                    <p>{{review.review}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button class="moreBtn">VIEW MORE REVIEWS</button>
+</div>

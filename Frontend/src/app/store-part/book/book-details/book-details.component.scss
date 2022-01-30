@@ -1,0 +1,125 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.book {
+  margin-top: -60px;
+  padding-top: 60px;
+
+  &-mainData {
+    display: flex;
+    align-items: flex-start;
+
+    &_imgDiv {
+      margin-right: 20px;
+      position: relative;
+
+      img {
+        width: 250px;
+        border-radius: 20px;
+      }
+    }
+
+    &_data {
+      &-name {
+        margin: 0;
+        color: #333;
+      }
+
+      &-author {
+        margin: 0;
+        color: #888;
+      }
+
+      &-rate {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        span {
+          margin-left: 10px;
+          color: #888;
+        }
+      }
+
+      &-priceDiv {
+        margin: 15px 0;
+
+        &_before {
+          font-size: 17px;
+          text-decoration: line-through;
+          color: #555;
+          margin-right: 15px;
+        }
+
+        &_after,
+        &_price {
+          font-size: 20px;
+          font-weight: 600;
+          color: $dark-primary-color;
+        }
+      }
+
+      &-description {
+        color: #555;
+      }
+
+      &-addBtn {
+        @include btnFormatter($primary-color, #fff);
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.book-description {
+  margin: 20px auto;
+
+  .table {
+    background-color: #fff;
+    tr {
+      td {
+        color: #333;
+
+        &:first-child {
+          width: 200px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .book {
+    &-mainData {
+      flex-wrap: wrap;
+
+      &_imgDiv {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0;
+        background-size: cover !important;
+        background-position: center !important;
+        position: relative;
+
+        img {
+          position: relative;
+          margin: 20px auto;
+          display: block;
+          box-shadow: 0px 0px 5px #555;
+        }
+      }
+
+      & > * {
+        text-align: center;
+      }
+
+      &_data {
+        &-rate {
+          flex-direction: column;
+          margin: 10px;
+        }
+      }
+    }
+  }
+}

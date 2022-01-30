@@ -1,0 +1,7 @@
+<!-- <div class="loadingDiv" #loadingDiv>
+    <app-loading></app-loading>
+</div> -->
+
+<div [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+</div>

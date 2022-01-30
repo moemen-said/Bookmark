@@ -1,0 +1,17 @@
+<h3 class="sectionTitle">Related Books</h3>
+<div class="booksContainer">
+    <div *ngFor="let book of books" class="book">   
+        <img src="{{book.imgLink}}" class="book-img">
+        <div class="book-data">
+            <h3 class="book-data_title">{{book.name}}</h3>
+            <h4 class="book-data_author">{{book.author}}</h4>
+            <div class="book-data_priceDiv" *ngIf="book.haveDiscount">
+                <span class="book-data_priceDiv-before">${{book.price}}</span>
+                <span class="book-data_priceDiv-after">${{book.priceAfterDiscount}}</span>
+            </div>
+            <div class="book-data_priceDiv" *ngIf="!book.haveDiscount">
+                <span class="book-data_priceDiv-price">${{book.price}}</span>
+            </div>
+        </div>
+    </div>
+</div>

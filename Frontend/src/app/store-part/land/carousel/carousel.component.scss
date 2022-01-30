@@ -1,0 +1,257 @@
+@import '/src/styles/mixins';
+@import '/src/styles/variables';
+
+.carousel-inner {
+    background: linear-gradient(325deg, #2b7a78, #3aafa9, transparent);
+    padding-top: 100px;
+    margin-top: -60px;
+
+    .carousel-item {
+        &-inner {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            padding: 0px 15%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .bookImgDiv {
+                display: flex;
+                justify-content: flex-end;
+
+                &-inner {
+                    position: relative;
+                    margin-right: 50px;
+                    animation-delay: .2s;
+
+                    .topSide {
+                        height: 15px;
+                        width: 197px;
+                        background: #EEEEEE;
+                        transform: skew(-45deg, 0);
+                        position: absolute;
+                        left: 7.5px;
+                        top: -15px;
+                        box-shadow: 1px 0px 2px #999;
+                        border-left: 5px solid #555;
+                        border-top: 2px solid #555;
+                    }
+
+                    .rightSide {
+                        position: absolute;
+                        height: 299px;
+                        width: 15px;
+                        background: #eee;
+                        right: -15px;
+                        top: -7.5px;
+                        transform: skew(0, -45deg);
+                        border-top: 1px solid #555;
+                        border-right: 2px solid #555;
+                        box-shadow: 5px 5px 5px -5px #333;
+                    }
+
+                    img {
+                        height: 300px;
+                        width: 197px;
+                        border: 2px solid #555;
+                    }
+                }
+            }
+
+            .bookDetailDiv {
+
+                .bookName {
+                    font-size: 35px;
+                    font-weight: 700;
+                    color: #fff;
+                    // text-shadow: 0px 0px 5px #000;
+                }
+
+                .bookDetails {
+                    margin: 20px 0;
+
+                    .bookPrice {
+                        font-size: 25px;
+                        color: #fff;
+                        // text-shadow: 0px 0px 5px #000;
+                    }
+
+                    .starsDiv {
+                        svg {
+                            width: 25px;
+                            height: 25px;
+                            margin: 0px 2px;
+
+                            &.yellowStar {
+                                fill: #FFD700;
+                            }
+
+                            &.greyStar {
+                                fill: #aaa;
+                            }
+                        }
+                    }
+                }
+
+                .bookAuthor {
+                    margin: 16px 0;
+                    font-size: 25px;
+                    color: #fff;
+                    // text-shadow: 0px 0px 5px #000;
+                }
+
+                .detailsBtn {
+                    @include btnFormatter(#fff, $primary-color);
+                    margin-top: 10px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    // box-shadow: 0px 0px 5px #555;
+                    transition: all .1s linear;
+
+                    &:hover {
+                        box-shadow: 0px 3px 3px #333;
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+.carouselControlDiv {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.featuresDiv {
+    background-color: #eee;
+    box-shadow: 0px 5px 5px -3px #aaa;
+
+    .col-md-3 {
+        border-right: 1px solid $primary-color;
+
+        &:last-of-type {
+            border-right: none;
+        }
+    }
+
+    .featureDiv {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 15px 0;
+        height: 100%;
+
+        svg {
+            width: 50px;
+            height: 50px;
+            fill: $primary-color;
+            margin-right: 15px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 0px;
+            color: $primary-color;
+        }
+
+        p {
+            margin-bottom: 0px;
+            color: #555;
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .carousel-inner {
+        height: auto;
+
+        .carousel-item {
+            &-inner {
+                height: auto;
+                margin-left: 0;
+                padding: 0px 10px;
+
+                .bookImgDiv {
+                    justify-content: center;
+
+                    &-inner {
+                        transform: scale(.7);
+                        margin-right: 0;
+                    }
+                }
+
+                .bookDetailDiv {
+                    .bookName {
+                        font-size: 25px;
+                        font-weight: 600;
+                        margin-bottom: 2px;
+                        text-align: center;
+                    }
+
+                    .bookDetails {
+
+                        .bookPrice {
+                            font-size: 20px;
+                            margin-bottom: 2px;
+                            text-align: center;
+                        }
+
+                        .starsDiv {
+                            text-align: center;
+
+                            svg {
+                                width: 15px;
+                                height: 15px;
+                                margin: 0px 1px;
+                            }
+                        }
+                    }
+
+                    .bookAuthor {
+                        text-align: center;
+                        margin: 5px 0;
+                        font-size: 20px;
+                    }
+
+                    .detailsBtn {
+                        display: block;
+                        margin: 20px auto;
+                    }
+                }
+            }
+        }
+    }
+
+    .featuresDiv {
+
+        .featureDiv {
+            align-items: center;
+        }
+
+        .col-md-3 {
+            border-right: 1px solid $primary-color;
+            border-top: 1px solid $primary-color;
+
+            &:last-of-type {
+                border-right: none;
+            }
+
+            &:nth-of-type(1) {
+                border-top: none
+            }
+
+            &:nth-of-type(2) {
+                border: none
+            }
+
+        }
+    }
+}

@@ -1,0 +1,126 @@
+@import "/src/styles/variables";
+
+:host-context(.searchDesktopVersion) {
+  .outerSerach {
+    border: none;
+    &.focused > div:first-of-type {
+      z-index: 2;
+      border-bottom: 1px solid #eee;
+    }
+
+    .searchedItemsDiv {
+      border: none;
+      padding: 30px 10px 10px 10px;
+      width: 100%;
+      top: 26px;
+      left: 15px;
+      z-index: 1;
+    }
+  }
+}
+
+.outerSerach {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: auto;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  z-index: 2;
+
+  input[type="text"] {
+    border: none;
+    font-size: 15px;
+    padding: 7px 0px;
+    color: #666;
+    min-width: 300px;
+    background: transparent;
+
+    &:active,
+    &:focus {
+      border: none;
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+
+  .searchIcon {
+    stroke: #aaa;
+    fill: #aaa;
+    height: 27px;
+    width: 27px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      fill: $dark-primary-color;
+      stroke: $dark-primary-color;
+    }
+  }
+
+  &.focused {
+    .searchedItemsDiv {
+      display: block;
+      margin-left: -15px;
+      margin-right: -15px;
+      padding: 10px;
+      max-height: 350px;
+      overflow-y: auto;
+      background: #fff;
+      position: absolute;
+      width: calc(100% + 4px);
+      top: 44px;
+      left: 13px;
+      border: 2px solid #ccc;
+      border-top: 1px solid #eee;
+      border-radius: 0 0 20px 20px;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        margin: 20px;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #aaa;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #888;
+      }
+    }
+  }
+
+  & > div:first-of-type {
+    display: flex;
+    align-items: center;
+  }
+
+  .searchedItemsDiv {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .outerSerach {
+    width: 100%;
+
+    input[type="text"] {
+      width: calc(100% - 30px);
+      min-width: 100px;
+    }
+  }
+}

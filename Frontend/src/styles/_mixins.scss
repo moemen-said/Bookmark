@@ -1,0 +1,44 @@
+@use "sass:color";
+
+@mixin centeredFlexDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin fullscreenSize {
+    width: 100vw;
+    height: 100vh;
+}
+
+@mixin btnFormatter($backColor, $textColor, $backState:false) {
+    all: unset;
+    border-radius: 20px;
+    color: $textColor;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all .15s ease-in-out;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0px 7px 5px -5px #aaa;
+    }
+
+    &:active {
+        background-color: color.adjust($backColor, $lightness: -10%);
+        color: #fff;
+    }
+
+
+    @if $backState==false {
+        background-color: $backColor;
+        border: none;
+    }
+
+    @else {
+        background-color: transparent;
+        border: 1px solid $backColor
+    }
+
+
+}

@@ -1,0 +1,70 @@
+<div class="outerDiv">
+  <div class="innerDiv">
+    <div class="imgDiv">
+      <svg class="icon">
+        <use xlink:href="../../../../assets/svgs/logo.svg#logoIconOnly"></use>
+      </svg>
+      <svg class="text">
+        <use xlink:href="../../../../assets/svgs/logo.svg#logoTextOnly"></use>
+      </svg>
+      <p class="slogan">The Best Online Book Store</p>
+    </div>
+    <div class="formDiv">
+      <p>Login using</p>
+      <div class="socialDiv">
+        <!-- <button>
+                    <svg>
+                        <use xlink:href='/assets/svgs/account.svg#facebook'></use>
+                    </svg>
+                </button> -->
+        <button>
+          <svg>
+            <use xlink:href="/assets/svgs/account.svg#google"></use>
+          </svg>
+        </button>
+      </div>
+      <p class="orDivider">OR</p>
+      <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+        <div
+          class="inputDiv"
+          [ngClass]="{ invalid: emailInput.invalid && emailInput.dirty }"
+        >
+          <svg>
+            <use xlink:href="/assets/svgs/account.svg#email"></use>
+          </svg>
+          <input
+            type="email"
+            autocomplete="email"
+            placeholder="Email"
+            name="email"
+            required
+            email
+            ngModel
+            #emailInput="ngModel"
+          />
+        </div>
+        <div class="inputDiv" [ngClass]="{ invalid: passInput.invalid }">
+          <svg>
+            <use xlink:href="/assets/svgs/account.svg#password"></use>
+          </svg>
+          <input
+            type="password"
+            autocomplete="current-password"
+            placeholder="Password"
+            name="password"
+            minlength="6"
+            required
+            password
+            ngModel
+            #passInput="ngModel"
+          />
+        </div>
+        <button type="submit" class="signInBtn">SIGN IN</button>
+        <div class="linksDiv">
+          <a routerLink="/Account/passwordReset">Forget password</a>
+          <a routerLink="/Account/signup">Not a Member yet ?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

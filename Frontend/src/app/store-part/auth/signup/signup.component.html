@@ -1,0 +1,56 @@
+<div class="outerDiv">
+    <div class="innerDiv">
+        <div class="imgDiv">
+            <svg class="icon">
+              <use xlink:href="../../../../assets/svgs/logo.svg#logoIconOnly"></use>
+            </svg>
+            <svg class="text">
+              <use xlink:href="../../../../assets/svgs/logo.svg#logoTextOnly"></use>
+            </svg>
+            <p class="slogan">One Step To Access Hundreds Of Books</p>
+          </div>
+        <div class="formDiv">
+            <p>Create your account using</p>
+            <div class="socialDiv">
+                <!-- <button>
+                    <svg>
+                        <use xlink:href='/assets/svgs/account.svg#facebook'></use>
+                    </svg>
+                </button> -->
+                <button>
+                    <svg>
+                        <use xlink:href='/assets/svgs/account.svg#google'></use>
+                    </svg>
+                </button>
+            </div>
+            <p class="orDivider">OR</p>
+            <form (submit)="onSignUp(signupForm)" #signupForm="ngForm">
+                <div class="inputDiv" [ngClass]="{'invalid':nameInput.invalid && nameInput.touched}">
+                    <svg>
+                        <use xlink:href='/assets/svgs/account.svg#user'></use>
+                    </svg>
+                    <input type="text" placeholder="Full name" autocomplete="username" name="name" ngModel #nameInput="ngModel" required minlength="6">
+                    <span class="invalidSapn">Please enter a valid Name </span>
+                </div>
+                <div class="inputDiv" [ngClass]="{'invalid':emailInput.invalid&& emailInput.touched}">
+                    <svg>
+                        <use xlink:href='/assets/svgs/account.svg#email'></use>
+                    </svg>
+                    <input type="email" placeholder="Email" autocomplete="email" name="email" email required ngModel #emailInput="ngModel">
+                    <span class="invalidSapn">Please enter a Email </span>
+                </div>
+                <div class="inputDiv" [ngClass]="{'invalid':passInput.invalid&& passInput.touched}">
+                    <svg>
+                        <use xlink:href='/assets/svgs/account.svg#password'></use>
+                    </svg>
+                    <input type="password" placeholder="Password" autocomplete="current-password" name="password" required minlength="6" ngModel #passInput='ngModel'>
+                    <span class="invalidSapn">Please enter a at least 6 characters</span>
+                </div>
+                <button class="signUpBtn" type="submit">SIGN UP</button>
+                <div class="linksDiv">
+                    <a routerLink='/Account/signin'>Already a Member ?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

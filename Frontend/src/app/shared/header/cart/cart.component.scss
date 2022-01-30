@@ -1,0 +1,51 @@
+@import '/src/styles/variables';
+
+.cartDiv {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 2;
+    width: max-content;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: $shadow;
+    padding: 0 10px;
+
+    .cartItemsDiv {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .totalDiv {
+        border-top: 1px solid #ccc;
+        padding: 10px 15px;
+        margin: 0px -10px;
+        cursor: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        a {
+            font-size: 16px;
+            font-weight: 600;
+            color: $primary-color;
+            text-decoration: none;
+            cursor: pointer;
+
+            &:hover{
+                color: $dark-primary-color;
+            }
+        }
+    }
+}
