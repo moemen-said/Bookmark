@@ -2,11 +2,11 @@
 
 .outerDiv {
   background-color: #fff;
-  padding: 10px 15px;
+  padding: 10px;
   border-radius: 20px;
   box-shadow: $shadow;
   display: flex;
-  align-items: center;
+  align-items: stretch;
 
   .outerSerach {
     width: 100%;
@@ -47,38 +47,77 @@
 
   .dropdown {
     &-toggle {
-        width: 120px;
+      width: 170px;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 15px;
+      margin: 0px 15px;
+      padding: 5px 10px;
+      position: relative;
+
+      span:first-child {
+        font-size: 16px;
+        background: #fff;
+        color: #888;
+      }
+      span:nth-child(2) {
+        color: #555;
+      }
+
       &:focus {
         box-shadow: none;
       }
-      &::after{
-        background: url('/assets/images/dropdown.png');
+      &::after {
+        background: url("/assets/images/dropdown.png");
         border: none;
         width: 16px;
         height: 13px;
         background-size: cover;
         vertical-align: unset;
       }
+      &.selected {
+        span:first-child {
+          transform: translate(10px, -11px);
+          font-size: 14px;
+          font-weight: 600;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        span:nth-child(2) {
+        }
+      }
     }
 
     &-menu {
       left: unset;
-      right: 0;
+      right: 15px;
       top: 55px;
       border-radius: 15px;
       border: none;
       box-shadow: $shadow;
-      padding: 10px 0;
-      overflow-x: hidden;
+      padding: 20px 0;
+      overflow: hidden;
+      width: calc(100% - 30px);
     }
 
     .dropdown-item {
       padding: 10px;
+      cursor: pointer;
+      &:active,&.active {
+        background-color: $primary-color;
+        color: #fff;
+      }
     }
   }
 
   .stylingDiV {
-    width: 80px;
+    width: 100px;
+    margin: auto;
     button {
       all: unset;
       cursor: pointer;

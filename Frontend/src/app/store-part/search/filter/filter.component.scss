@@ -19,6 +19,17 @@
       label {
         cursor: pointer;
       }
+      input {
+        width: 15px;
+        height: 15px;
+        &:checked {
+          background-color: $primary-color;
+          border-color: $primary-color;
+        }
+        &:focus {
+          box-shadow: none;
+        }
+      }
     }
     &:last-of-type {
       border-bottom: none;

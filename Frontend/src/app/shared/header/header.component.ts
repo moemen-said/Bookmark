@@ -16,11 +16,11 @@ export class HeaderComponent {
   isSearchShown: boolean = false;
 
   constructor(private render: Renderer2, private sharedService: SharedService) {
-    this.sharedService.ddToggle.subscribe((componentName) => {
+    this.sharedService.ddToggle.pipe().subscribe((componentName) => {
       if (componentName == 'cart') this.toggleCart();
       else if (componentName == 'search') this.toggleSearch();
     });
-    this.sharedService.navToggle.subscribe(() => this.closeMenuOnClick());
+    this.sharedService.navToggle.pipe().subscribe(() => this.closeMenuOnClick());
   }
 
   toggleCart() {

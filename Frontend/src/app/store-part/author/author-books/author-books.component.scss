@@ -1,7 +1,15 @@
 
 .sectionHeader {
     text-align: center;
-    color: #222;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+}
+.booksContainer{
+    display: flex;flex-wrap:wrap;justify-content: space-evenly;
+    &-item{
+        margin: 20px 10px;
+    }
 }
 
 .row {

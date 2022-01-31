@@ -1,8 +1,8 @@
 <h1 class="sectionHeader">All Moemen's Books</h1>
 <div class="container">
-    <div class="row">
-        <div *ngFor="let book of books" class="col-lg-2 col-md-4 col-6 p-0">
-            <author-book-item [bookData]="book"></author-book-item>
+    <div class="booksContainer">
+        <div class="booksContainer-item" *ngFor="let book of books">
+            <book-item [book]="book"></book-item>
         </div>
     </div>
 </div>

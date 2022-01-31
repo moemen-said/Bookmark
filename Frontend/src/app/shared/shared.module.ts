@@ -16,6 +16,7 @@ import { CartItemComponent } from './header/cart/cart-item/cart-item.component';
 import {DdHideDirective } from '../directives/dd-hide.directive'
 import { ToggleNavDirective } from '../directives/toggle-nav.directive';
 import { RateStarsComponent } from './rate-stars/rate-stars.component';
+import { BookItemComponent } from './book-item/book-item.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { RateStarsComponent } from './rate-stars/rate-stars.component';
     DdHideDirective,
     ToggleNavDirective,
     RateStarsComponent,
+    BookItemComponent,
   ],
   imports: [
     CommonModule,
@@ -49,7 +51,8 @@ import { RateStarsComponent } from './rate-stars/rate-stars.component';
     ShowOnScrollDirective,
     DdHideDirective,
     ToggleNavDirective,
-    RateStarsComponent
+    RateStarsComponent,
+    BookItemComponent
   ]
 })
 export class SharedModule { }

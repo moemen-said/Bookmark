@@ -8,24 +8,7 @@
 
         <div class="row topBooksRow m-0">
             <div *ngFor="let book of books" class="col-lg-2 col-md-4 col-12 p-0">
-                <div class="book">
-                    <img src="{{book.imgLink}}" class="book-img">
-                    <div class="book-discount" *ngIf='book.haveDiscount'>
-                        <span>{{book.discount}}</span>
-                        <span>% OFF</span>
-                    </div>
-                    <div class="book-data">
-                        <h1 class="book-data_title">{{book.name}}</h1>
-                        <h3 class="book-data_author">{{book.author}}</h3>
-                        <div class="book-data_priceDiv" *ngIf="book.haveDiscount">
-                            <span class="book-data_priceDiv-before">${{book.price}}</span>
-                            <span class="book-data_priceDiv-after">${{book.priceAfterDiscount}}</span>
-                        </div>
-                        <div class="book-data_priceDiv" *ngIf="!book.haveDiscount">
-                            <span class="book-data_priceDiv-price">${{book.price}}</span>
-                        </div>
-                    </div>
-                </div>
+                <book-item [book]="book"></book-item>
             </div>
         </div>
 

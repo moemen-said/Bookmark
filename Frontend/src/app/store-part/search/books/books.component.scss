@@ -1,0 +1,22 @@
+@import "/src/styles/variables";
+
+.booksRow {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  background-color: #fff;
+  box-shadow: $shadow;
+  border-radius: 20px;
+  margin: 20px 0;
+
+  &>div{
+      margin: 20px 10px;
+  }
+}
+
+@media (max-width: 992px) {
+  .col-12 {
+    width: auto;
+  }
+}

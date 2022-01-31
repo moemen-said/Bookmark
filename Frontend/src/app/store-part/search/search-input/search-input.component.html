@@ -1,34 +1,37 @@
 <div class="outerDiv">
+  <div class="outerSerach">
+    <input type="text" placeholder="Serach by Title, Author" #searchInput />
+    <svg class="searchIcon">
+      <use xlink:href="/assets/svgs/header.svg#search"></use>
+    </svg>
+  </div>
 
-    <div class="outerSerach">
-        <input type="text" placeholder="Serach by Title, Author" #searchInput />
-        <svg class="searchIcon">
-            <use xlink:href="/assets/svgs/header.svg#search"></use>
-        </svg>
-    </div>
+  <div ddHide class="dropdown">
+    <button class="btn dropdown-toggle selected" (click)="toggleSortMenu()">
+      <span>Sort by</span>
+      <span>Price:High to Low</span>
+    </button>
+    <ul
+      class="dropdown-menu ddHide animate__animated animate__fadeIn animate__faster"
+      [class]="{ show: isSortMenuShown }"
+    >
+      <li><a class="dropdown-item active">Price:High to Low</a></li>
+      <li><a class="dropdown-item">Price:Low to High</a></li>
+      <li><a class="dropdown-item">Rating:High to Low</a></li>
+      <li><a class="dropdown-item">Rating:Low to High</a></li>
+    </ul>
+  </div>
 
-    <div class="dropdown">
-        <button class="btn dropdown-toggle" (click)="toggleSortMenu()">
-          Sort by
-        </button>
-        <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster" [class]="{'show':isSortMenuShown}">
-          <li><a class="dropdown-item" href="#">Price:High to Low</a></li>
-          <li><a class="dropdown-item" href="#">Price:Low to High</a></li>
-          <li><a class="dropdown-item" href="#">Rating:High to Low</a></li>
-          <li><a class="dropdown-item" href="#">Rating:Low to High</a></li>
-        </ul>
-      </div>
-
-    <div class="stylingDiV">
-        <button>
-            <svg>
-                <use xlink:href="/assets/svgs/search.svg#grid"></use>
-            </svg>
-        </button>
-        <button>
-            <svg class="active">
-                <use xlink:href="/assets/svgs/search.svg#list"></use>
-            </svg>
-        </button>
-    </div>
+  <div class="stylingDiV">
+    <button>
+      <svg class="active">
+        <use xlink:href="/assets/svgs/search.svg#grid"></use>
+      </svg>
+    </button>
+    <button>
+      <svg>
+        <use xlink:href="/assets/svgs/search.svg#list"></use>
+      </svg>
+    </button>
+  </div>
 </div>

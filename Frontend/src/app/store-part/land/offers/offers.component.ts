@@ -4,21 +4,93 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'land-offers',
   templateUrl: './offers.component.html',
-  styleUrls: ['./offers.component.scss']
+  styleUrls: ['./offers.component.scss'],
 })
 export class OffersComponent implements OnInit {
-
   books: Book[] = [
-    { id: '', name: 'Book 4', author: 'moemen said', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/4.webp', discount: 15, priceAfterDiscount: 46.75 },
-    { id: '', name: 'Book 3', author: 'mohamed ahmed', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/3.webp', discount: 25, priceAfterDiscount: 40 },
-    { id: '', name: 'Book 2', author: 'marwan mohamed', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/2.webp', discount: 8, priceAfterDiscount: 50 },
-    { id: '', name: 'Book 5', author: 'mohamed said', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/5.webp', discount: 10, priceAfterDiscount: 48.12 },
-    { id: '', name: 'Book 1', author: 'moemen said', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/1.webp', discount: 20, priceAfterDiscount: 42.99 },
-  ]
+    {
+      id: '',
+      name: 'Book 4',
+      author: 'moemen said',
+      price: 55.0,
+      rate: 5,
+      noOfReviews: 2,
+      description: 'very good book',
+      publisher: 'moemen said',
+      publicationDate: Date.now(),
+      language: 'Arabic',
+      imgLink: '/assets/images/books/4.webp',
+      haveDiscount: true,
+      discount: 25,
+      priceAfterDiscount: 40,
+    },
+    {
+      id: '',
+      name: 'Book 3',
+      author: 'mohamed ahmed',
+      price: 55.0,
+      rate: 5,
+      noOfReviews: 2,
+      description: 'very good book',
+      publisher: 'moemen said',
+      publicationDate: Date.now(),
+      language: 'Arabic',
+      imgLink: '/assets/images/books/3.webp',
+      haveDiscount: true,
+      discount: 25,
+      priceAfterDiscount: 40,
+    },
+    {
+      id: '',
+      name: 'Book 2',
+      author: 'marwan mohamed',
+      price: 55.0,
+      rate: 5,
+      noOfReviews: 2,
+      description: 'very good book',
+      publisher: 'moemen said',
+      publicationDate: Date.now(),
+      language: 'Arabic',
+      imgLink: '/assets/images/books/2.webp',
+      haveDiscount: true,
+      discount: 8,
+      priceAfterDiscount: 50,
+    },
+    {
+      id: '',
+      name: 'Book 5',
+      author: 'mohamed said',
+      price: 55.0,
+      rate: 5,
+      noOfReviews: 2,
+      description: 'very good book',
+      publisher: 'moemen said',
+      publicationDate: Date.now(),
+      language: 'Arabic',
+      imgLink: '/assets/images/books/5.webp',
+      haveDiscount: true,
+      discount: 25,
+      priceAfterDiscount: 40,
+    },
+    {
+      id: '',
+      name: 'Book 1',
+      author: 'moemen said',
+      price: 55.0,
+      rate: 5,
+      noOfReviews: 2,
+      description: 'very good book',
+      publisher: 'moemen said',
+      publicationDate: Date.now(),
+      language: 'Arabic',
+      imgLink: '/assets/images/books/1.webp',
+      haveDiscount: true,
+      discount: 25,
+      priceAfterDiscount: 40,
+    },
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
