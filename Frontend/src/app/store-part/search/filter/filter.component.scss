@@ -3,7 +3,7 @@
 .outerDiv {
   background-color: #fff;
   padding: 10px 15px;
-  border-radius: 25px;
+  border-radius: 20px;
   box-shadow: $shadow;
 
   .innerDiv {
@@ -19,6 +19,9 @@
       label {
         cursor: pointer;
       }
+    }
+    &:last-of-type {
+      border-bottom: none;
     }
   }
 }

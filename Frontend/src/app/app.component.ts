@@ -1,13 +1,11 @@
 import { Component, AfterViewInit, ViewChild, Renderer2, ElementRef, AfterViewChecked, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { routeAnimations } from './route-animation'
 import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [routeAnimations]
 })
 export class AppComponent implements OnInit {
   constructor(private render: Renderer2, private el: ElementRef,private authService:AuthService) { }
@@ -30,12 +28,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
       // this.authService.userAutoLogin();
-  }
-
-  prepareRoute(outlet: RouterOutlet) {
-    return outlet &&
-      outlet.activatedRouteData &&
-      outlet.activatedRouteData['animationState'];
   }
 
 }

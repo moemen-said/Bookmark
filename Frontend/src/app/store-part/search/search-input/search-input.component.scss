@@ -1,0 +1,96 @@
+@import "/src/styles/variables";
+
+.outerDiv {
+  background-color: #fff;
+  padding: 10px 15px;
+  border-radius: 20px;
+  box-shadow: $shadow;
+  display: flex;
+  align-items: center;
+
+  .outerSerach {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    padding: 5px 10px;
+    transition: all 0.2s ease-in-out;
+    background-color: #fff;
+
+    input[type="text"] {
+      width: 100%;
+      border: none;
+      font-size: 17px;
+      color: #666;
+      background: transparent;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    .searchIcon {
+      stroke: #aaa;
+      fill: #aaa;
+      height: 27px;
+      width: 27px;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        fill: $dark-primary-color;
+        stroke: $dark-primary-color;
+      }
+    }
+  }
+
+  .dropdown {
+    &-toggle {
+        width: 120px;
+      &:focus {
+        box-shadow: none;
+      }
+      &::after{
+        background: url('/assets/images/dropdown.png');
+        border: none;
+        width: 16px;
+        height: 13px;
+        background-size: cover;
+        vertical-align: unset;
+      }
+    }
+
+    &-menu {
+      left: unset;
+      right: 0;
+      top: 55px;
+      border-radius: 15px;
+      border: none;
+      box-shadow: $shadow;
+      padding: 10px 0;
+      overflow-x: hidden;
+    }
+
+    .dropdown-item {
+      padding: 10px;
+    }
+  }
+
+  .stylingDiV {
+    width: 80px;
+    button {
+      all: unset;
+      cursor: pointer;
+
+      svg {
+        height: 20px;
+        width: 32px;
+        fill: #aaa;
+        &.active {
+          fill: $primary-color;
+        }
+      }
+    }
+  }
+}
