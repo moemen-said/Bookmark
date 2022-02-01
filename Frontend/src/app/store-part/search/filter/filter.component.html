@@ -1,4 +1,9 @@
-<div class="outerDiv">
+<div class="outerDiv" [class]="{'show':isFilterShown}">
+  <button class="closeBtn" (click)="toggleFilter(false)">
+    <svg>
+      <use xlink:href="/assets/svgs/utilities.svg#close"></use>
+    </svg>
+  </button>
   <div class="innerDiv">
     <h3 class="innerDiv-header">Type</h3>
     <div class="form-check">
@@ -50,28 +55,22 @@
       <label class="form-check-label" for="Poetry">Poetry</label>
     </div>
     <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="Political" />
-        <label class="form-check-label" for="Political">Political</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="Romance" />
-        <label class="form-check-label" for="Romance">Romance</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="scienceFiction" />
-        <label class="form-check-label" for="scienceFiction">Science fiction</label>
-      </div>
+      <input class="form-check-input" type="checkbox" id="Political" />
+      <label class="form-check-label" for="Political">Political</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="Romance" />
+      <label class="form-check-label" for="Romance">Romance</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="scienceFiction" />
+      <label class="form-check-label" for="scienceFiction">Science fiction</label>
+    </div>
   </div>
 
   <div class="innerDiv">
     <h3 class="innerDiv-header" style="margin-bottom: 10px;">Max Price</h3>
-    <mat-slider
-      thumbLabel
-      [displayWith]="formatLabel"
-      tickInterval="100"
-      step="10"
-      min="0"
-      max="200"
-    ></mat-slider>
+    <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="100" step="10" min="0" max="200"></mat-slider>
   </div>
+  <button class="submitBtn" (click)="toggleFilter(false)">Apply</button>
 </div>

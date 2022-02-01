@@ -31,24 +31,13 @@
   }
 }
 
-.topBooksRow {
+.booksRow {
+  display: flex;
   justify-content: space-between;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+  flex-wrap: wrap;
   padding: 20px 10px;
 
   > div {
-    max-width: 200px;
-    z-index: 1;
-  }
-
-  &::-webkit-scrollbar {
-    height: 7px;
-  }
-}
-
-@media (max-width: 992px) {
-  .col-12 {
-    width: auto;
+    padding: 10px 0;
   }
 }

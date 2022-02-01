@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Book } from 'src/app/models/book.model';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'searched-books',
@@ -381,7 +382,11 @@ export class BooksComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private sharedService:SharedService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sharedService.bookStyleView.pipe().subscribe(res=>{
+      
+    })
+  }
 }

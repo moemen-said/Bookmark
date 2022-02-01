@@ -45,9 +45,14 @@
     }
   }
 
+  .searchOptions{
+    display: flex;
+    align-items: center;
+  }
+
   .dropdown {
     &-toggle {
-      width: 170px;
+      width: 180px;
       height: 100%;
       display: flex;
       justify-content: space-around;
@@ -66,6 +71,7 @@
       }
       span:nth-child(2) {
         color: #555;
+        display: none;
       }
 
       &:focus {
@@ -89,6 +95,7 @@
           top: 0;
         }
         span:nth-child(2) {
+          display: block;
         }
       }
     }
@@ -108,7 +115,8 @@
     .dropdown-item {
       padding: 10px;
       cursor: pointer;
-      &:active,&.active {
+      &:active,
+      &.active {
         background-color: $primary-color;
         color: #fff;
       }
@@ -116,13 +124,14 @@
   }
 
   .stylingDiV {
-    width: 100px;
+    width: max-content;
     margin: auto;
     button {
       all: unset;
       cursor: pointer;
 
       svg {
+        transition: all .2s ease-in-out;
         height: 20px;
         width: 32px;
         fill: #aaa;
@@ -130,6 +139,35 @@
           fill: $primary-color;
         }
       }
+    }
+  }
+}
+
+@media (max-width: 567px) {
+  .outerDiv {
+    flex-wrap: wrap;
+    .searchOptions {
+      
+      width: 100%;
+      margin-top: 10px;
+    }
+    .dropdown {
+      width: 70%;
+      &-toggle {
+        margin: 0;
+        width: 100%;
+        justify-content: center;
+        align-items: baseline;
+
+        span {
+          margin-right: 10px;
+        }
+      }
+    }
+    .stylingDiV {
+      width: 30%;
+      display: flex;
+      justify-content: center;
     }
   }
 }

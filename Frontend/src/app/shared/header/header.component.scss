@@ -1,7 +1,7 @@
 @import "/src/styles/variables";
 
 .navbar {
-    width: calc(100% - 50px);
+    width: calc(100% - 20px);
     box-sizing: border-box;
     padding: 10px;
     flex-direction: column;
@@ -10,7 +10,7 @@
     z-index: 2;
     background-color: #fff;
     border-radius: 20px;
-    left: 25px;
+    left: 10px;
     top: 10px;
 
     header {

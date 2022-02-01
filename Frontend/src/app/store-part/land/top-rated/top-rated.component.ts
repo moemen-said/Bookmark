@@ -14,9 +14,6 @@ export class TopRatedComponent implements OnInit {
       id: '', name: 'Book 4', author: 'moemen said', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/4.webp', haveDiscount: false
     },
     {
-      id: '', name: 'Book 3', author: 'mohamed ahmed', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/3.webp', haveDiscount: true, discount: 25, priceAfterDiscount: 40
-    },
-    {
       id: '', name: 'Book 2', author: 'marwan mohamed', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/2.webp', haveDiscount: true, discount: 8, priceAfterDiscount: 50
     },
     {

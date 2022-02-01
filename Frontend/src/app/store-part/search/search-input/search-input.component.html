@@ -6,32 +6,37 @@
     </svg>
   </div>
 
-  <div ddHide class="dropdown">
-    <button class="btn dropdown-toggle selected" (click)="toggleSortMenu()">
-      <span>Sort by</span>
-      <span>Price:High to Low</span>
-    </button>
-    <ul
-      class="dropdown-menu ddHide animate__animated animate__fadeIn animate__faster"
-      [class]="{ show: isSortMenuShown }"
-    >
-      <li><a class="dropdown-item active">Price:High to Low</a></li>
-      <li><a class="dropdown-item">Price:Low to High</a></li>
-      <li><a class="dropdown-item">Rating:High to Low</a></li>
-      <li><a class="dropdown-item">Rating:Low to High</a></li>
-    </ul>
-  </div>
+  <div class="searchOptions">
+    <div ddHide class="dropdown">
+      <button class="btn dropdown-toggle" #ddBtn (click)="toggleSortMenu()">
+        <span>Sort by</span>
+        <span>{{sortSelectionTitle}}</span>
+      </button>
+      <ul #dropDownMenu class="dropdown-menu ddHide animate__animated animate__fadeIn animate__faster" [class]="{ show: isSortMenuShown }">
+        <li><a class="dropdown-item" data-value="Price:High to Low" (click)="sortSelection($event)">Price:High to Low</a></li>
+        <li><a class="dropdown-item" data-value="Price:Low to High" (click)="sortSelection($event)">Price:Low to High</a></li>
+        <li><a class="dropdown-item" data-value="Rating:High to Low" (click)="sortSelection($event)">Rating:High to Low</a></li>
+        <li><a class="dropdown-item" data-value="Rating:Low to High" (click)="sortSelection($event)">Rating:Low to High</a></li>
+      </ul>
+    </div>
 
-  <div class="stylingDiV">
-    <button>
-      <svg class="active">
-        <use xlink:href="/assets/svgs/search.svg#grid"></use>
-      </svg>
-    </button>
-    <button>
-      <svg>
-        <use xlink:href="/assets/svgs/search.svg#list"></use>
-      </svg>
-    </button>
+    <div class="stylingDiV">
+      <button class="d-md-none" (click)="showFilter()">
+        <svg class="active">
+          <use xlink:href="/assets/svgs/search.svg#filter"></use>
+        </svg>
+      </button>
+      <button (click)="changeShowStyle(true)">
+        <svg [class]="{'active':isGridView}">
+          <use xlink:href="/assets/svgs/search.svg#grid"></use>
+        </svg>
+      </button>
+      <button (click)="changeShowStyle(false)">
+        <svg [class]="{'active':!isGridView}">
+          <use xlink:href="/assets/svgs/search.svg#list"></use>
+        </svg>
+      </button>
+    </div>
+
   </div>
 </div>

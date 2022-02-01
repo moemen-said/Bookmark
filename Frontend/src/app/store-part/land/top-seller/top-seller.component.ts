@@ -11,20 +11,6 @@ export class TopSellerComponent implements OnInit {
   books: Book[] = [
     {
       id: '',
-      name: 'Book 4',
-      author: 'moemen said',
-      price: 55.0,
-      rate: 5,
-      noOfReviews: 2,
-      description: 'very good book',
-      publisher: 'moemen said',
-      publicationDate: Date.now(),
-      language: 'Arabic',
-      imgLink: '/assets/images/books/4.webp',
-      haveDiscount: false,
-    },
-    {
-      id: '',
       name: 'Book 3',
       author: 'mohamed ahmed',
       price: 55.0,

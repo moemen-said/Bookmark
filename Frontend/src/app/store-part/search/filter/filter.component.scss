@@ -1,10 +1,23 @@
 @import "/src/styles/variables";
+@import "/src/styles/mixins";
 
 .outerDiv {
   background-color: #fff;
   padding: 10px 15px;
   border-radius: 20px;
   box-shadow: $shadow;
+
+  .closeBtn {
+    display: none;
+    border: none;
+    background: none;
+    float: right;
+    svg {
+      fill: $primary-color;
+      width: 25px;
+      height: 25px;
+    }
+  }
 
   .innerDiv {
     padding: 15px 0;
@@ -33,6 +46,50 @@
     }
     &:last-of-type {
       border-bottom: none;
+    }
+
+    mat-slider {
+      width: 100%;
+    }
+  }
+
+  .submitBtn {
+    @include btnFormatter($primary-color, #fff);
+    display: block;
+    margin: 10px auto;
+    padding: 15px 40px;
+    font-size: 16px;
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .outerDiv {
+    padding: 10px 0px 10px 15px;
+    transform: translateY(100%);
+    transition: all 0.3s ease-in-out;
+    border: 10px solid #fff;
+    overflow-y: scroll;
+    position: fixed;
+    z-index: 3;
+    left: 10px;
+    bottom: 0px;
+    width: calc(100% - 20px);
+    border-radius: 20px 20px 0 0;
+    height: 80vh;
+
+    &.show {
+      transform: translateY(0px);
+    }
+
+    /* width */
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .closeBtn,
+    .submitBtn {
+      display: block;
     }
   }
 }
