@@ -7,7 +7,7 @@ import { AuthService } from './services/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit {
   constructor(private render: Renderer2, private el: ElementRef,private authService:AuthService) { }
 
   // @ViewChild('loadingDiv', { static: true }) loadingDiv;
@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
   //   }, 2000)
   // }
 
-  ngOnInit(): void {
-      // this.authService.userAutoLogin();
+  ngAfterViewInit(): void {
+      this.authService.userAutoLogin();
   }
 
 }

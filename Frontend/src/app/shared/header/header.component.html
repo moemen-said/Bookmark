@@ -1,5 +1,4 @@
 <div class="navbar navbar-expand-md navbar-light" showOnScroll>
-
   <header>
     <a class="navbar-brand">
       <svg>
@@ -9,7 +8,6 @@
 
     <nav toggleNav class="collapse navbar-collapse" id="navToggler">
       <div class="navDiv">
-
         <ul class="navbar-nav d-block d-md-none">
           <!-- In mobile and tablet size only -->
           <div class="headerActionDiv mobileVersion">
@@ -19,7 +17,7 @@
               </div>
             </div>
             <div class="actionDivCont">
-              <div class="actionDiv"  (click)="closeMenuOnClick()">
+              <div class="actionDiv" (click)="closeMenuOnClick()">
                 <div>
                   <svg>
                     <use xlink:href="/assets/svgs/header.svg#cart"></use>
@@ -30,20 +28,41 @@
                 </div>
                 <span>Cart</span>
               </div>
-              <div class="actionDiv" routerLink='Account/signin' (click)="closeMenuOnClick()">
+              <div class="actionDiv" routerLink="Account/signin" (click)="closeMenuOnClick()" *ngIf="!isUserAuthenticated">
                 <svg>
                   <use xlink:href="/assets/svgs/header.svg#account"></use>
                 </svg>
                 <span>Account</span>
               </div>
+              <div ddHide [componentName]="'accountMobVer'"  (click)="toggleAccountMobOption()" class="actionDiv dropdown" *ngIf="isUserAuthenticated">
+                <img src="/assets/images/male1.jpg" />
+                <span>{{ user.name }}</span>
+                <ul class="dropdown-menu ddHide animate__animated animate__fadeIn animate__faster" [class]="{ show: isAccountMobOptionsShown }">
+                  <li>
+                    <a class="dropdown-item" routerLink="Profile/{{user._id}}">
+                      <svg>
+                        <use xlink:href="/assets/svgs/header.svg#user"></use>
+                      </svg>
+                      Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" (click)="onLogout()">
+                      <svg>
+                        <use xlink:href="/assets/svgs/header.svg#logout"></use>
+                      </svg>
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-
           </div>
         </ul>
 
         <ul class="navbar-nav">
           <li class="nav-item" routerLink="" (click)="closeMenuOnClick()">
-            <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+            <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
           </li>
           <li class="nav-item" routerLink="Author" (click)="closeMenuOnClick()">
             <a class="nav-link" routerLinkActive="active">Books</a>
@@ -51,28 +70,29 @@
           <li class="nav-item" routerLink="Book" (click)="closeMenuOnClick()">
             <a class="nav-link" routerLinkActive="active">Novels</a>
           </li>
-          <li class="nav-item" routerLink='Search'(click)="closeMenuOnClick()">
+          <li class="nav-item" routerLink="Search" (click)="closeMenuOnClick()">
             <a class="nav-link" routerLinkActive="active">Blog</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navToggler"
-      aria-controls="navToggler" aria-expanded="false" aria-label="Toggle navigation">
-      <div #menuTogglerBtnDiv toggleActive class="menu__toggler"><span></span></div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navToggler" aria-controls="navToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <div #menuTogglerBtnDiv toggleActive class="menu__toggler">
+        <span></span>
+      </div>
     </button>
 
     <div class="headerActionDiv d-none d-md-flex">
-      <div ddHide [componentName]='"search"' class="actionDiv searchDiv">
+      <div ddHide [componentName]="'search'" class="actionDiv searchDiv">
         <div (click)="toggleSearch()">
           <svg class="searchIcon">
             <use xlink:href="/assets/svgs/header.svg#search"></use>
           </svg>
         </div>
-        <serachDropDown class="animate__animated animate__fadeIn animate__faster searchDesktopVersion ddHide" [ngClass]="{'show':isSearchShown === true}"></serachDropDown>
+        <serachDropDown class="animate__animated animate__fadeIn animate__faster searchDesktopVersion ddHide" [ngClass]="{ show: isSearchShown === true }"></serachDropDown>
       </div>
-      <div ddHide [componentName]='"cart"' class="actionDiv cartDiv">
+      <div ddHide [componentName]="'cart'" class="actionDiv cartDiv">
         <div (click)="toggleCart()">
           <svg>
             <use xlink:href="/assets/svgs/header.svg#cart"></use>
@@ -81,17 +101,37 @@
             <p>2</p>
           </div>
         </div>
-        <cart class="animate__animated animate__fadeIn animate__faster ddHide" [ngClass]="{'show':isCartShown === true}">
+        <cart class="animate__animated animate__fadeIn animate__faster ddHide" [ngClass]="{ show: isCartShown === true }">
         </cart>
       </div>
-      <div class="actionDiv" routerLink='Account/signin'>
+      <div class="actionDiv" routerLink="Account/signin" *ngIf="!isUserAuthenticated">
         <svg>
           <use xlink:href="/assets/svgs/header.svg#account"></use>
         </svg>
       </div>
+      <div ddHide [componentName]="'accountDeskVer'" class="actionDiv dropdown userDropdownOptions" (click)="closeMenuOnClick()" *ngIf="isUserAuthenticated">
+        <div (click)="toggleAccountDeskOption()">
+          <img src="/assets/images/male1.jpg" />
+          <ul class="dropdown-menu ddHide animate__animated animate__fadeIn animate__faster" [class]="{ show: isAccountDeskOptionsShown }">
+            <li>
+              <a class="dropdown-item" routerLink="Profile/{{user._id}}">
+                <svg>
+                  <use xlink:href="/assets/svgs/header.svg#user"></use>
+                </svg>
+                Profile
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="onLogout()">
+                <svg>
+                  <use xlink:href="/assets/svgs/header.svg#logout"></use>
+                </svg>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </header>
-
-
-
 </div>

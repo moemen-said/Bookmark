@@ -7,7 +7,7 @@
   </div>
 
   <div class="searchOptions">
-    <div ddHide class="dropdown">
+    <div ddHide [componentName]="'sort'" class="dropdown">
       <button class="btn dropdown-toggle" #ddBtn (click)="toggleSortMenu()">
         <span>Sort by</span>
         <span>{{sortSelectionTitle}}</span>

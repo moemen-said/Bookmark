@@ -19,7 +19,9 @@ export class SearchInputComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.sharedService.ddToggle.pipe().subscribe(() => this.toggleSortMenu());
+    this.sharedService.ddToggle.pipe().subscribe((component) => {
+      if(component == 'sort') this.toggleSortMenu()
+    });
   }
 
   toggleSortMenu() {

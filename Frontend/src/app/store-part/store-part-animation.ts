@@ -2,91 +2,6 @@ import { transition, trigger, style, animate, query, group } from '@angular/anim
 
 
 export const storeRouteAnimations = trigger('storeRouteAnimations', [
-
-    transition('land <=> author', [
-        style({ position: 'relative' }),
-        query(':enter, :leave', [
-            style({
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-            })
-        ]),
-        query(':enter', [style({ opacity: 0 })]),
-        query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))]),
-        query(':enter', [animate('300ms ease-out', style({ opacity: 1 }))])
-    ]),
-    transition('land <=> book', [
-        style({ position: 'relative' }),
-        query(':enter, :leave', [
-            style({
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-            })
-        ]),
-        query(':enter', [style({ opacity: 0 })]),
-        query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))]),
-        query(':enter', [animate('300ms ease-out', style({ opacity: 1 }))])
-    ]),
-    transition('land <=> search', [
-        style({ position: 'relative' }),
-        query(':enter, :leave', [
-            style({
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-            })
-        ]),
-        query(':enter', [style({ opacity: 0 })]),
-        query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))]),
-        query(':enter', [animate('300ms ease-out', style({ opacity: 1 }))])
-    ]),
-    transition('book <=> author', [
-        style({ position: 'relative' }),
-        query(':enter, :leave', [
-            style({
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-            })
-        ]),
-        query(':enter', [style({ opacity: 0 })]),
-        query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))]),
-        query(':enter', [animate('300ms ease-out', style({ opacity: 1 }))])
-    ]),
-    transition('book <=> search', [
-        style({ position: 'relative' }),
-        query(':enter, :leave', [
-            style({
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-            })
-        ]),
-        query(':enter', [style({ opacity: 0 })]),
-        query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))]),
-        query(':enter', [animate('300ms ease-out', style({ opacity: 1 }))])
-    ]),
-    transition('author <=> search', [
-        style({ position: 'relative' }),
-        query(':enter, :leave', [
-            style({
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-            })
-        ]),
-        query(':enter', [style({ opacity: 0 })]),
-        query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))]),
-        query(':enter', [animate('300ms ease-out', style({ opacity: 1 }))])
-    ]),
     transition('signup <=> signin', [
         style({ position: 'relative' }),
         query(':enter, :leave', [
@@ -98,7 +13,7 @@ export const storeRouteAnimations = trigger('storeRouteAnimations', [
             })
         ]),
         query(':enter', [style({ opacity: 0 ,transform:'translateY(-5px)'})]),
-            query(':leave', [animate('250ms ease-in', style({ opacity: 0,transform:'translateY(10px)' }))]),
+            query(':leave', [animate('250ms ease-in', style({ opacity: 0,transform:'translateY(10px)' }))],{optional:true}),
             query(':enter', [animate('250ms ease-out', style({ opacity: 1,transform:'translateY(0px)' }))]),
     ]),
 
@@ -129,8 +44,22 @@ export const storeRouteAnimations = trigger('storeRouteAnimations', [
         ]),
         query(':enter', [style({ opacity: 0, transform: 'translateY(-50px)' })]),
         group([
-            query(':leave', [animate('200ms ease-out', style({ opacity: 0, transform: 'translateY(20px)' }))]),
+            query(':leave', [animate('200ms ease-out', style({ opacity: 0, transform: 'translateY(20px)' }))],{optional:true}),
             query(':enter', [animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0px)' }))])
         ])
     ]),
+    transition('* <=> *', [
+        style({ position: 'relative' }),
+        query(':enter, :leave', [
+            style({
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+            })
+        ]),
+        query(':enter', [style({ opacity: 0 })]),
+        query(':leave', [animate('200ms ease-in', style({ opacity: 0 }))],{optional:true}),
+        query(':enter', [animate('300ms ease-out', style({ opacity: 1}))])
+    ])
 ]);
