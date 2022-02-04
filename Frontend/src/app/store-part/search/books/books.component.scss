@@ -15,10 +15,8 @@
   }
 }
 
-.booksListRow {
-  display: block;
-}
 :host ::ng-deep .booksListRow {
+  display: block;
   background: unset;
   box-shadow: unset;
   padding: 0px;
@@ -37,14 +35,18 @@
       &-img {
         max-width: 200px;
         border-radius: 20px;
+        
       }
       &-data {
         position: static;
         width: unset;
       }
+      &-discount{
+        top: 50px;
+        left: 20px;
+      }
     }
-  }
-}
+  }}
 
 @media (max-width: 576px) {
   .booksRow {
@@ -53,5 +55,19 @@
     border-radius: 0;
     box-shadow: none;
     background: none;
+  }
+
+  :host ::ng-deep .booksListRow {
+    & > div {
+      margin: 20px 10px !important;
+    }
+  
+    book-item {
+      .book {
+        &-img {
+          max-width: 150px;
+        }
+      }
+    }
   }
 }
