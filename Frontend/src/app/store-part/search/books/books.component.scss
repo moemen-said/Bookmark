@@ -10,8 +10,39 @@
   border-radius: 20px;
   margin: 20px 0;
 
-  &>div{
-      margin: 20px 10px;
+  & > div {
+    margin: 20px 10px;
+  }
+}
+
+.booksListRow {
+  display: block;
+}
+:host ::ng-deep .booksListRow {
+  background: unset;
+  box-shadow: unset;
+  padding: 0px;
+  margin: 20px 0;
+
+  & > div {
+    margin: 20px 0px !important;
+  }
+
+  book-item {
+    .book {
+      max-width: unset;
+      display: flex;
+      align-items: flex-start;
+      padding: 20px;
+      &-img {
+        max-width: 200px;
+        border-radius: 20px;
+      }
+      &-data {
+        position: static;
+        width: unset;
+      }
+    }
   }
 }
 

@@ -18,7 +18,7 @@ const storeRoutes: Routes = [
         data: { animationState: 'author' },
       },
       {
-        path: 'Book',
+        path: 'Book/:id',
         component: BookComponent,
         data: { animationState: 'book' },
       },

@@ -1,6 +1,6 @@
 import { Book } from '../../../models/book.model';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'land-top-rated',
@@ -9,27 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TopRatedComponent implements OnInit {
 
-  books: Book[] = [
-    {
-      id: '', name: 'Book 4', author: 'moemen said', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/4.webp', haveDiscount: false
-    },
-    {
-      id: '', name: 'Book 2', author: 'marwan mohamed', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/2.webp', haveDiscount: true, discount: 8, priceAfterDiscount: 50
-    },
-    {
-      id: '', name: 'Book 5', author: 'mohamed said', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/5.webp', haveDiscount: false
-    }
-    , {
-      id: '', name: 'Book 1', author: 'moemen said', price: 55.00, rate: 5,noOfReviews:2, description: 'very good book', publisher: 'moemen said', publicationDate: Date.now(), language: 'Arabic', imgLink: '/assets/images/books/1.webp', haveDiscount: false
-    }
-  ]
-
-  constructor(private http: HttpClient) { }
+  constructor(private sharedService: SharedService) {}
+  books = this.sharedService.books;
 
   ngOnInit(): void {
-    // this.http.get('http://localhost:3000/books').subscribe((res: Book[])=> {
-    //   this.books = res;
-    // })
   }
 
 }

@@ -5,7 +5,7 @@
         </div>
         <div class="book-mainData_data">
             <h1 class="book-mainData_data-name">{{bookData.name}}</h1>
-            <h3 class="book-mainData_data-author">Author : {{bookData.author}}</h3>
+            <h3 class="book-mainData_data-author">Author : {{bookData.authorName}}</h3>
             <div class="book-mainData_data-rate">
                 <rate-stars [numberOfStars]="bookData.rate"></rate-stars>
                 <span>276 reviews</span>
@@ -34,11 +34,11 @@
                 </tr>
                 <tr>
                     <td>Author</td>
-                    <td>{{bookData.author}}</td>
+                    <td>{{bookData.authorName}}</td>
                 </tr>
                 <tr>
                     <td>ISBN</td>
-                    <td>{{bookData.id}}</td>
+                    <td>{{bookData.isbn}}</td>
                 </tr>
                 <tr>
                     <td>Edition Language</td>
@@ -46,7 +46,7 @@
                 </tr>
                 <tr>
                     <td>Date  Published</td>
-                    <td>{{bookData.publicationDate}}</td>
+                    <td>{{bookData.datePublished}}</td>
                 </tr>
             </tbody>
         </table>

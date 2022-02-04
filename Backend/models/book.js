@@ -2,37 +2,20 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.schema;
 
-const userReviewSchema = new Schema({
-    reviewerId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
-    userName: {
-        type: String,
-        required: true
-    },
-    reviewRate: {
-        type: Number,
-        required: true
-    },
-    reviewText: {
-        type: String,
-        required: true
-    }
-},
-    { timestamps: true }
-)
 
-const authorsReviewSchema = new Schema({
+const reviewSchema = new Schema({
     reviewerId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Author',
         required: true
     },
-    authorName: {
+    reviewerName: {
         type: String,
-        required: true
+        required: true,
+    },
+    reviewerImgLink: {
+        type: String,
+        required: true,
     },
     reviewRate: {
         type: Number,
@@ -62,6 +45,7 @@ const bookSchema = new Schema({
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,
+        ref:'Category',
         required: true
     },
     isbn: {
@@ -76,13 +60,21 @@ const bookSchema = new Schema({
         type: Date,
         required: true
     },
+    description: {
+        type: string,
+        required: true
+    },
     price: {
         type: Number,
         required: true
     },
-    discount: {
+    haveDiscount: {
         type: Boolean,
         required: true
+    },
+    discount: {
+        type: Number,
+        required: false
     },
     priceAfterDicount: {
         type: Number,
@@ -92,12 +84,21 @@ const bookSchema = new Schema({
         type: Number,
         required: true
     },
+    noOfReviews: {
+        type: Number,
+        required: false,
+        default: 0
+    },
+    imgLink: {
+        type: string,
+        required: true
+    },
     usersReview: {
-        type: [userReviewSchema],
+        type: [reviewSchema],
         required: false
     },
     authorsReview: {
-        type: [authorsReviewSchema],
+        type: [reviewSchema],
         required: false
     }
 },

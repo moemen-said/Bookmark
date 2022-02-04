@@ -48,7 +48,7 @@ export class SearchInputComponent implements OnInit {
     this.render.addClass(element.target, 'active');
   }
 
-  changeShowStyle(viewState: boolean) {
+  changeShowStyle(viewState: boolean) { //true for grid view & false for list View
     this.isGridView = viewState;
     this.sharedService.bookStyleView.next(viewState);
   }

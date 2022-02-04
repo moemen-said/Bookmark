@@ -1,58 +1,21 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
     <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item" *ngFor="let book of books ;first as isFirst" [class]="{'active':isFirst}">
             <div class="carousel-item-inner row">
                 <div class="bookImgDiv col-12 col-md-6">
                     <div class="bookImgDiv-inner animate__animated animate__fadeIn animate__slow">
                         <div class="topSide"></div>
                         <div class="rightSide"></div>
-                        <img src="/assets/images/books/1.webp">
-                    </div>
-                </div>
-                <div class="bookDetailDiv col-12 col-md-6">
-                    <div class="animate__animated animate__fadeInRight">
-                        <h1 class="bookName">George Bellairs Death</h1>
-                        <h3 class="bookAuthor">Author: Moemen Said</h3>
-                        <div class="bookDetails">
-                            <p class="bookPrice">$20.00</p>
-                            <!-- <div class="starsDiv">
-                                <svg class="yellowStar" *ngFor="let x of yNumber">
-                                    <use xlink:href="/assets/svgs/land.svg#star"></use>
-                                </svg>
-                                <svg class="greyStar" *ngFor="let x of gNumber">
-                                    <use xlink:href="/assets/svgs/land.svg#star"></use>
-                                </svg>
-                            </div> -->
-                        </div>
-                        <button class="detailsBtn">View Details</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item" *ngFor="let book of books.slice(1)">
-            <div class="carousel-item-inner row">
-                <div class="bookImgDiv col-12 col-md-6">
-                    <div class="bookImgDiv-inner animate__animated animate__fadeIn animate__slow">
-                        <div class="topSide"></div>
-                        <div class="rightSide"></div>
-                        <img src="{{book.src}}">
+                        <img src="{{book.imgLink}}">
                     </div>
                 </div>
                 <div class="bookDetailDiv col-12 col-md-6">
                     <div class="animate__animated animate__fadeInRight">
                         <h1 class="bookName">{{book.name}}</h1>
-                        <h3 class="bookAuthor">Author: {{book.author}}</h3>
+                        <h3 class="bookAuthor">Author: {{book.authorName}}</h3>
                         <div class="bookDetails">
                             <p class="bookPrice">${{book.price}}</p>
-                            <!-- <div class="starsDiv">
-                                <svg class="yellowStar" *ngFor="let x of gNumber">
-                                    <use xlink:href="/assets/svgs/land.svg#star"></use>
-                                </svg>
-                                <svg class="greyStar" *ngFor="let x of yNumber">
-                                    <use xlink:href="/assets/svgs/land.svg#star"></use>
-                                </svg>
-                            </div> -->
                         </div>
                         <button class="detailsBtn">View Details</button>
                     </div>
