@@ -13,6 +13,6 @@ export class SignupComponent {
 
   onSignUp(form: NgForm) {
     if (form.invalid) return;
-    this.authService.userSignup(form.value.email,form.value.password,form.value.name);
+    this.authService.signup(form.value.email,form.value.password,form.value.name);
   }
 }

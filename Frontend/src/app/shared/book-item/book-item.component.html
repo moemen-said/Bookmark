@@ -1,4 +1,4 @@
-<div class="book">
+<div class="book" routerLink="/Book/{{book._id}}">
     <img src="{{book.imgLink}}" class="book-img">
     <div class="book-discount" *ngIf='book.haveDiscount'>
         <span>{{book.discount}}</span>

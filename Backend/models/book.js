@@ -1,33 +1,6 @@
 const mongoose = require('mongoose');
 
-const Schema = mongoose.schema;
-
-
-const reviewSchema = new Schema({
-    reviewerId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Author',
-        required: true
-    },
-    reviewerName: {
-        type: String,
-        required: true,
-    },
-    reviewerImgLink: {
-        type: String,
-        required: true,
-    },
-    reviewRate: {
-        type: Number,
-        required: true
-    },
-    reviewText: {
-        type: String,
-        required: true
-    }
-},
-    { timestamps: true }
-)
+const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
     name: {
@@ -36,7 +9,7 @@ const bookSchema = new Schema({
     },
     authorId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Author',
+        ref: 'User',
         required: true
     },
     authorName: {
@@ -45,7 +18,7 @@ const bookSchema = new Schema({
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:'Category',
+        ref: 'Category',
         required: true
     },
     isbn: {
@@ -61,7 +34,7 @@ const bookSchema = new Schema({
         required: true
     },
     description: {
-        type: string,
+        type: String,
         required: true
     },
     price: {
@@ -90,16 +63,39 @@ const bookSchema = new Schema({
         default: 0
     },
     imgLink: {
-        type: string,
+        type: String,
         required: true
     },
     usersReview: {
-        type: [reviewSchema],
-        required: false
-    },
-    authorsReview: {
-        type: [reviewSchema],
-        required: false
+        reviews:[
+            {
+                reviewerId: {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: 'User',
+                    required: true
+                },
+                reviewerName: {
+                    type: String,
+                    required: true,
+                },
+                reviewerImgLink: {
+                    type: String,
+                    required: true,
+                },
+                reviewRate: {
+                    type: Number,
+                    required: true
+                },
+                reviewText: {
+                    type: String,
+                    required: true
+                },
+                reviewDate: {
+                    type: Date,
+                    required: true
+                }
+            }
+        ]
     }
 },
     { timestamps: true }

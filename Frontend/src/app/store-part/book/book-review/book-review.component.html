@@ -4,8 +4,8 @@
             Community Reviews
         </h2>
         <div>
-            <rate-stars [numberOfStars]="bookData.rate"></rate-stars>
-            <span>{{bookData.noOfReviews}} reviews</span>
+            <rate-stars [numberOfStars]="bookData?.rate"></rate-stars>
+            <span>{{bookData?.noOfReviews}} reviews</span>
         </div>
     </div>
     <div *ngFor="let review of bookReviews">

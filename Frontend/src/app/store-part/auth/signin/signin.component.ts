@@ -16,6 +16,6 @@ export class SigninComponent {
 
   onLogin(loginForm: NgForm) {
     if (loginForm.invalid) return;
-    this.authService.userLogin(loginForm.value.email, loginForm.value.password);
+    this.authService.login(loginForm.value.email, loginForm.value.password);
   }
 }

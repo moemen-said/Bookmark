@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const authRoutes = require('./routes/auth');
+const storeRoutes = require('./routes/store');
 const checkAuth = require('./middlewares/checkAuth');
 
 const app = express();
@@ -25,5 +26,6 @@ app.use((req, res, next) => {
 })
 
 app.use('/api/auth', authRoutes)
+app.use('/api/store', storeRoutes)
 
 app.listen(3000);

@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit {
   // }
 
   ngAfterViewInit(): void {
-      this.authService.userAutoLogin();
+      this.authService.autoLogin();
   }
 
 }

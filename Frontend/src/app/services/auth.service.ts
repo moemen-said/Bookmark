@@ -28,25 +28,22 @@ export class AuthService {
   }
 
   getuserData() {
-    if (!this.userData) return ;
+    if (!this.userData) return;
     return this.userData;
   }
 
-  userSignup(email: string, password: string, name: string) {
-    const user = { email: email, password: password, name: name };
+  signup(email: string, password: string, name: string) {
+    const user = { email: email, password: password, name: name};
     this.http
-      .post<{ success: boolean }>(
-        'http://localhost:3000/api/auth/userSignup',
-        user
-      )
+      .post<{ success: boolean }>('http://localhost:3000/api/auth/signup', user)
       .subscribe((res) => {
         if (res.success) {
-          this.userLogin(email, password);
+          this.login(email, password);
         }
       });
   }
 
-  userLogin(email: string, password: string) {
+  login(email: string, password: string) {
     const user = { email: email, password: password };
     this.http
       .post<{
@@ -54,7 +51,7 @@ export class AuthService {
         expiresIn: number;
         success: boolean;
         user: user;
-      }>('http://localhost:3000/api/auth/userLogin', user)
+      }>('http://localhost:3000/api/auth/login', user)
       .subscribe((res) => {
         this.token = res.token;
         if (this.token && res.success) {
@@ -73,7 +70,7 @@ export class AuthService {
       });
   }
 
-  userAutoLogin() {
+  autoLogin() {
     const authInf = this.getAuthData();
     if (!authInf) return;
     const remainingAuthTime = authInf.expirationDate.getTime() - Date.now();
@@ -86,7 +83,28 @@ export class AuthService {
     }
   }
 
-  userLogout() {
+  resetPassword(email: string) {
+    return this.http.post<{ success: boolean }>(
+      'http://localhost:3000/api/auth/resetPassword',
+      {
+        email: email,
+      }
+    );
+  }
+
+  newPassword(userId: string, newPassword: string, resetToken: string) {
+    const reqParams = {
+      userId: userId,
+      newPassword: newPassword,
+      resetToken: resetToken,
+    };
+    return this.http.post<{ success: boolean }>(
+      'http://localhost:3000/api/auth/newPassword',
+      reqParams
+    );
+  }
+
+  logout() {
     this.token = null;
     this.isAuthenticated = false;
     this.authStateLisnter.next(false);
@@ -97,7 +115,7 @@ export class AuthService {
 
   setAuthTimer(duration: number) {
     this.tokenTimer = setTimeout(() => {
-      this.userLogout();
+      this.logout();
     }, duration);
   }
 

@@ -7,7 +7,7 @@ import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@ang
 })
 export class RateStarsComponent implements OnInit {
 
-  @Input() numberOfStars: number;
+  @Input() numberOfStars?: number;
   @Input() starSize: number = 1;
   @ViewChild('starDiv',{static:true}) starDiv
 
