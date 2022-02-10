@@ -7,11 +7,12 @@ const compression = require("compression");
 const authRoutes = require("./routes/auth");
 const storeRoutes = require("./routes/store");
 const checkAuth = require("./middlewares/checkAuth");
+const config = require("./config/config");
 
 const app = express();
 
 mongoose
-    .connect("mongodb+srv://moemen:moemenPass@cluster0.cfkkx.mongodb.net/Bookmark")
+    .connect(config.MONGO_DB_CONNECTION)
     .then(() => {
         console.log("Connected Successfully to Database");
     })
@@ -33,4 +34,4 @@ app.use((req, res, next) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/store", storeRoutes);
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
