@@ -12,7 +12,7 @@ export class BookService {
     constructor(private http:HttpClient){}
 
     getBookDetails(bookId:string){
-        return this.http.get<{success:boolean,book:Book}>(`http://localhost:3000/api/store/books/${bookId}`)
+        return this.http.get<{success:boolean,book:Book}>(`https://bookmark-store-app.herokuapp.com/api/store/books/${bookId}`)
     }
 
 }
