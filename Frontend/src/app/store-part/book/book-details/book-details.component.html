@@ -1,54 +1,68 @@
 <div class="book">
-    <div class="book-mainData">
-        <div class="book-mainData_imgDiv">
-            <img src="{{bookData?bookData.imgLink:'/assets/images/books/placeholder.webp'}}">
-        </div>
-        <div class="book-mainData_data">
-            <h1 class="book-mainData_data-name">{{bookData?.name}}</h1>
-            <h3 class="book-mainData_data-author">Author : {{bookData?.authorName}}</h3>
-            <div class="book-mainData_data-rate">
-                <rate-stars [numberOfStars]="bookData.rate"></rate-stars>
-                <span>276 reviews</span>
-            </div>
-
-            <div class="book-mainData_data-priceDiv" *ngIf="bookData?.haveDiscount">
-                <span class="book-mainData_data-priceDiv_before">${{bookData?.price}}</span>
-                <span class="book-mainData_data-priceDiv_after">${{bookData?.priceAfterDiscount}}</span>
-            </div>
-            <div class="book-mainData_data-priceDiv" *ngIf="!bookData?.haveDiscount">
-                <span class="book-mainData_data-priceDiv_price">${{bookData?.price}}</span>
-            </div>
-
-            <p class="book-mainData_data-description">{{bookData?.description}}</p>
-
-            <button class="book-mainData_data-addBtn">ADD TO CART</button>
-
-        </div>
+  <div class="book-mainData">
+    <div class="book-mainData_imgDiv">
+      <img
+        src="{{
+          bookData ? bookData.imgLink : '/assets/images/books/placeholder.webp'
+        }}"
+      />
     </div>
-    <div class="book-description">
-        <table class="table table-bordered">
-            <tbody>
-                <tr>
-                    <td>Book Title</td>
-                    <td>{{bookData?.name}}</td>
-                </tr>
-                <tr>
-                    <td>Author</td>
-                    <td>{{bookData?.authorName}}</td>
-                </tr>
-                <tr>
-                    <td>ISBN</td>
-                    <td>{{bookData?.isbn}}</td>
-                </tr>
-                <tr>
-                    <td>Edition Language</td>
-                    <td>{{bookData?.language}}</td>
-                </tr>
-                <tr>
-                    <td>Date  Published</td>
-                    <td>{{bookData?.datePublished}}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="book-mainData_data">
+      <h1 class="book-mainData_data-name">{{ bookData?.name }}</h1>
+      <h3 class="book-mainData_data-author">
+        Author : {{ bookData?.authorName }}
+      </h3>
+      <div class="book-mainData_data-rate">
+        <rate-stars [numberOfStars]="bookData.rate"></rate-stars>
+        <span>276 reviews</span>
+      </div>
+
+      <div class="book-mainData_data-priceDiv" *ngIf="bookData?.haveDiscount">
+        <span class="book-mainData_data-priceDiv_before"
+          >${{ bookData?.price }}</span
+        >
+        <span class="book-mainData_data-priceDiv_after"
+          >${{ bookData?.priceAfterDiscount }}</span
+        >
+      </div>
+      <div class="book-mainData_data-priceDiv" *ngIf="!bookData?.haveDiscount">
+        <span class="book-mainData_data-priceDiv_price"
+          >${{ bookData?.price }}</span
+        >
+      </div>
+
+      <p class="book-mainData_data-description">{{ bookData?.description }}</p>
+
+      <button class="book-mainData_data-addBtn" (click)="onAddToCart()">
+        <span *ngIf="!isBookAdding">ADD TO CART</span>
+          <img *ngIf="isBookAdding" src="/assets/svgs/loading.svg" />
+      </button>
     </div>
+  </div>
+  <div class="book-description">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td>Book Title</td>
+          <td>{{ bookData?.name }}</td>
+        </tr>
+        <tr>
+          <td>Author</td>
+          <td>{{ bookData?.authorName }}</td>
+        </tr>
+        <tr>
+          <td>ISBN</td>
+          <td>{{ bookData?.isbn }}</td>
+        </tr>
+        <tr>
+          <td>Edition Language</td>
+          <td>{{ bookData?.language }}</td>
+        </tr>
+        <tr>
+          <td>Date Published</td>
+          <td>{{ bookData?.datePublished }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

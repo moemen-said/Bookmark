@@ -1,37 +1,38 @@
 <div class="outerDiv">
-  <div class="innerDiv">
+  <div class="innerDiv"  [class]="{'error':errOccurred}">
     <div class="imgDiv">
       <svg class="icon">
-        <use xlink:href="../../../../assets/svgs/logo.svg#logoIconOnly"></use>
+        <use xlink:href="../../../../assets/svgs/icons.svg#logoIconOnly"></use>
       </svg>
       <svg class="text">
-        <use xlink:href="../../../../assets/svgs/logo.svg#logoTextOnly"></use>
+        <use xlink:href="../../../../assets/svgs/icons.svg#logoTextOnly"></use>
       </svg>
       <p class="slogan">The Best Online Book Store</p>
       <!-- <p class="loginType">Reader Login</p> -->
     </div>
-    <div class="formDiv">
+    <div class="formDiv animate__animated" [class]="{'animate__headShake':errOccurred}">
       <p>Login using</p>
       <div class="socialDiv">
         <!-- <button>
                     <svg>
-                        <use xlink:href='/assets/svgs/account.svg#facebook'></use>
+                        <use xlink:href='/assets/svgs/icons.svg#facebook'></use>
                     </svg>
                 </button> -->
         <button>
           <svg>
-            <use xlink:href="/assets/svgs/account.svg#google"></use>
+            <use xlink:href="/assets/svgs/icons.svg#google"></use>
           </svg>
         </button>
       </div>
       <p class="orDivider">OR</p>
+      <p class="errorMsg animate__animated" [class]="{'animate__bounceIn':errOccurred}">{{errMsg}}</p>
       <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
         <div
           class="inputDiv"
           [ngClass]="{ invalid: emailInput.invalid && emailInput.dirty }"
         >
           <svg>
-            <use xlink:href="/assets/svgs/account.svg#email"></use>
+            <use xlink:href="/assets/svgs/icons.svg#email"></use>
           </svg>
           <input
             type="email"
@@ -46,7 +47,7 @@
         </div>
         <div class="inputDiv" [ngClass]="{ invalid: passInput.invalid }">
           <svg>
-            <use xlink:href="/assets/svgs/account.svg#password"></use>
+            <use xlink:href="/assets/svgs/icons.svg#password"></use>
           </svg>
           <input
             type="password"

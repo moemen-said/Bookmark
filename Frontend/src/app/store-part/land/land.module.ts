@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module';
 
 import { LandComponent } from './land.component';
@@ -20,7 +21,8 @@ import { OffersComponent } from './offers/offers.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
   ]

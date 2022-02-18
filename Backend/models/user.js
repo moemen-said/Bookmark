@@ -64,54 +64,41 @@ const userSchema = new Schema(
             totalPrice: {
                 type: Number,
                 required: false,
-                default: 0,
-            },
-            haveDiscount: {
-                type: Boolean,
-                required: false,
-                default: false
-            },
-            discount: {
-                type: Number,
-                required: false,
-                default: 0
-            },
-            priceAfterDiscount: {
-                type: Number,
-                required: false,
                 default: 0
             },
             books: {
-                type: [mongoose.Types.ObjectId],
-                ref: "Book",
-                required: false,
-                default: [],
+                type: [{
+                    bookId: {
+                        type: mongoose.Types.ObjectId,
+                        ref: "Book",
+                        required: false,
+                    },
+                    price: {
+                        type: Number,
+                        required: false,
+                        default: 0
+                    },
+                    haveDiscount: {
+                        type: Boolean,
+                        required: false,
+                        default: false
+                    },
+                    discount: {
+                        type: Number,
+                        required: false,
+                        default: 0
+                    },
+                    priceAfterDiscount: {
+                        type: Number,
+                        required: false,
+                        default: 0
+                    },
+                }]
             },
         },
     },
     { timestamps: true }
 );
 
-userSchema.plugin(uniqueValidator);
-
-userSchema.methods.addToCart = (book) => {
-    let updatedCart = this.cart ? [...this.cart.items] : []
-    updatedCart.books.push(book)
-    this.cart = updatedCart;
-    return this.save()
-}
-
-userSchema.methods.removeFromCart = (deletedBook) => {
-    const updatedCart = this.cart.books.filter(book => {
-        book.toString() != deletedBook.toString()
-    })
-    this.cart = updatedCart;
-    return this.save()
-}
-
-userSchema.methods.clearCart = ()=>{
-    this.cart.books = []
-    return this.save();
-}
 
 module.exports = mongoose.model("User", userSchema);

@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { user } from '../models/user.model';
+import { SharedService } from './shared.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -13,7 +14,9 @@ export class AuthService {
   private isAuthenticated: boolean = false;
   private authStateLisnter = new Subject<boolean>();
 
-  constructor(private http: HttpClient, private router: Router) {}
+  private apiUrl = 'http://localhost:3000/api/';
+
+  constructor(private http: HttpClient, private sharedService: SharedService) {}
 
   getToken() {
     return this.token;
@@ -32,42 +35,43 @@ export class AuthService {
     return this.userData;
   }
 
-  signup(email: string, password: string, name: string) {
-    const user = { email: email, password: password, name: name};
-    this.http
-      .post<{ success: boolean }>('http://localhost:3000/api/auth/signup', user)
-      .subscribe((res) => {
-        if (res.success) {
-          this.login(email, password);
-        }
-      });
+  signup(type: string, email: string, password: string, name: string) {
+    const user = { type: type, email: email, password: password, name: name };
+    return this.http.post<{ success: boolean }>(
+      `${this.apiUrl}auth/signup`,
+      user
+    );
   }
 
   login(email: string, password: string) {
     const user = { email: email, password: password };
-    this.http
+    return this.http
       .post<{
         token: string;
         expiresIn: number;
         success: boolean;
         user: user;
-      }>('http://localhost:3000/api/auth/login', user)
-      .subscribe((res) => {
-        this.token = res.token;
-        if (this.token && res.success) {
-          const expiresIn = res.expiresIn * 1000; //transform from milSec to Sec
-          this.setAuthTimer(expiresIn);
-          const now = new Date();
-          const expirationDate = new Date(now.getTime() + expiresIn);
-          this.saveAuthData(res.user, this.token, expirationDate);
+      }>(`${this.apiUrl}auth/login`, user)
+      .pipe(
+        map((res) => {
+          this.token = res.token;
+          if (this.token && res.success) {
+            const expiresIn = res.expiresIn * 1000; //transform from milSec to Sec
+            this.setAuthTimer(expiresIn);
+            const now = new Date();
+            const expirationDate = new Date(now.getTime() + expiresIn);
+            this.saveAuthData(res.user, this.token, expirationDate);
 
-          this.isAuthenticated = true;
-          this.userData = res.user;
-          this.authStateLisnter.next(true);
-
-          this.router.navigate(['/']);
-        }
-      });
+            this.isAuthenticated = true;
+            this.userData = res.user;
+            this.authStateLisnter.next(true);
+            this.sharedService.snackBarShow.next(
+              `Welcome back : ${res.user.name}`
+            );
+          }
+          return res;
+        })
+      );
   }
 
   autoLogin() {
@@ -85,7 +89,7 @@ export class AuthService {
 
   resetPassword(email: string) {
     return this.http.post<{ success: boolean }>(
-      'http://localhost:3000/api/auth/resetPassword',
+      `${this.apiUrl}auth/resetPassword`,
       {
         email: email,
       }
@@ -99,7 +103,7 @@ export class AuthService {
       resetToken: resetToken,
     };
     return this.http.post<{ success: boolean }>(
-      'http://localhost:3000/api/auth/newPassword',
+      `${this.apiUrl}auth/newPassword`,
       reqParams
     );
   }

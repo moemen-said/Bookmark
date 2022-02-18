@@ -1,5 +1,5 @@
-import { Component, AfterViewInit, ViewChild, Renderer2, ElementRef, AfterViewChecked, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, AfterViewInit, Renderer2, ElementRef } from '@angular/core';
+
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -8,13 +8,13 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit {
-  constructor(private render: Renderer2, private el: ElementRef,private authService:AuthService) { }
+  constructor(
+    private render: Renderer2,
+    private el: ElementRef,
+    private authService: AuthService
+  ) {}
 
   // @ViewChild('loadingDiv', { static: true }) loadingDiv;
-
-  // ngAfterViewChecked() {
-  //   this.hidingLoading();
-  // }
 
   // hidingLoading() {
   //   setTimeout(() => {
@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit {
   // }
 
   ngAfterViewInit(): void {
-      this.authService.autoLogin();
+    // hidingLoading()
+    this.authService.autoLogin();
   }
-
 }

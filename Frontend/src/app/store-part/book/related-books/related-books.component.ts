@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Book } from 'src/app/models/book.model';
-import { SharedService } from 'src/app/services/shared.service';
+import { BookService } from 'src/app/services/books.service';
 
 @Component({
   selector: 'related-books',
   templateUrl: './related-books.component.html',
-  styleUrls: ['./related-books.component.scss']
+  styleUrls: ['./related-books.component.scss'],
 })
 export class RelatedBooksComponent implements OnInit {
-
-  constructor(private sharedService:SharedService){  }
-  books = this.sharedService.books
+  books: Book[] = null;
+  
+  constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
+    this.bookService.getAllBooks().subscribe((res) => {
+      this.books = res.books;
+    });
   }
-
 }

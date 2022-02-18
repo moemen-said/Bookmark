@@ -16,6 +16,10 @@
     display: flex;
     overflow: hidden;
 
+    &.error{
+      box-shadow: 0px 0px 15px $error-color;
+    }
+
     .imgDiv {
       width: 40%;
       display: flex;
@@ -44,6 +48,11 @@
 
     .formDiv {
       width: 60%;
+
+      .errorMsg{
+        color:$error-color ;
+        height: 18px;
+      }
 
       p {
         font-size: 18px;

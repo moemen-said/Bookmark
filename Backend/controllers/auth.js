@@ -114,7 +114,7 @@ exports.resetPassword = (req, res, next) => {
             from: 'moemen.said@gmail.com',
             subject: 'Password Reset',
             html: `<p>You requested a password reset</p>
-            <p>Click this <a href="http://localhost:4200/Account/newPassword/${token}?id=${res._id}">link</a> to set a new password`
+            <p>Click this <a href="https://bookmark-store.web.app/Account/newPassword/${token}?id=${res._id}">link</a> to set a new password`
           });
         }
       })

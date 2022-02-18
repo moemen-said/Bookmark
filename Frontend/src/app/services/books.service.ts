@@ -8,11 +8,18 @@ import { user } from '../models/user.model';
 
 @Injectable({ providedIn: 'root' })
 export class BookService {
+    
+    private apiUrl = 'http://localhost:3000/api/';
+
 
     constructor(private http:HttpClient){}
 
+    getAllBooks(){
+        return this.http.get<{success:boolean,books:Book[]}>(`${this.apiUrl}store/books`)
+    }
+
     getBookDetails(bookId:string){
-        return this.http.get<{success:boolean,book:Book}>(`https://bookmark-store-app.herokuapp.com/api/store/books/${bookId}`)
+        return this.http.get<{success:boolean,book:Book}>(`${this.apiUrl}store/books/${bookId}`)
     }
 
 }

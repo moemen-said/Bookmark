@@ -9,3 +9,14 @@ body * {
     font-family: 'Ubuntu', sans-serif !important;
     outline: none !important;
 }
+
+.mat-snack-bar-container{
+    box-shadow: $shadow  !important;
+    border-radius: 15px !important;
+    background-color: #333;
+    
+    span{   
+        color: #eee;  
+        font-size: 16px !important;
+    }
+}

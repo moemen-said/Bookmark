@@ -11,6 +11,7 @@ import { StorePartModule } from './store-part/store-part.module';
 import { AuthInterceptor } from './store-part/auth/auth-interceptor';
 
 import { AppComponent } from './app.component';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,8 @@ import { AppComponent } from './app.component';
     SharedModule,
     AppRoutingModule,
     AuthModule,
-    StorePartModule
+    StorePartModule,
+    MatSnackBarModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor,multi:true }],
   bootstrap: [AppComponent],

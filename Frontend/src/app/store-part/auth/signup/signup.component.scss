@@ -1,279 +1,327 @@
-@import '/src/styles/mixins';
-@import '/src/styles/variables';
+@import "/src/styles/mixins";
+@import "/src/styles/variables";
 
 .outerDiv {
-    @include centeredFlexDiv;
-    width: 100%;
-    margin-top: 40px;
+  @include centeredFlexDiv;
+  width: 100%;
+  margin-top: 40px;
 
-    .innerDiv {
-        background-color: #fff;
-        max-width: 800px;
-        width: 80%;
-        height: 500px;
-        border-radius: 25px;
-        box-shadow: $shadow;
+  .innerDiv {
+    background-color: #fff;
+    max-width: 800px;
+    width: 80%;
+    height: 550px;
+    border-radius: 25px;
+    box-shadow: $shadow;
+    display: flex;
+    overflow: hidden;
+
+    &.error {
+      box-shadow: 0px 0px 15px $error-color;
+    }
+
+    .imgDiv {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient($primary-color, $dark-primary-color);
+
+      svg {
+        fill: #fff;
+        height: 60px;
+
+        &.icon {
+          width: 50px;
+        }
+        &.text {
+          width: 200px;
+        }
+      }
+      .slogan {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #fff;
+        text-align: center;
+      }
+    }
+
+    .formDiv {
+      width: 60%;
+
+      .errorMsg {
+        color: $error-color;
+        height: 18px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 20px auto;
+        color: #aaa;
+        text-align: center;
+      }
+
+      .socialDiv {
         display: flex;
-        overflow:hidden;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
 
-        .imgDiv {
-            width: 40%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient($primary-color, $dark-primary-color);
-      
+        button {
+          @include btnFormatter(#aaa, #555, true);
+          border-radius: 50%;
+          padding: 7px;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0px 10px;
+
+          svg {
+            fill: #555;
+            width: 20px;
+            height: 20px;
+            transition: 0.15s all ease-in-out;
+          }
+
+          &:hover {
+            box-shadow: 0px 3px 2px -2px #aaa;
+
             svg {
-              fill: #fff;
-              height: 60px;
-      
-              &.icon {
-                width: 50px;
-              }
-              &.text {
-                width: 200px;
-              }
+              fill: $primary-color;
+              margin-top: -2px;
             }
-            .slogan {
-                margin-top: 10px;
-                font-size: 18px;
-                color: #fff;
-                text-align: center;
+          }
+        }
+      }
+
+      p {
+        text-align: center;
+        color: #aaa;
+      }
+
+      .orDivider {
+        font-weight: 600;
+        position: relative;
+        width: 320px;
+        margin: auto;
+
+        &::before,
+        &::after {
+          display: block;
+          content: "";
+          height: 1px;
+          background-color: #ccc;
+          position: absolute;
+          top: 50%;
+          width: 40%;
+          transform: translateY(-50%);
+        }
+
+        &::before {
+          left: 0;
+        }
+
+        &::after {
+          right: 0;
+        }
+      }
+
+      form {
+        .inputDiv {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: 5px 10px;
+          margin: 20px auto;
+          width: 300px;
+          border-bottom: 2px solid #aaa;
+          position: relative;
+
+          .type {
+            display: flex;
+            align-items: center;
+
+            p {
+              margin: 0px 15px;
+              font-size: 15px;
+              font-weight: 600;
+              color: #888;
             }
           }
 
-        .formDiv {
-            width: 60%;
+          svg {
+            fill: $primary-color;
+            width: 20px;
+            height: 20px;
+          }
 
-            p {
-                margin: 20px auto;
-                color: #aaa;
-                text-align: center;
+          input[type="radio"] {
+            cursor: pointer;
+            &:checked {
+              background-color: $primary-color;
+              border-color: $primary-color;
             }
-
-            .socialDiv {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 20px 0;
-
-                button {
-                    @include btnFormatter(#aaa, #555, true);
-                    border-radius: 50%;
-                    padding: 7px;
-                    width: 30px;
-                    height: 30px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    margin: 0px 10px;
-
-                    svg {
-                        fill: #555;
-                        width: 20px;
-                        height: 20px;
-                        transition: .15s all ease-in-out;
-                    }
-
-                    &:hover {
-                        box-shadow: 0px 3px 2px -2px #aaa;
-
-                        svg {
-                            fill: $primary-color;
-                            margin-top: -2px
-                        }
-                    }
-                }
+            &:focus {
+              box-shadow: none;
             }
+          }
 
-            p {
-                text-align: center;
-                color: #aaa;
+          label {
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin-right: 20px;
+          }
+
+          input[type="email"],
+          input[type="password"],
+          input[type="text"] {
+            border: none;
+            padding: 0px 15px;
+            font-size: 15px;
+            font-weight: 600;
+            background-color: transparent;
+            width: 100%;
+            color: #555;
+
+            &:focus {
+              outline: none;
             }
+          }
 
-            .orDivider {
-                font-weight: 600;
-                position: relative;
-                width: 320px;
-                margin: auto;
+          .invalidSapn {
+            position: absolute;
+            padding: 2px 5px;
+            text-align: center;
+            background: #fff;
+            border: 2px solid #ff5b5b;
+            border-radius: 5px 5px 0 0;
+            // box-shadow: 0px 4px 5px -3px #aaa;
+            color: #ff5b5b;
+            right: 0px;
+            bottom: -2px;
+            font-weight: 600;
+            font-size: 12px;
+            display: none;
+            // animation: fadeOut 1s ease-in-out 2s forwards;
 
-                &::before,
-                &::after {
-                    display: block;
-                    content: "";
-                    height: 1px;
-                    background-color: #ccc;
-                    position: absolute;
-                    top: 50%;
-                    width: 40%;
-                    transform: translateY(-50%);
-                }
-
-                &::before {
-                    left: 0;
-                }
-
-                &::after {
-                    right: 0;
-                }
-            }
-
-            form {
-                .inputDiv {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;
-                    padding: 5px 10px;
-                    margin: 20px auto;
-                    width: 300px;
-                    border-bottom: 2px solid #aaa;
-                    position: relative;
-
-                    svg {
-                        fill: $primary-color;
-                        width: 20px;
-                        height: 20px;
-                    }
-
-                    input {
-                        border: none;
-                        padding: 0px 15px;
-                        font-size: 15px;
-                        font-weight: 600;
-                        background-color: transparent;
-                        width: 100%;
-                        color: #555;
-
-                        &:focus {
-                            outline: none;
-                        }
-                    }
-
-                    .invalidSapn {
-                        position: absolute;
-                        padding: 2px 5px;
-                        text-align: center;
-                        background: #fff;
-                        border: 2px solid #ff5b5b;
-                        border-radius: 5px 5px 0 0;
-                        // box-shadow: 0px 4px 5px -3px #aaa;
-                        color: #ff5b5b;
-                        right: 0px;
-                        bottom: -2px;
-                        font-weight: 600;
-                        font-size: 12px;
-                        display: none;
-                        // animation: fadeOut 1s ease-in-out 2s forwards;
-
-                        @keyframes fadeOut {
-                            0%{
-                                opacity: 1;
-                                display: block;
-                            }
-                            100%{
-                                opacity: 0;
-                                display: none;
-                            }
-                        }
-                    }
-
-                    &.invalid {
-                        border-color: #ff5b5b;
-                    }
-                }
-            }
-
-            .signUpBtn {
-                font-size: 16px;
-                font-weight: 500;
+            @keyframes fadeOut {
+              0% {
+                opacity: 1;
                 display: block;
-                margin: 30px auto 20px auto;
-                background: linear-gradient(190deg, $dark-primary-color, $primary-color);
-                padding: 10px 20px;
-                color: #fff;
-                border: none;
-                border-radius: 20px;
-                cursor: pointer;
-                transition: all .1s ease-in-out;
-
-                &:hover {
-                    box-shadow: 0px 4px 2px -2px #aaa;
-                }
-
-                &:focus {
-                    outline: none;
-                    transform: scale(.98);
-                    box-shadow: none;
-                }
+              }
+              100% {
+                opacity: 0;
+                display: none;
+              }
             }
+          }
 
-            .linksDiv {
-                display: flex;
-                align-items: center;
-                justify-content: space-evenly;
-
-                a {
-                    text-align: center;
-                    color: $primary-color;
-                    display: block;
-                    font-size: 16px;
-                    font-weight: 600;
-                    cursor: pointer;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
+          &.invalid {
+            border-color: #ff5b5b;
+          }
         }
+      }
+
+      .signUpBtn {
+        font-size: 16px;
+        font-weight: 500;
+        display: block;
+        margin: 30px auto 20px auto;
+        background: linear-gradient(
+          190deg,
+          $dark-primary-color,
+          $primary-color
+        );
+        padding: 10px 20px;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+          box-shadow: 0px 4px 2px -2px #aaa;
+        }
+
+        &:focus {
+          outline: none;
+          transform: scale(0.98);
+          box-shadow: none;
+        }
+      }
+
+      .linksDiv {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+
+        a {
+          text-align: center;
+          color: $primary-color;
+          display: block;
+          font-size: 16px;
+          font-weight: 600;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
     }
+  }
 }
 
+@media (max-width: 768px) {
+  .outerDiv {
+    .innerDiv {
+      position: relative;
+      margin: 10px;
+      width: 100%;
 
-@media(max-width:768px) {
+      .imgDiv {
+        display: none;
+      }
 
-    .outerDiv {
-        .innerDiv {
-            position: relative;
-            margin: 10px;
-            width: 100%;
+      .formDiv {
+        width: 100%;
 
-            .imgDiv {
-                display: none;
-            }
-
-            .formDiv {
-                width: 100%;
-
-                .orDivider {
-                    width: 80%;
-                    max-width: 300px;
-                }
-
-                form {
-                    .inputDiv {
-                        width: 80%;
-                        max-width: 300px;
-
-                        svg {
-                            fill: $primary-color;
-                            width: 20px;
-                            height: 20px;
-                        }
-
-                        input {
-                            padding: 0px 5px 0 15px;
-                        }
-                    }
-                }
-
-                .linksDiv {
-                    a {
-                        font-size: 15px;
-                    }
-                }
-            }
+        .orDivider {
+          width: 80%;
+          max-width: 300px;
         }
+
+        form {
+          .inputDiv {
+            width: 80%;
+            max-width: 300px;
+
+            svg {
+              fill: $primary-color;
+              width: 20px;
+              height: 20px;
+            }
+
+            input[type="text"],
+            input[type="password"],
+            input[type="email"] {
+              padding: 0px 5px 0 15px;
+            }
+          }
+        }
+
+        .linksDiv {
+          a {
+            font-size: 15px;
+          }
+        }
+      }
     }
+  }
 }

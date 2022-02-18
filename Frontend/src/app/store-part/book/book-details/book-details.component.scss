@@ -15,6 +15,7 @@
 
       img {
         width: 250px;
+        height: 380px;
         border-radius: 20px;
       }
     }
@@ -66,6 +67,18 @@
       &-addBtn {
         @include btnFormatter($primary-color, #fff);
         margin-top: 10px;
+        width: 100px;
+        height: 25px;
+
+        span{
+          font-size: 14px;
+          color: #eee;
+        }
+        img{
+          height: 100%;
+          display: block;
+          margin: auto;
+        }
       }
     }
   }

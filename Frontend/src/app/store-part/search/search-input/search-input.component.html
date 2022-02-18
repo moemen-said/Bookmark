@@ -2,7 +2,7 @@
   <div class="outerSerach">
     <input type="text" placeholder="Serach by Title, Author" #searchInput />
     <svg class="searchIcon">
-      <use xlink:href="/assets/svgs/header.svg#search"></use>
+      <use xlink:href="/assets/svgs/icons.svg#search"></use>
     </svg>
   </div>
 
@@ -23,17 +23,17 @@
     <div class="stylingDiV">
       <button class="d-md-none" (click)="showFilter()">
         <svg class="active">
-          <use xlink:href="/assets/svgs/search.svg#filter"></use>
+          <use xlink:href="/assets/svgs/icons.svg#filter"></use>
         </svg>
       </button>
       <button (click)="changeShowStyle(true)"> 
         <svg [class]="{'active':isGridView}">
-          <use xlink:href="/assets/svgs/search.svg#grid"></use>
+          <use xlink:href="/assets/svgs/icons.svg#grid"></use>
         </svg>
       </button>
       <button (click)="changeShowStyle(false)">
         <svg [class]="{'active':!isGridView}">
-          <use xlink:href="/assets/svgs/search.svg#list"></use>
+          <use xlink:href="/assets/svgs/icons.svg#list"></use>
         </svg>
       </button>
     </div>

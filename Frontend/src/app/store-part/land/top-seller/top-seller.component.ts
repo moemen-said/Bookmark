@@ -1,6 +1,6 @@
-import { Book } from '../../../models/book.model';
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from 'src/app/services/shared.service';
+
+import { BookService } from 'src/app/services/books.service';
 
 @Component({
   selector: 'land-top-seller',
@@ -8,10 +8,13 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./top-seller.component.scss'],
 })
 export class TopSellerComponent implements OnInit {
+  books = null;
 
-  constructor(private sharedService: SharedService) {}
-  books = this.sharedService.books;
+  constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
+    this.bookService.getAllBooks().subscribe((res) => {
+      this.books = res.books;
+    });
   }
 }

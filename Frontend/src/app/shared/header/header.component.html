@@ -2,7 +2,7 @@
   <header>
     <a class="navbar-brand">
       <svg>
-        <use xlink:href="/assets/svgs/logo.svg#logo"></use>
+        <use xlink:href="/assets/svgs/icons.svg#logo"></use>
       </svg>
     </a>
 
@@ -20,7 +20,7 @@
               <div class="actionDiv" (click)="closeMenuOnClick()">
                 <div>
                   <svg>
-                    <use xlink:href="/assets/svgs/header.svg#cart"></use>
+                    <use xlink:href="/assets/svgs/icons.svg#cart"></use>
                   </svg>
                   <div class="countDiv">
                     <p>2</p>
@@ -30,7 +30,7 @@
               </div>
               <div class="actionDiv" routerLink="Account/signin" (click)="closeMenuOnClick()" *ngIf="!isUserAuthenticated">
                 <svg>
-                  <use xlink:href="/assets/svgs/header.svg#account"></use>
+                  <use xlink:href="/assets/svgs/icons.svg#account"></use>
                 </svg>
                 <span>Account</span>
               </div>
@@ -41,7 +41,7 @@
                   <li>
                     <a class="dropdown-item" routerLink="Profile/{{user._id}}">
                       <svg>
-                        <use xlink:href="/assets/svgs/header.svg#user"></use>
+                        <use xlink:href="/assets/svgs/icons.svg#user"></use>
                       </svg>
                       Profile
                     </a>
@@ -49,7 +49,7 @@
                   <li>
                     <a class="dropdown-item" (click)="onLogout()">
                       <svg>
-                        <use xlink:href="/assets/svgs/header.svg#logout"></use>
+                        <use xlink:href="/assets/svgs/icons.svg#logout"></use>
                       </svg>
                       Logout
                     </a>
@@ -64,14 +64,11 @@
           <li class="nav-item" routerLink="" (click)="closeMenuOnClick()">
             <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
           </li>
-          <li class="nav-item" routerLink="Author" (click)="closeMenuOnClick()">
+          <li class="nav-item" routerLink="Search" (click)="closeMenuOnClick()">
             <a class="nav-link" routerLinkActive="active">Books</a>
           </li>
-          <li class="nav-item" routerLink="Book/61fc7e744d10fcb73ac84f8b" (click)="closeMenuOnClick()">
-            <a class="nav-link" routerLinkActive="active">Novels</a>
-          </li>
-          <li class="nav-item" routerLink="Search" (click)="closeMenuOnClick()">
-            <a class="nav-link" routerLinkActive="active">Blog</a>
+          <li class="nav-item" routerLink="Author" (click)="closeMenuOnClick()">
+            <a class="nav-link" routerLinkActive="active">Authors</a>
           </li>
         </ul>
       </div>
@@ -87,7 +84,7 @@
       <div ddHide [componentName]="'search'" class="actionDiv searchDiv">
         <div (click)="toggleSearch()">
           <svg class="searchIcon">
-            <use xlink:href="/assets/svgs/header.svg#search"></use>
+            <use xlink:href="/assets/svgs/icons.svg#search"></use>
           </svg>
         </div>
         <serachDropDown class="animate__animated animate__fadeIn animate__faster searchDesktopVersion ddHide" [ngClass]="{ show: isSearchShown === true }"></serachDropDown>
@@ -95,7 +92,7 @@
       <div ddHide [componentName]="'cart'" class="actionDiv cartDiv">
         <div (click)="toggleCart()">
           <svg>
-            <use xlink:href="/assets/svgs/header.svg#cart"></use>
+            <use xlink:href="/assets/svgs/icons.svg#cart"></use>
           </svg>
           <div class="countDiv">
             <p>2</p>
@@ -106,7 +103,7 @@
       </div>
       <div class="actionDiv" routerLink="Account/signin" *ngIf="!isUserAuthenticated">
         <svg>
-          <use xlink:href="/assets/svgs/header.svg#account"></use>
+          <use xlink:href="/assets/svgs/icons.svg#account"></use>
         </svg>
       </div>
       <div ddHide [componentName]="'accountDeskVer'" class="actionDiv dropdown userDropdownOptions" (click)="closeMenuOnClick()" *ngIf="isUserAuthenticated">
@@ -116,7 +113,7 @@
             <li>
               <a class="dropdown-item" routerLink="Profile/{{user._id}}">
                 <svg>
-                  <use xlink:href="/assets/svgs/header.svg#user"></use>
+                  <use xlink:href="/assets/svgs/icons.svg#user"></use>
                 </svg>
                 Profile
               </a>
@@ -124,7 +121,7 @@
             <li>
               <a class="dropdown-item" (click)="onLogout()">
                 <svg>
-                  <use xlink:href="/assets/svgs/header.svg#logout"></use>
+                  <use xlink:href="/assets/svgs/icons.svg#logout"></use>
                 </svg>
                 Logout
               </a>

@@ -10,12 +10,35 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent {
-  constructor(private authService: AuthService, private router: Router) {
+  errOccurred = false;
+  errMsg = '';
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {
     if (this.authService.getIsAuth()) this.router.navigate(['/']);
   }
 
   onLogin(loginForm: NgForm) {
     if (loginForm.invalid) return;
-    this.authService.login(loginForm.value.email, loginForm.value.password);
+    this.authService
+      .login(loginForm.value.email, loginForm.value.password)
+      .subscribe(
+        (res) => {
+          const token = res.token;
+          if (token && res.success) {
+            this.router.navigate(['/']);
+          }
+        },
+        (err) => {
+          this.errOccurred = true;
+          this.errMsg = err.error.message;
+          setTimeout(() => {
+            this.errOccurred = false;
+            this.errMsg = '';
+          }, 5000);
+        }
+      );
   }
 }

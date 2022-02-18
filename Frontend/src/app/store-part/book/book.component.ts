@@ -10,7 +10,6 @@ import { BookService } from 'src/app/services/books.service';
   styleUrls: ['./book.component.scss'],
 })
 export class BookComponent implements OnInit {
-  bookId: string = '';
   bookDetails?: Book = null;
 
   constructor(
@@ -19,11 +18,13 @@ export class BookComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.bookId = this.route.snapshot.params.id;
-    this.bookService.getBookDetails(this.bookId).subscribe((res) => {
-      if (res.success) {
-        this.bookDetails = res.book;
-      }
+    this.route.params.subscribe((res) => {
+      const bookId = res.id;
+      this.bookService.getBookDetails(bookId).subscribe((res) => {
+        if (res.success) {
+          this.bookDetails = res.book;
+        }
+      });
     });
   }
 }
