@@ -1,12 +1,19 @@
 <div class="cartDiv">
-    <div class="cartItemsDiv">
-        <cart-item></cart-item>
-        <cart-item></cart-item>
+    <div class="cartItemsDiv" *ngIf=" !!cart && cart.books.length>0">
+        <div *ngFor="let book of cart?.books">
+            <cart-item [bookCartItem]="book"></cart-item>
+        </div>
+    </div>
+    <div class="noItemsDiv" *ngIf="!cart || cart.books.length==0">
+        <svg>
+            <use xlink:href="/assets/svgs/icons.svg#emptyCart"></use>
+        </svg>
+        <p>Your Cart Is Empty</p>
     </div>
     <div class="totalDiv">
         <div>
             <h3>Total you'll pay</h3>
-            <p>$40.00</p>
+            <p>${{cart?cart.totalPrice:0}}.00</p>
         </div>
         <div>
             <a>Checkout</a>

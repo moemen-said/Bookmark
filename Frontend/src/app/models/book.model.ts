@@ -1,4 +1,4 @@
-export class Book {
+export interface Book {
   _id: string;
   name: string;
   authorId: string;
@@ -12,13 +12,13 @@ export class Book {
   haveDiscount: boolean;
   discount?: number;
   priceAfterDiscount?: number;
-  rate: number;
+  rate?: number;
   noOfReviews?: number;
   usersReview?: [bookReview];
   imgLink: string;
 }
 
-export class bookReview {
+export interface bookReview {
   reviewerId: string;
   reviewerName: string;
   reviewerImgLink: string;
@@ -27,8 +27,19 @@ export class bookReview {
   date?: string;
 }
 
-export class category {
+export interface category {
   _id: string;
   name: string;
   description?: string;
+}
+
+export interface bookCart {
+  _id: string;
+  bookName: string;
+  authorName: string;
+  imgLink: string;
+  price: number;
+  haveDiscount: boolean;
+  discount?: number;
+  priceAfterDiscount?: number;
 }

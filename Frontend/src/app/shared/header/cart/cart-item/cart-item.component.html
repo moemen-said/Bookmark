@@ -1,11 +1,13 @@
 <div class="cartItem">
-    <img src="../../../../../assets/images/books/1.webp">
     <div>
-        <p>George Bellairs Death</p>
-        <p class="bookAuthor">Moemen Said</p>
-        <p class="bookPrice">$20.00</p>
+        <img src="{{bookCartItem.imgLink}}">
+        <div>
+            <p>{{bookCartItem.name}}</p>
+            <p class="bookAuthor">{{bookCartItem.authorName}}</p>
+            <p class="bookPrice">${{bookCartItem.haveDiscount?bookCartItem.priceAfterDiscount:bookCartItem.price}}.00</p>
+        </div>
     </div>
-    <div class="deleteDiv">
+    <div class="deleteDiv" (click)="deleteBook()">
         <svg>
             <use xlink:href="../../../../../assets/svgs/icons.svg#delete"></use>
         </svg>

@@ -1,7 +1,7 @@
+const { mongoose } = require("mongoose");
+
 const User = require("../models/user");
 const Book = require("../models/book");
-const config = require("../config/config");
-const { response } = require("express");
 
 exports.getBook = (req, res, next) => {
     const bookId = req.params.bookId;
@@ -38,22 +38,16 @@ exports.getBooks = (req, res, next) => {
     });
 };
 
-exports.addToCart = function (req, res, next) {
+exports.addToCart = (req, res, next) => {
     const userId = req.userData.id;
     const book = req.body.book;
+    book.usersReview = null;
 
     User.findOne({ _id: userId })
         .then((user) => {
             if (user) {
                 let updatedCart = user.cart;
-                const boughtBook = {
-                    bookId: book._id,
-                    price: book.price,
-                    haveDiscount: book.haveDiscount,
-                    discount: book.discount,
-                    priceAfterDiscount: book.priceAfterDiscount,
-                };
-                updatedCart.books.push(boughtBook);
+                updatedCart.books.push(book);
                 if (book.haveDiscount) {
                     updatedCart.totalPrice = updatedCart.totalPrice + book.priceAfterDiscount;
                 } else {
@@ -62,31 +56,73 @@ exports.addToCart = function (req, res, next) {
                 user.cart = updatedCart;
                 user.markModified('cart');
                 user.save()
-                .then((result) => {
-                    res.status(201).json({
-                        success: true,
-                        message: 'Added successfuly to your cart'
+                    .then((result) => {
+                        res.status(201).json({
+                            success: true,
+                            cart: updatedCart,
+                            message: 'Added successfuly to your cart'
+                        })
                     })
-                })
-                .catch(err=>{
-                    console.log(err);
-                    res.status(500).json({
-                        success:false,
-                        message: 'Something went wrong please try again later'
+                    .catch(err => {
+                        console.log(err);
+                        res.status(500).json({
+                            success: false,
+                            message: 'Something went wrong please try again later'
+                        })
                     })
-                })
             }
         })
         .catch((err) => {
             console.log(err);
             res.status(500).json({
                 success: false,
-                message: "book didn't add to your card please try again later",
+                message: "book didn't add to your cart please try again later",
             });
         });
 };
 
-exports.removeFromCart = (req, res, next) => { };
+exports.removeFromCart = (req, res, next) => {
+    const userId = req.userData.id;
+    const removedBook = req.body.book;
+
+
+    User.findOne({ _id: userId })
+        .then((user) => {
+            if (user) {
+                let newCart = user.cart;
+                newCart.books = newCart.books.filter(book => book._id != removedBook._id);
+                if (removedBook.haveDiscount) {
+                    newCart.totalPrice = newCart.totalPrice - removedBook.priceAfterDiscount;
+                } else {
+                    newCart.totalPrice = newCart.totalPrice - removedBook.price;
+                }
+                user.cart = newCart;
+                user.markModified('cart');
+                user.save()
+                    .then((result) => {
+                        res.status(201).json({
+                            success: true,
+                            cart: newCart,
+                            message: 'Removed successfully from your cart'
+                        })
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        res.status(500).json({
+                            success: false,
+                            message: 'Something went wrong please try again later'
+                        })
+                    })
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({
+                success: false,
+                message: "book didn't remove from your cart please try again later",
+            });
+        });
+};
 
 exports.clearCart = (req, res, next) => {
     User.clearCart();

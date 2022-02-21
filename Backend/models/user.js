@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
+const Book = require("./book");
 
 const Schema = mongoose.Schema;
 
@@ -66,35 +67,7 @@ const userSchema = new Schema(
                 required: false,
                 default: 0
             },
-            books: {
-                type: [{
-                    bookId: {
-                        type: mongoose.Types.ObjectId,
-                        ref: "Book",
-                        required: false,
-                    },
-                    price: {
-                        type: Number,
-                        required: false,
-                        default: 0
-                    },
-                    haveDiscount: {
-                        type: Boolean,
-                        required: false,
-                        default: false
-                    },
-                    discount: {
-                        type: Number,
-                        required: false,
-                        default: 0
-                    },
-                    priceAfterDiscount: {
-                        type: Number,
-                        required: false,
-                        default: 0
-                    },
-                }]
-            },
+            books: []
         },
     },
     { timestamps: true }

@@ -15,7 +15,7 @@
                 <div class="reviewsDiv-contentContainer-content_row">
                     <h3>{{review.reviewer}}</h3>
                     <span> Rated it </span>
-                    <rate-stars [starSize]="0" [numberOfStars]="review.reviewRate"></rate-stars>
+                    <rate-stars [starSize]="0" [numberOfStars]="review.reviewRate||0"></rate-stars>
                 </div>
                 <div class="reviewsDiv-contentContainer-content_row">
                     <span>{{review.date}}</span>

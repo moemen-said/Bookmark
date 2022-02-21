@@ -6,6 +6,7 @@
   right: 0;
   z-index: 2;
   width: max-content;
+  min-width: 320px;
   background: #fff;
   border-radius: 20px;
   border-bottom: 5px solid $light-primary-color;
@@ -14,7 +15,37 @@
 
   .cartItemsDiv {
     max-height: 300px;
+    margin: 10px 0;
+    padding: 0 10px;
+    border-radius: 20px 20px 0 0;
     overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #eee;
+      border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $primary-color;
+      border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: $dark-primary-color;
+    }
+  }
+  .noItemsDiv{
+    svg{
+      height: 200px;
+      fill: #aaa;
+    }
+    p{
+      font-size: 20px;
+      text-align: center;
+      padding-bottom: 10px;
+      color: $primary-color;
+    }
   }
 
   .totalDiv {
@@ -33,7 +64,7 @@
 
     p {
       margin: 0;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 600;
     }
 

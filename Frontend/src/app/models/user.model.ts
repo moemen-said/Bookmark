@@ -1,4 +1,4 @@
-export class user {
+export interface User {
   _id: string;
   type: string;
   name: string;
@@ -6,13 +6,18 @@ export class user {
   bio?: string;
   boughtBooks?: [string];
   ownedBooks?: [string];
-  cart: cart;
+  cart: Cart;
 }
 
-export class cart {
+export interface Cart {
   totalPrice: number;
-  haveDiscount:boolean;
-  discount?:number;
-  priceAfterDiscount?:number;
-  books?: [string];
+  books: [
+    {
+      bookId: string;
+      price: number;
+      haveDiscount: boolean;
+      discount?: number;
+      priceAfterDiscount?: number;
+    }
+  ];
 }

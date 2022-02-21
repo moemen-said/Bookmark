@@ -9,7 +9,7 @@ router.get('/books/:bookId', storeController.getBook)
 router.get('/books', storeController.getBooks)
 
 router.post('/addToCart',checkAuth, storeController.addToCart)
-router.get('/removeFromCart/:bookId', checkAuth, storeController.removeFromCart)
+router.post('/removeFromCart', checkAuth, storeController.removeFromCart)
 router.get('/clearCart', checkAuth, storeController.clearCart)
 
 module.exports = router;

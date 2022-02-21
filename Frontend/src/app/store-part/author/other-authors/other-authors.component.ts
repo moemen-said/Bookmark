@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { user } from 'src/app/models/user.model';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'other-authors',
@@ -8,7 +8,7 @@ import { user } from 'src/app/models/user.model';
 })
 export class OtherAuthorsComponent implements OnInit {
 
-  users: user[] = []
+  users: User[] = []
   //   { id: '', name: 'Marian' },
   //   { id: '', name: 'Marwan' },
   //   { id: '', name: 'Moemen'},

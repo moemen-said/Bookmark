@@ -64,20 +64,28 @@
         color: #555;
       }
 
-      &-addBtn {
+      &-btn {
         @include btnFormatter($primary-color, #fff);
         margin-top: 10px;
-        width: 100px;
+        width: 140px;
         height: 25px;
+        text-align: center;
 
-        span{
-          font-size: 14px;
+        span {
+          font-size: 16px;
           color: #eee;
         }
-        img{
+        img {
           height: 100%;
           display: block;
           margin: auto;
+        }
+
+        &.remove {
+          @include btnFormatter($error-color, #fff);
+          margin-top: 10px;
+          width: 140px;
+          height: 25px;
         }
       }
     }

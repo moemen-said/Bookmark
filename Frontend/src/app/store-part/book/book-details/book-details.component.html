@@ -13,7 +13,7 @@
         Author : {{ bookData?.authorName }}
       </h3>
       <div class="book-mainData_data-rate">
-        <rate-stars [numberOfStars]="bookData.rate"></rate-stars>
+        <rate-stars [numberOfStars]="bookData?.rate"></rate-stars>
         <span>276 reviews</span>
       </div>
 
@@ -33,9 +33,9 @@
 
       <p class="book-mainData_data-description">{{ bookData?.description }}</p>
 
-      <button class="book-mainData_data-addBtn" (click)="onAddToCart()">
-        <span *ngIf="!isBookAdding">ADD TO CART</span>
-          <img *ngIf="isBookAdding" src="/assets/svgs/loading.svg" />
+      <button class="book-mainData_data-btn" [class]="{'remove':bookStatus.isInCart}" (click)="toggleInCart()">
+        <span *ngIf="!isBookToggling">{{bookStatus.text}}</span>
+        <img *ngIf="isBookToggling" src="/assets/svgs/loading.svg" />
       </button>
     </div>
   </div>

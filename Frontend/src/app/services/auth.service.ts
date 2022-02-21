@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { user } from '../models/user.model';
+import { User } from '../models/user.model';
+import { CartService } from './cart.service';
 import { SharedService } from './shared.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private userData: user = null;
+  private userData: User = null;
   private token: string = '';
   private tokenTimer: NodeJS.Timer;
   private isAuthenticated: boolean = false;
@@ -16,7 +17,10 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:3000/api/';
 
-  constructor(private http: HttpClient, private sharedService: SharedService) {}
+  constructor(
+    private http: HttpClient,
+    private sharedService: SharedService
+  ) {}
 
   getToken() {
     return this.token;
@@ -50,7 +54,7 @@ export class AuthService {
         token: string;
         expiresIn: number;
         success: boolean;
-        user: user;
+        user: User;
       }>(`${this.apiUrl}auth/login`, user)
       .pipe(
         map((res) => {
@@ -123,7 +127,7 @@ export class AuthService {
     }, duration);
   }
 
-  private saveAuthData(user: user, token: string, expirationDate: Date) {
+  private saveAuthData(user: User, token: string, expirationDate: Date) {
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('token', token);
     localStorage.setItem('expirationDate', expirationDate.toISOString());
