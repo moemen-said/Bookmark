@@ -1,10 +1,10 @@
 <div class="cartItem">
     <div>
-        <img src="{{bookCartItem.imgLink}}">
+        <img src="{{bookData?.imgLink}}">
         <div>
-            <p>{{bookCartItem.name}}</p>
-            <p class="bookAuthor">{{bookCartItem.authorName}}</p>
-            <p class="bookPrice">${{bookCartItem.haveDiscount?bookCartItem.priceAfterDiscount:bookCartItem.price}}.00</p>
+            <p>{{bookData?.name}}</p>
+            <p class="bookAuthor">{{bookData?.authorName}}</p>
+            <p class="bookPrice">${{bookData?.haveDiscount?bookData?.priceAfterDiscount:bookData?.price}}.00</p>
         </div>
     </div>
     <div class="deleteDiv" (click)="deleteBook()">

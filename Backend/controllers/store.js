@@ -40,36 +40,35 @@ exports.getBooks = (req, res, next) => {
 
 exports.addToCart = (req, res, next) => {
     const userId = req.userData.id;
-    const book = req.body.book;
-    book.usersReview = null;
+    const bookId = req.body.bookId;
 
     User.findOne({ _id: userId })
         .then((user) => {
             if (user) {
                 let updatedCart = user.cart;
-                updatedCart.books.push(book);
-                if (book.haveDiscount) {
-                    updatedCart.totalPrice = updatedCart.totalPrice + book.priceAfterDiscount;
-                } else {
-                    updatedCart.totalPrice = updatedCart.totalPrice + book.price;
-                }
-                user.cart = updatedCart;
-                user.markModified('cart');
-                user.save()
-                    .then((result) => {
-                        res.status(201).json({
-                            success: true,
-                            cart: updatedCart,
-                            message: 'Added successfuly to your cart'
+                updatedCart.books.push(bookId);
+                Book.findOne({ _id: bookId }).then(book => {
+                    book.haveDiscount ?
+                        updatedCart.totalPrice = updatedCart.totalPrice + book.priceAfterDiscount :
+                        updatedCart.totalPrice = updatedCart.totalPrice + book.price;
+                    user.cart = updatedCart;
+                    user.markModified('cart');
+                    user.save()
+                        .then(() => {
+                            res.status(201).json({
+                                success: true,
+                                cart: updatedCart,
+                                message: 'Added successfuly to your cart'
+                            })
                         })
-                    })
-                    .catch(err => {
-                        console.log(err);
-                        res.status(500).json({
-                            success: false,
-                            message: 'Something went wrong please try again later'
+                        .catch(err => {
+                            console.log(err);
+                            res.status(500).json({
+                                success: false,
+                                message: 'Something went wrong please try again later'
+                            })
                         })
-                    })
+                })
             }
         })
         .catch((err) => {
@@ -83,36 +82,36 @@ exports.addToCart = (req, res, next) => {
 
 exports.removeFromCart = (req, res, next) => {
     const userId = req.userData.id;
-    const removedBook = req.body.book;
+    const removedBookId = req.body.bookId;
 
 
     User.findOne({ _id: userId })
         .then((user) => {
             if (user) {
                 let newCart = user.cart;
-                newCart.books = newCart.books.filter(book => book._id != removedBook._id);
-                if (removedBook.haveDiscount) {
-                    newCart.totalPrice = newCart.totalPrice - removedBook.priceAfterDiscount;
-                } else {
-                    newCart.totalPrice = newCart.totalPrice - removedBook.price;
-                }
-                user.cart = newCart;
-                user.markModified('cart');
-                user.save()
-                    .then((result) => {
-                        res.status(201).json({
-                            success: true,
-                            cart: newCart,
-                            message: 'Removed successfully from your cart'
+                newCart.books = newCart.books.filter(bookId => bookId != removedBookId);
+                Book.findOne({ _id: removedBookId }).then(removedBook => {
+                    removedBook.haveDiscount ?
+                        newCart.totalPrice = newCart.totalPrice - removedBook.priceAfterDiscount :
+                        newCart.totalPrice = newCart.totalPrice - removedBook.price;
+                    user.cart = newCart;
+                    user.markModified('cart');
+                    user.save()
+                        .then(() => {
+                            res.status(201).json({
+                                success: true,
+                                cart: newCart,
+                                message: 'Removed successfully from your cart'
+                            })
                         })
-                    })
-                    .catch(err => {
-                        console.log(err);
-                        res.status(500).json({
-                            success: false,
-                            message: 'Something went wrong please try again later'
+                        .catch(err => {
+                            console.log(err);
+                            res.status(500).json({
+                                success: false,
+                                message: 'Something went wrong please try again later'
+                            })
                         })
-                    })
+                })
             }
         })
         .catch((err) => {

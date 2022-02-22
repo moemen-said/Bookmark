@@ -53,7 +53,7 @@ export class CartService {
         .post<{ success: boolean; cart: Cart }>(
           `${this.apiUrl}store/addToCart`,
           {
-            book: book,
+            bookId: book._id,
           }
         )
         .pipe(
@@ -86,7 +86,7 @@ export class CartService {
         .post<{ success: boolean; cart: Cart }>(
           `${this.apiUrl}store/removeFromCart`,
           {
-            book: book,
+            bookId: book._id,
           }
         )
         .pipe(
@@ -124,7 +124,7 @@ export class CartService {
       const previousTotalPrice = localstorageCart.totalPrice || 0;
       const books = localstorageCart.books || [];
       // books.push(this.bookInCartFormer(book));
-      books.push(book);
+      books.push(book._id);
       let cart = {
         books: books,
         totalPrice: 0,
@@ -138,7 +138,7 @@ export class CartService {
     } else {
       let cart = {
         // books: [this.bookInCartFormer(book)],
-        books: [book],
+        books: [book._id],
         totalPrice: book.price,
       };
       localStorage.setItem('cart', JSON.stringify(cart));
@@ -150,7 +150,7 @@ export class CartService {
     const localstorageCart = JSON.parse(localStorage.getItem('cart'));
     const previousTotalPrice = localstorageCart.totalPrice;
     let books = localstorageCart.books;
-    books = books.filter((book: Book) => book._id != removingBook._id);
+    books = books.filter((bookId: string) => bookId != removingBook._id);
     let cart = {
       books: books,
       totalPrice: 0,
@@ -164,15 +164,15 @@ export class CartService {
     return cb();
   }
 
-  isBookExistinCart(book): boolean {
-    if (!book) return;
+  isBookExistInCart(bookId): boolean {
+    if (!bookId) return;
     let isExist = false;
     if (this.authService.getIsAuth()) {
       const localstorageUser = JSON.parse(localStorage.getItem('user'));
       const localstorageCart = localstorageUser.cart;
       const books = localstorageCart.books;
       for (let i = 0; i < books.length; i++) {
-        if (book._id == books[i]._id) {
+        if (bookId == books[i]) {
           isExist = true;
           break;
         }
@@ -183,7 +183,7 @@ export class CartService {
       if (localstorageCart) {
         const books = localstorageCart.books;
         for (let i = 0; i < books.length; i++) {
-          if (book._id == books[i]._id) {
+          if (bookId == books[i]) {
             isExist = true;
             break;
           }

@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
 
 import { Book } from 'src/app/models/book.model';
+import { BookService } from 'src/app/services/books.service';
 import { CartService } from 'src/app/services/cart.service';
 import { SharedService } from 'src/app/services/shared.service';
 
@@ -10,19 +12,32 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./cart-item.component.scss'],
 })
 export class CartItemComponent implements OnInit {
-  @Input() bookCartItem: Book;
+  @Input() bookCartItem: string;
+  bookData: Book = null;
 
-  constructor(private cartService:CartService,private sharedService:SharedService) {}
+  constructor(
+    private cartService: CartService,
+    private bookService: BookService,
+    private sharedService: SharedService
+  ) {}
 
   ngOnInit(): void {
+    this.bookService
+      .getBookDetails(this.bookCartItem)
+      .pipe(take(1))
+      .subscribe((res) => {
+        this.bookData = res.book;
+      });
   }
 
-  deleteBook(){
-    this.cartService.removeFromCart(this.bookCartItem).subscribe(res=>{
-      if(res.success){
-        this.sharedService.snackBarShow.next(`${this.bookCartItem.name} is removed from your cart`);
-        this.cartService.itemBookRemovedSubject.next(this.bookCartItem._id);
+  deleteBook() {
+    this.cartService.removeFromCart(this.bookData).subscribe((res) => {
+      if (res.success) {
+        this.sharedService.snackBarShow.next(
+          `${this.bookData.name} is removed from your cart`
+        );
+        this.cartService.itemBookRemovedSubject.next(this.bookData._id);
       }
-    })
+    });
   }
 }

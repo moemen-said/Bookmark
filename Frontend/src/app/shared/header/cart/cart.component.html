@@ -1,7 +1,7 @@
 <div class="cartDiv">
     <div class="cartItemsDiv" *ngIf=" !!cart && cart.books.length>0">
-        <div *ngFor="let book of cart?.books">
-            <cart-item [bookCartItem]="book"></cart-item>
+        <div *ngFor="let bookId of cart?.books">
+            <cart-item [bookCartItem]="bookId"></cart-item>
         </div>
     </div>
     <div class="noItemsDiv" *ngIf="!cart || cart.books.length==0">

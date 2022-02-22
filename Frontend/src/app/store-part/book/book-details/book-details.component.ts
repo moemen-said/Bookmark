@@ -44,7 +44,7 @@ export class BookDetailsComponent implements OnChanges, OnInit, OnDestroy {
   }
 
   ngOnChanges(): void {
-    if (this.cartService.isBookExistinCart(this.bookData)) {
+    if (this.cartService.isBookExistInCart(this.bookData?._id)) {
       this.bookStatus = { text: 'Remove From Cart', isInCart: true };
     } else {
       this.bookStatus = { text: 'Add to cart', isInCart: false };
@@ -57,7 +57,7 @@ export class BookDetailsComponent implements OnChanges, OnInit, OnDestroy {
 
   toggleInCart() {
     this.isBookToggling = true;
-    if (this.cartService.isBookExistinCart(this.bookData)) {
+    if (this.cartService.isBookExistInCart(this.bookData._id)) {
       this.cartService.removeFromCart(this.bookData).subscribe((res) => {
         if (res.success) {
           this.isBookToggling = false;
