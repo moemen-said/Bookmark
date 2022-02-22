@@ -17,10 +17,7 @@ export class AuthService {
 
   private apiUrl = 'http://localhost:3000/api/';
 
-  constructor(
-    private http: HttpClient,
-    private sharedService: SharedService
-  ) {}
+  constructor(private http: HttpClient, private sharedService: SharedService) {}
 
   getToken() {
     return this.token;
@@ -48,7 +45,8 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    const user = { email: email, password: password };
+    const cart = localStorage.getItem('cart');
+    const user = { email: email, password: password, cart: cart };
     return this.http
       .post<{
         token: string;

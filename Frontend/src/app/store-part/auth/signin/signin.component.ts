@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/services/auth.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-signin',
@@ -15,6 +16,7 @@ export class SigninComponent {
 
   constructor(
     private authService: AuthService,
+    private cartService: CartService,
     private router: Router
   ) {
     if (this.authService.getIsAuth()) this.router.navigate(['/']);

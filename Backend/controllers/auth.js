@@ -19,7 +19,7 @@ exports.signup = (req, res, next) => {
       name: req.body.name,
       email: req.body.email,
       password: hashedPass,
-      userName: req.body.name.replace(' ','.') + Math.floor(Math.random() * 1000000)
+      userName: req.body.name.replace(' ', '.') + Math.floor(Math.random() * 1000000)
     });
     user.save()
       .then((result) => {
@@ -40,6 +40,7 @@ exports.signup = (req, res, next) => {
 exports.login = (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
+  const cart = req.body.cart
   let loadedUser;
   User.findOne({ email: email })
     .then((user) => {
@@ -68,6 +69,17 @@ exports.login = (req, res, next) => {
         config.JWT_SECRET_KEY,
         { expiresIn: "1h" }
       );
+
+      // for update cart with localStorage cart
+      // if(cart){
+      //   console.log(cart);
+      //   const anonymousCart = cart;
+      //   const userCart = loadedUser.cart;
+      //   let updatedUserCart = userCart;
+      //   anonymousCart.books.forEach(item=>{
+      //     console.log(item)
+      //   })
+      // }
       res.status(200).json({
         success: true,
         message: "Successful Login",

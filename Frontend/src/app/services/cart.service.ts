@@ -14,6 +14,7 @@ export class CartService {
   private apiUrl = 'http://localhost:3000/api/';
   public itemCounter = 0;
   public itemCounterSubject = new Subject<number>();
+  public itemBookRemovedSubject = new Subject<string>();
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -145,14 +146,11 @@ export class CartService {
     return cb();
   }
 
-  anonymousRemovingFromCartLocalStorage(
-    removingBook: Book | bookCart,
-    cb: Function
-  ) {
+  anonymousRemovingFromCartLocalStorage(removingBook: Book, cb: Function) {
     const localstorageCart = JSON.parse(localStorage.getItem('cart'));
     const previousTotalPrice = localstorageCart.totalPrice;
     let books = localstorageCart.books;
-    books = books.filter((book) => book.bookId != removingBook._id);
+    books = books.filter((book: Book) => book._id != removingBook._id);
     let cart = {
       books: books,
       totalPrice: 0,

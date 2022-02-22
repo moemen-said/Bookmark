@@ -21,6 +21,7 @@ export class CartItemComponent implements OnInit {
     this.cartService.removeFromCart(this.bookCartItem).subscribe(res=>{
       if(res.success){
         this.sharedService.snackBarShow.next(`${this.bookCartItem.name} is removed from your cart`);
+        this.cartService.itemBookRemovedSubject.next(this.bookCartItem._id);
       }
     })
   }
