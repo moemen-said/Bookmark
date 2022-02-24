@@ -6,6 +6,7 @@ const sendgridTransport = require('nodemailer-sendgrid-transport');
 
 const User = require("../models/user");
 const config = require("../config/config");
+const book = require("../models/book");
 
 const transporter = nodemailer.createTransport(sendgridTransport({
   auth: {
@@ -42,6 +43,8 @@ exports.login = (req, res, next) => {
   const password = req.body.password;
   const cart = req.body.cart
   let loadedUser;
+
+  //check for existance email
   User.findOne({ email: email })
     .then((user) => {
       if (!user) {
@@ -53,6 +56,8 @@ exports.login = (req, res, next) => {
       loadedUser = user;
       return bcrypt.compare(password, user.password);
     })
+
+    //chaeck for password
     .then((isEqual) => {
       if (!isEqual) {
         return res.status(401).json({
@@ -60,6 +65,8 @@ exports.login = (req, res, next) => {
           message: "Invalid password",
         });
       }
+
+      //generate token and clear password for sended object to front end
       loadedUser.password = undefined; //to delete password for returned object to frontend
       const token = jwt.sign(
         {
@@ -70,25 +77,27 @@ exports.login = (req, res, next) => {
         { expiresIn: "1h" }
       );
 
-      // for update cart with localStorage cart
-      // if(cart){
-      //   console.log(cart);
-      //   const anonymousCart = cart;
-      //   const userCart = loadedUser.cart;
-      //   let updatedUserCart = userCart;
-      //   anonymousCart.books.forEach(item=>{
-      //     console.log(item)
+      ////update cart with localStorage cart
+      // if (cart) {
+      //   updateUserCart(JSON.parse(cart), loadedUser, function(){
+      //     User.updateOne({ _id: loadedUser._id }, { 'cart': updatedUserCart })
+      //       .catch(err => {
+      //         console.log(err);
+      //       })
       //   })
       // }
+
       res.status(200).json({
         success: true,
         message: "Successful Login",
         token: token,
         expiresIn: 3600,
         user: loadedUser,
-      });
+      })
+
     })
     .catch((err) => {
+      console.log(err);
       if (!err.statusCode) {
         err.statusCode = 500;
       }
@@ -191,4 +200,30 @@ exports.newPassword = (req, res, next) => {
         message: 'password cannot be reset, please request a new password again'
       })
     });
+}
+
+function updateUserCart(anonymousCart, user, cb) {
+  const userCartBook = user.cart.books;
+  const boughtBooks = user.boughtBooks;
+  const allUserBooks = [...userCartBook, ...boughtBooks]
+  let updatedUserCart = user.cart;
+
+  let isExist = false;
+  anonymousCart.books.forEach(anonymousBook => {
+    allUserBooks.forEach(allUserBook => {
+      if (anonymousBook == allUserBook) {
+        isExist = true
+      }
+    })
+    if (!isExist) {
+      book.findOne({ _id: anonymousBook }).then(book => {
+        updatedUserCart.books.push(anonymousBook);
+        book.haveDiscount ?
+          updatedUserCart.totalPrice += book.priceAfterDiscount :
+          updatedUserCart.totalPrice += book.price;
+      })
+    }
+    isExist = false;
+  })
+  return cb(updatedUserCart);
 }

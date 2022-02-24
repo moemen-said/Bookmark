@@ -1,5 +1,7 @@
 import { Component, ViewChild, Renderer2, OnInit } from '@angular/core';
 import { timeStamp } from 'console';
+import { throwError } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -29,7 +31,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     //for toggle drop down menus
-    this.sharedService.ddToggle.pipe().subscribe((componentName) => {
+    this.sharedService.ddToggle.subscribe((componentName) => {
       if (componentName == 'cart') this.toggleCart();
       else if (componentName == 'search') this.toggleSearch();
       else if (componentName == 'accountDeskVer')
@@ -38,24 +40,21 @@ export class HeaderComponent implements OnInit {
     });
 
     //for closing nav when click outside it
-    this.sharedService.navToggle
-      .pipe()
-      .subscribe(() => this.closeMenuOnClick());
+    this.sharedService.navToggle.subscribe(() => this.closeMenuOnClick());
 
     //for getting user data if he/she logged in
     this.user = this.authService.getuserData();
     this.isUserAuthenticated = this.authService.getIsAuth(); //for auto login method fix
-    this.authService
-      .getAuthStateListner()
-      .pipe()
-      .subscribe((authState) => {
-        this.isUserAuthenticated = authState;
-        this.user = this.authService.getuserData();
-      });
+    this.authService.getAuthStateListner().subscribe((authState) => {
+      this.isUserAuthenticated = authState;
+      this.user = this.authService.getuserData();
+      this.cartItemNo = this.cartService.itemCounter =
+        this.cartService.countItemsInCart();
+    });
 
     //for cart
-    this.cartService.itemCounter = this.cartService.countItemsInCart()
-    this.cartItemNo = this.cartService.itemCounter;
+    this.cartItemNo = this.cartService.itemCounter =
+      this.cartService.countItemsInCart();
     this.cartService.itemCounterSubject.subscribe(
       (count) => (this.cartItemNo = count)
     );

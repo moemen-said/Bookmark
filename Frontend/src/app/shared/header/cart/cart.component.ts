@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 import { CartService } from 'src/app/services/cart.service';
 
@@ -10,10 +11,18 @@ import { CartService } from 'src/app/services/cart.service';
 export class CartComponent implements OnInit {
   cart = null;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
+
+    this.authService.getAuthStateListner().subscribe((res) => {
+      this.cart = this.cartService.getCart();
+    });
+
     this.cartService.itemCounterSubject.subscribe(
       (count) => (this.cart = this.cartService.getCart())
     );

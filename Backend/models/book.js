@@ -49,7 +49,7 @@ const bookSchema = new Schema({
         type: Number,
         required: false
     },
-    priceAfterDicount: {
+    priceAfterDiscount: {
         type: Number,
         required: false
     },

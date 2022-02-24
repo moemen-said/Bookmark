@@ -5,7 +5,8 @@ import { Book } from '../models/book.model';
 @Injectable({ providedIn: 'root' })
 export class BookService {
     
-    private apiUrl = 'http://localhost:3000/api/';
+    // private apiUrl = 'http://localhost:3000/api/';
+    private apiUrl = 'https://bookmark-store-app.herokuapp.com/api/';
 
 
     constructor(private http:HttpClient){}

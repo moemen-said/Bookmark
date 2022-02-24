@@ -1,5 +1,23 @@
 @import "/src/styles/variables";
 
+.verficationDiv {
+  position: absolute;
+  z-index: 1;
+  bottom: -50px;
+  right: 0px;
+  text-align: center;
+  background: #eee;
+  border-radius: 10px;
+  box-shadow: $shadow;
+  p {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 20px;
+    color: $error-color;
+    margin: 0;
+  }
+}
+
 .navbar {
   width: calc(100% - 20px);
   box-sizing: border-box;
@@ -102,6 +120,7 @@
         .nav-link {
           font-size: 18px;
           text-align: center;
+          cursor: pointer;
 
           &.active {
             position: relative;
@@ -209,8 +228,6 @@
       }
       &.userDropdownOptions {
         .dropdown-menu {
-          width: 120px;
-          min-width: unset;
           left: unset;
           right: -20px;
           top: 50px;
@@ -223,6 +240,15 @@
           svg {
             width: 25px;
             height: 25px;
+            margin-right: 5px;
+          }
+          a {
+            transition: all 0.1s ease-in-out;
+            color: #333;
+            &:active {
+              background-color: $primary-color;
+              color: #fff;
+            }
           }
         }
       }

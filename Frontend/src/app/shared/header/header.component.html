@@ -89,6 +89,7 @@
         </div>
         <serachDropDown class="animate__animated animate__fadeIn animate__faster searchDesktopVersion ddHide" [ngClass]="{ show: isSearchShown === true }"></serachDropDown>
       </div>
+      
       <div ddHide [componentName]="'cart'" class="actionDiv cartDiv">
         <div (click)="toggleCart()">
           <svg>
@@ -101,11 +102,13 @@
         <cart class="animate__animated animate__fadeIn animate__faster ddHide" [ngClass]="{ show: isCartShown === true }">
         </cart>
       </div>
+
       <div class="actionDiv" routerLink="Account/signin" *ngIf="!isUserAuthenticated">
         <svg>
           <use xlink:href="/assets/svgs/icons.svg#account"></use>
         </svg>
       </div>
+
       <div ddHide [componentName]="'accountDeskVer'" class="actionDiv dropdown userDropdownOptions" (click)="closeMenuOnClick()" *ngIf="isUserAuthenticated">
         <div (click)="toggleAccountDeskOption()">
           <img src="/assets/images/male1.jpg" />
@@ -119,6 +122,14 @@
               </a>
             </li>
             <li>
+              <a class="dropdown-item" routerLink="Library/{{user._id}}">
+                <svg>
+                  <use xlink:href="/assets/svgs/icons.svg#library"></use>
+                </svg>
+                My Library
+              </a>
+            </li>
+            <li>
               <a class="dropdown-item" (click)="onLogout()">
                 <svg>
                   <use xlink:href="/assets/svgs/icons.svg#logout"></use>
@@ -129,6 +140,13 @@
           </ul>
         </div>
       </div>
+
     </div>
   </header>
+
+  <!-- <div class="verficationDiv">
+    <p>
+      please verify your account
+    </p>
+  </div> -->
 </div>

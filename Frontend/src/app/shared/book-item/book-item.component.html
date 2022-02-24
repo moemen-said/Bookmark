@@ -1,4 +1,4 @@
-<div class="book" routerLink="/Book/{{book._id}}">
+<div class="book" routerLink="/Book/{{book._id}}" *ngIf="book">
     <img src="{{book.imgLink}}" class="book-img">
     <div class="book-discount" *ngIf='book.haveDiscount'>
         <span>{{book.discount}}</span>
@@ -16,3 +16,14 @@
         </div>
     </div>
 </div>
+
+<!-- <div class="defaultBook" *ngIf="!book">
+    <img src="/assets/images/books/placeholder.webp" class="defaultBook-img">
+    <div class="defaultBook-data">
+        <h1 class="defaultBook-data_title"></h1>
+        <h3 class="defaultBook-data_author"></h3>
+        <div class="defaultBook-data_priceDiv">
+            <span class="defaultBook-data_priceDiv-price"></span>
+        </div>
+    </div>
+</div> -->

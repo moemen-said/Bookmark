@@ -15,7 +15,8 @@ export class AuthService {
   private isAuthenticated: boolean = false;
   private authStateLisnter = new Subject<boolean>();
 
-  private apiUrl = 'http://localhost:3000/api/';
+  // private apiUrl = 'http://localhost:3000/api/';
+  private apiUrl = 'https://bookmark-store-app.herokuapp.com/api/';
 
   constructor(private http: HttpClient, private sharedService: SharedService) {}
 
