@@ -1,0 +1,86 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+.outerDiv {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      margin-bottom: 5px;
+      font-weight: 600;
+      position: relative;
+      color: $dark-primary-color;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -2px;
+        left: -2px;
+        background-image: url("/assets/svgs/circle.svg");
+        width: 6px;
+        height: 6px;
+      }
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to right, $primary-color, transparent);
+        width: 50px;
+        height: 2px;
+      }
+    }
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 20px 0 0;
+
+      &:hover {
+        text-decoration: underline;
+        color: $dark-primary-color;
+      }
+    }
+  }
+}
+.booksRow {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  > div {
+    padding: 10px 0;
+  }
+
+  :host book-item div {
+    transform: scale(0.8);
+  }
+}
+
+footer {
+  button {
+    @include btnFormatter($primary-color, #fff);
+    display: flex;
+    align-items: center;
+    margin: 20px auto;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+      margin-right: 5px;
+    }
+  }
+}

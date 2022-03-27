@@ -15,7 +15,7 @@ footer {
       padding: 50px;
       margin-bottom: -50px;
       border: 2px solid $primary-color;
-      border-radius: 30px;
+      border-radius: 10px;
       position: relative;
       z-index: 1;
       overflow: hidden;
@@ -39,14 +39,14 @@ footer {
             padding: 10px 20px;
             width: 400px;
             border: 1px solid $primary-color;
-            border-radius: 20px 0 0 20px;
+            border-radius: 10px 0 0 10px;
             border-right: none;
           }
 
           button {
             @include btnFormatter($primary-color, #fff);
             font-size: 16px;
-            border-radius: 0 20px 20px 0;
+            border-radius: 0 10px 10px 0;
             border: 1px solid $primary-color;
             border-right: none;
 
@@ -90,14 +90,14 @@ footer {
 
           input {
             width: 100% !important;
-            border-radius: 20px 20px 0px 0px !important;
+            border-radius: 10px 10px 0px 0px !important;
             text-align: center;
             border-right: 1px solid $primary-color !important;
             box-sizing: content-box;
           }
           button {
             border: 1px solid $primary-color !important;
-            border-radius: 0 0px 20px 20px;
+            border-radius: 0 0px 10px 10px;
             width: 100%;
             text-align: center;
           }

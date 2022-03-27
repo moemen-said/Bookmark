@@ -13,6 +13,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class SigninComponent {
   errOccurred = false;
   errMsg = '';
+  isLoading: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -24,6 +25,7 @@ export class SigninComponent {
 
   onLogin(loginForm: NgForm) {
     if (loginForm.invalid) return;
+    this.isLoading = true;
     this.authService
       .login(loginForm.value.email, loginForm.value.password)
       .subscribe(
@@ -34,6 +36,7 @@ export class SigninComponent {
           }
         },
         (err) => {
+          this.isLoading = false;
           this.errOccurred = true;
           this.errMsg = err.error.message;
           setTimeout(() => {

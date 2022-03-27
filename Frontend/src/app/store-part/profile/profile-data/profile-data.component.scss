@@ -1,0 +1,129 @@
+@import "/src/styles/mixins";
+@import "/src/styles/variables";
+
+.data {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  
+  &-main {
+    &_imgCont {
+      position: relative;
+      width: 100%;
+      max-height: 400px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+      button {
+        @include btnFormatter($primary-color, #fff);
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-radius: 10px 0 0 0;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        &:hover {
+          transform: none;
+        }
+        &::before {
+          content: url("/assets/svgs/change.svg");
+          width: 15px;
+          height: 15px;
+          margin-right: 5px;
+        }
+      }
+    }
+    &_basic {
+      h1 {
+        font-size: 30px;
+        color: #333;
+        text-align: center;
+      }
+      .numbers {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 20px;
+
+        & > div {
+          width: 30%;
+          max-width: 80px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border: 1px solid $primary-color;
+          border-radius: 10px;
+          padding: 5px;
+          svg {
+            width: 25px;
+            height: 25px;
+            fill: $primary-color;
+          }
+          span {
+            color: #144e4b;
+            font-size: 14px;
+            font-weight: 600;
+            &:first-of-type {
+              margin-top: 5px;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+      .follow {
+        button {
+          @include btnFormatter($primary-color, #fff);
+          width: 100%;
+          box-sizing: border-box;
+          text-align: center;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .data {
+    &-main {
+      display: flex;
+      align-items: flex-start;
+
+      &_imgCont {
+        max-width: 300px;
+      }
+
+      &_basic {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .data {
+    position: sticky;
+  top: 100px;
+    &-main {
+      &_basic {
+        margin-left: 0px;
+
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .data {
+    &-main {
+      display: block;
+    }
+  }
+}

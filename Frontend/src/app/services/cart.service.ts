@@ -11,8 +11,9 @@ import { Cart } from '../models/user.model';
   providedIn: 'root',
 })
 export class CartService {
-  private apiUrl = 'http://localhost:3000/api/';
-  public itemCounter = 0;
+  // private apiUrl = 'http://localhost:3000/api/';
+    private apiUrl = 'https://bookmark-store-app.herokuapp.com/api/';
+    public itemCounter = 0;
   public itemCounterSubject = new Subject<number>();
   public itemBookRemovedSubject = new Subject<string>();
 

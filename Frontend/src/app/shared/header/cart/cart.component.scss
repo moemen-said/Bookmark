@@ -8,16 +8,17 @@
   width: max-content;
   min-width: 320px;
   background: #fff;
-  border-radius: 20px;
+  border-radius: 10px;
   border-bottom: 5px solid $light-primary-color;
-  box-shadow: $shadow;
+  box-shadow: $shadow, 0 10px 5px -7px rgb(0 0 0 / 15%),
+    0 8px 12px 0 rgb(0 0 0 / 14%), 0 27px 18px 0 rgb(0 0 0 / 5%);
   padding: 0 10px;
 
   .cartItemsDiv {
     max-height: 300px;
     margin: 10px 0;
     padding: 0 10px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px 10px 0 0;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -35,12 +36,12 @@
       background-color: $dark-primary-color;
     }
   }
-  .noItemsDiv{
-    svg{
+  .noItemsDiv {
+    svg {
       height: 200px;
       fill: #aaa;
     }
-    p{
+    p {
       font-size: 20px;
       text-align: center;
       padding-bottom: 10px;

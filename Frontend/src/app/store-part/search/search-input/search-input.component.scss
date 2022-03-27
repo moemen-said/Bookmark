@@ -3,7 +3,7 @@
 .outerDiv {
   background-color: #fff;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: $shadow;
   display: flex;
   align-items: stretch;
@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     border: 2px solid #ccc;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 5px 10px;
     transition: all 0.2s ease-in-out;
     background-color: #fff;
@@ -59,7 +59,7 @@
       align-items: center;
       background-color: #fff;
       border: 2px solid #ccc;
-      border-radius: 15px;
+      border-radius: 10px;
       margin: 0px 15px;
       padding: 5px 10px;
       position: relative;
@@ -104,7 +104,7 @@
       left: unset;
       right: 15px;
       top: 55px;
-      border-radius: 15px;
+      border-radius: 10px;
       border: none;
       box-shadow: $shadow;
       padding: 20px 0;

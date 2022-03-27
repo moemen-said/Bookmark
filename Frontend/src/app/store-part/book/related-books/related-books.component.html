@@ -1,6 +1,6 @@
 <h3 class="sectionTitle">Related Books</h3>
 <div class="booksContainer">
-    <div *ngFor="let book of books" class="book" routerLink="/Book/{{book._id}}">   
+    <div *ngFor="let book of books" class="book" (click)="routing(book._id)">   
         <img src="{{book.imgLink}}" class="book-img">
         <div class="book-data">
             <h3 class="book-data_title">{{book.name}}</h3>

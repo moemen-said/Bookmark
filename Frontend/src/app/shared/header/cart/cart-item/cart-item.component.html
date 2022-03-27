@@ -8,8 +8,9 @@
         </div>
     </div>
     <div class="deleteDiv" (click)="deleteBook()">
-        <svg>
+        <svg *ngIf="!isDeleting">
             <use xlink:href="../../../../../assets/svgs/icons.svg#delete"></use>
         </svg>
+        <img *ngIf="isDeleting" src="/assets/svgs/loading.svg" />
     </div>
 </div>

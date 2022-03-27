@@ -14,6 +14,7 @@ import { SharedService } from 'src/app/services/shared.service';
 export class CartItemComponent implements OnInit {
   @Input() bookCartItem: string;
   bookData: Book = null;
+  isDeleting = false;
 
   constructor(
     private cartService: CartService,
@@ -31,12 +32,18 @@ export class CartItemComponent implements OnInit {
   }
 
   deleteBook() {
+    this.isDeleting = true;
     this.cartService.removeFromCart(this.bookData).subscribe((res) => {
       if (res.success) {
         this.sharedService.snackBarShow.next(
           `${this.bookData.name} is removed from your cart`
         );
         this.cartService.itemBookRemovedSubject.next(this.bookData._id);
+      } else {
+        this.isDeleting = false;
+        this.sharedService.snackBarShow.next(
+          `Something went wrong please try again`
+        );
       }
     });
   }

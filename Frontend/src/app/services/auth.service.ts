@@ -69,7 +69,7 @@ export class AuthService {
             this.userData = res.user;
             this.authStateLisnter.next(true);
             this.sharedService.snackBarShow.next(
-              `Welcome back : ${res.user.name}`
+              `Welcome back ${res.user.name}`
             );
           }
           return res;

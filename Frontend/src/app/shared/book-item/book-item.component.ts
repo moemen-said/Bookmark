@@ -8,6 +8,8 @@ import { Book } from 'src/app/models/book.model';
 })
 export class BookItemComponent implements OnInit {
   @Input() book: Book = null;
+  @Input() showAuthor:boolean = true;
+  @Input() minimize:boolean = false;
 
   constructor() {}
 

@@ -1,11 +1,20 @@
 <div class="outerDiv">
-  <div class="backgroundColor">
-    <div class="offersDiv container">
-      <h1 class="offersDiv-title">LIMITED TIME OFFER</h1>
-      <div class="offersDiv-row">
-        <div *ngFor="let book of books" class="col-lg-2 col-md-4 col-12 p-0">
-          <book-item [book]="book"></book-item>
+
+  <div class="backgroundDiv">
+
+    <div class="container">
+      <div class="topRatedSection">
+
+        <div class="topRatedSection-header">
+          <h1 class="topRatedSection-header_title">Limited Time Offer</h1>
         </div>
+
+        <div class="booksRow m-0">
+          <div *ngFor="let book of books">
+            <book-item [book]="book"></book-item>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

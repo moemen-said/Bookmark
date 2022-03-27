@@ -13,11 +13,13 @@ import { AuthService } from '../../../services/auth.service';
 export class SignupComponent {
   errOccurred = false;
   errMsg = '';
+  isLoading: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSignUp(form: NgForm) {
     if (form.invalid) return;
+    this.isLoading = true;
     this.authService
       .signup(
         form.value.type,
@@ -39,6 +41,7 @@ export class SignupComponent {
           }
         },
         (err) => {
+          this.isLoading = false;
           this.errOccurred = true;
           this.errMsg = err.error.message;
           setTimeout(() => {

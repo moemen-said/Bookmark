@@ -5,6 +5,7 @@ import { StoreComponent } from './store-part.component';
 import { LandComponent } from './land/land.component';
 import { AuthorComponent } from './author/author.component';
 import { BookComponent } from './book/book.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const storeRoutes: Routes = [
   {
@@ -18,6 +19,11 @@ const storeRoutes: Routes = [
         data: { animationState: 'author' },
       },
       {
+        path: 'Profile/:userId',
+        component: ProfileComponent,
+        data: { animationState: 'profile' },
+      },
+      {
         path: 'Book/:id',
         component: BookComponent,
         data: { animationState: 'book' },
@@ -28,7 +34,6 @@ const storeRoutes: Routes = [
           import('./auth/auth.module').then((m) => m.AuthModule),
         data: { animationState: 'signin' },
       },
-
       {
         path: 'Search',
         loadChildren: () =>

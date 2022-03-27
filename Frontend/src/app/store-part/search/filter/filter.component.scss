@@ -4,7 +4,7 @@
 .outerDiv {
   background-color: #fff;
   padding: 10px 15px;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: $shadow;
 
   .closeBtn {
@@ -75,7 +75,7 @@
     left: 10px;
     bottom: 0px;
     width: calc(100% - 20px);
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px 10px 0 0;
     height: 80vh;
 
     &.show {

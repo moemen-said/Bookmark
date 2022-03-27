@@ -123,7 +123,10 @@
           />
           <span class="invalidSapn">Please enter a at least 6 characters</span>
         </div>
-        <button class="signUpBtn" type="submit">SIGN UP</button>
+        <button class="signUpBtn" type="submit">
+          <span *ngIf="!isLoading">Sign up</span>
+          <img *ngIf="isLoading" src="/assets/svgs/loading.svg" />
+        </button>
         <div class="linksDiv">
           <a routerLink="/Account/signin">Already a Member ?</a>
         </div>

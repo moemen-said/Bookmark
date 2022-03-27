@@ -1,0 +1,19 @@
+<div class="outerDiv">
+    <header>
+        <h2>Moemen's Books</h2>
+        <a>View all</a>
+    </header>
+    <div class="booksRow m-0">
+        <div *ngFor="let book of books">
+            <book-item [book]="book" [minimize]="true" [showAuthor]="false"></book-item>
+        </div>
+    </div>
+    <footer>
+        <button>
+            <svg>
+                <use xlink:href="/assets/svgs/icons.svg#plus"></use>
+            </svg>
+            <span>Add a new book</span>
+        </button>
+    </footer>
+</div>

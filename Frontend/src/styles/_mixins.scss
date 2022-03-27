@@ -13,7 +13,7 @@
 
 @mixin btnFormatter($backColor, $textColor, $backState:false) {
     all: unset;
-    border-radius: 20px;
+    border-radius: 10px;
     color: $textColor;
     padding: 10px 20px;
     cursor: pointer;

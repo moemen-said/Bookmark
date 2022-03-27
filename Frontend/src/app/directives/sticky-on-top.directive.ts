@@ -34,7 +34,7 @@ export class ShowOnScrollDirective implements OnInit {
   toggleNavbar() {
     if (this.prevScrollPos > window.pageYOffset) {
       // Scroll to top
-      this.render.setStyle(this.header, 'top', '10px');
+      this.render.setStyle(this.header, 'top', '0px');
       this.render.setStyle(this.header, 'opacity', '1');
       setTimeout(() => {
         this.render.setStyle(this.header, 'position', 'fixed');

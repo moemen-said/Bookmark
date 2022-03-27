@@ -16,7 +16,7 @@
     display: flex;
     overflow: hidden;
 
-    &.error{
+    &.error {
       box-shadow: 0px 0px 15px $error-color;
     }
 
@@ -49,8 +49,8 @@
     .formDiv {
       width: 60%;
 
-      .errorMsg{
-        color:$error-color ;
+      .errorMsg {
+        color: $error-color;
         height: 18px;
       }
 
@@ -168,12 +168,13 @@
           $dark-primary-color,
           $primary-color
         );
-        padding: 10px 20px;
         color: #fff;
         border: none;
         border-radius: 20px;
         cursor: pointer;
         transition: all 0.1s ease-in-out;
+        height: 40px;
+        width: 100px;
 
         &:hover {
           box-shadow: 0px 4px 2px -2px #aaa;
@@ -183,6 +184,16 @@
           outline: none;
           transform: scale(0.98);
           box-shadow: none;
+        }
+
+        span {
+          font-size: 16px;
+          color: #eee;
+        }
+        img {
+          height: 80%;
+          display: block;
+          margin: auto;
         }
       }
 
