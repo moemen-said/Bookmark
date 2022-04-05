@@ -6,6 +6,7 @@ import { LandComponent } from './land/land.component';
 import { AuthorComponent } from './author/author.component';
 import { BookComponent } from './book/book.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 
 const storeRoutes: Routes = [
   {
@@ -22,6 +23,11 @@ const storeRoutes: Routes = [
         path: 'Profile/:userId',
         component: ProfileComponent,
         data: { animationState: 'profile' },
+      },
+      {
+        path: 'Profile/:userId/edit',
+        component: ProfileEditComponent,
+        data: { animationState: 'profileSettings' },
       },
       {
         path: 'Book/:id',

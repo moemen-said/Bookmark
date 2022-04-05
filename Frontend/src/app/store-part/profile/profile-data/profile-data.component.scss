@@ -2,19 +2,25 @@
 @import "/src/styles/variables";
 
 .data {
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
-  
+
   &-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     &_imgCont {
       position: relative;
-      width: 100%;
+      max-width: 400px;
       max-height: 400px;
       border-radius: 10px;
       overflow: hidden;
       margin-bottom: 10px;
+      border: 5px solid #fff;
+      box-shadow: 0px 0px 10px #ccc;
       img {
         width: 100%;
         object-fit: cover;
@@ -61,6 +67,8 @@
           border: 1px solid $primary-color;
           border-radius: 10px;
           padding: 5px;
+          background: #fff;
+
           svg {
             width: 25px;
             height: 25px;
@@ -90,40 +98,27 @@
   }
 }
 
-@media (min-width: 768px) {
-  .data {
-    &-main {
-      display: flex;
-      align-items: flex-start;
-
-      &_imgCont {
-        max-width: 300px;
-      }
-
-      &_basic {
-        margin-left: 10px;
-      }
-    }
-  }
-}
-
-@media (min-width: 1024px) {
-  .data {
-    position: sticky;
-  top: 100px;
-    &-main {
-      &_basic {
-        margin-left: 0px;
-
-      }
-    }
-  }
-}
-
 @media (min-width: 992px) {
   .data {
+    position: sticky;
+    top: 60px;
+    background-color: #fff;
     &-main {
       display: block;
+
+      &_imgCont {
+        border: none;
+        box-shadow: none;
+      }
+
+      &_basic {
+        margin-left: 0px;
+        .numbers {
+          & > div {
+            background: transparent;
+          }
+        }
+      }
     }
   }
 }

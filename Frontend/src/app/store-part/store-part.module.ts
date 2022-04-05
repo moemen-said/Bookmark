@@ -18,7 +18,8 @@ import { LibraryComponent } from './library/library.component';
 import { ProfileDataComponent } from './profile/profile-data/profile-data.component';
 import { ProfileBooksComponent } from './profile/profile-books/profile-books.component';
 import { ProfileBlogsComponent } from './profile/profile-blogs/profile-blogs.component';
-import { ProfileMainDataComponent } from './profile/profile-main-data/profile-main-data.component'
+import { ProfileMainDataComponent } from './profile/profile-main-data/profile-main-data.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component'
 
 
 
@@ -38,7 +39,8 @@ import { ProfileMainDataComponent } from './profile/profile-main-data/profile-ma
     ProfileDataComponent,
     ProfileBooksComponent,
     ProfileBlogsComponent,
-    ProfileMainDataComponent
+    ProfileMainDataComponent,
+    ProfileEditComponent
   ],
   imports: [
     CommonModule,

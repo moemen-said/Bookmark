@@ -7,6 +7,8 @@ import { ToggleActiveDirective } from '.././directives/toggle-active.directive';
 import {DdHideDirective } from '../directives/dd-hide.directive'
 import { ShowOnScrollDirective } from '.././directives/sticky-on-top.directive';
 import { ToggleNavDirective } from '../directives/toggle-nav.directive';
+import { ToggleEditDirective } from '../directives/toggle-edit.directive';
+
 import { LoadingComponent } from './loading/loading.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FooterComponent } from './footer/footer.component';
@@ -27,6 +29,7 @@ import { BookItemComponent } from './book-item/book-item.component';
     HeaderComponent,
     SerachComponent,
     ToggleActiveDirective,
+    ToggleEditDirective,
     ShowOnScrollDirective,
     CartComponent,
     SearchItemComponent,
@@ -47,6 +50,7 @@ import { BookItemComponent } from './book-item/book-item.component';
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,
+    ToggleEditDirective,
     ToggleActiveDirective,
     ShowOnScrollDirective,
     DdHideDirective,

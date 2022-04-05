@@ -5,8 +5,8 @@
         <span>% OFF</span>
     </div>
     <div class="book-data">
-        <h1 class="book-data_title" *ngIf="showAuthor">{{book.name}}</h1>
-        <h3 class="book-data_author">{{book.authorName}}</h3>
+        <h1 class="book-data_title">{{book.name}}</h1>
+        <h3 class="book-data_author" *ngIf="showAuthor">{{book.authorName}}</h3>
         <div class="book-data_priceDiv" *ngIf="book.haveDiscount">
             <span class="book-data_priceDiv-before">${{book.price}}</span>
             <span class="book-data_priceDiv-after">${{book.priceAfterDiscount}}</span>
