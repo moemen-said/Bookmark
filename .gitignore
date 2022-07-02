@@ -10,6 +10,7 @@ Frontend/bazel-out
 # dependencies
 /Frontend/node_modules
 /Backend/node_modules
+/Backend/config
 
 # profiling files
 chrome-profiler-events*.json
