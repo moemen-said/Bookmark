@@ -1,5 +1,5 @@
 <p align="center"><img src="https://i.ibb.co/vL6bzVb/logo.png" width=250></p>
-<h1 align="center" style="font-size:60px">Word Quiz</h1>
+<h1 align="center">Word Quiz</h1>
 <p align="center">Nagwa Task</p>
 <br><br>
 
