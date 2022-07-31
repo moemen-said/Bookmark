@@ -3,13 +3,13 @@
 <strong>Nagwa Task</strong>
 <br><br>
 
-# Description
+## Description
 simple english quiz that make user categorized words according to their syntactic functions, which is known as "Part of Speech".
 
-# Built with
-'node' v16.15.1
-'express' v4.18.1
-'react' v18.2.0
+## Built with
+* 'node' v16.15.1
+* 'express' v4.18.1
+* 'react' v18.2.0
 
 ## To start with with server side
 1) change the directory to Backend folder with command 'cd Backend'.
