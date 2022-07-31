@@ -1,6 +1,6 @@
 <p align="center"><img src="https://i.ibb.co/vL6bzVb/logo.png" width=250></p>
-<h1 align="center">Word Quiz</h1>
-<h2 align="center">Nagwa Task</h2>
+<p align="center" size="20">Word Quiz</p>
+<p align="center">Nagwa Task</p>
 <br><br>
 
 ## Description
