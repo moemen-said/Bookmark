@@ -1,7 +1,7 @@
 <p align="center"><img src="https://i.ibb.co/vL6bzVb/logo.png" width=250></p>
 <h1 align="center" font="20">Word Quiz
 <br>
-Nagwa Task
+<h2>Nagwa Task</h2>
 </h1>
 <br><br>
 
